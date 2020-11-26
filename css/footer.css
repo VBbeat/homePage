@@ -1,0 +1,16 @@
+footer{
+    background-color: #002200;
+    color: white;
+    padding: 0%;
+    font-size: 1em;
+
+    display: flex;
+    justify-content: space-between;
+}
+/* 
+.homeButton{
+}
+
+#footerClock{
+} */
+
