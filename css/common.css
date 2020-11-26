@@ -1,0 +1,18 @@
+@font-face{
+    font-family: 'PixelFont12Normal';
+    src: url('./font/PixelMplus12-Regular.ttf')
+}
+
+@font-face{
+    font-family: 'PixelFont12Bold';
+    src: url('./font/PixelMplus12-Bold.ttf')
+}
+
+*{
+    margin: 0px;
+    padding: 0px;
+}
+
+body{
+    font-family: 'PixelFont12Normal';
+}
