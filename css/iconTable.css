@@ -1,0 +1,9 @@
+.iconTable{
+    width: 100%;
+    table-layout: fixed;
+}
+
+.iconTable tr{
+    margin: 0 auto;
+    text-align: center;
+}

@@ -14,7 +14,7 @@ var footerClock = function () {
     }
 
     if (minutes < 10) {
-        minute = '0' + minutes;
+        minutes = '0' + minutes;
     }
 
 

@@ -1,7 +1,7 @@
 footer{
-    background-color: #002200;
-    color: white;
-    padding: 0%;
+    background-color: #DEFEDE;
+    color: black;
+    padding: 1%;
     font-size: 1em;
 
     display: flex;
@@ -13,4 +13,3 @@ footer{
 
 #footerClock{
 } */
-
