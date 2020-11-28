@@ -1,5 +1,40 @@
+<html>
+
+<head>
+    <script type="text/javascript" src="../scripts/footerClock.js"></script>
+    <link rel="stylesheet" type="text/css" href="../css/common.css">
+    <style type="text/css">
+        body {
+            background-color: #DEFEDE;
+            color: black;
+
+            padding: 1%;
+            display: flex;
+            justify-content: space-between;
+
+            border: black;
+            border-width: 1px;
+
+        }
+
+        .footerElement {
+            max-width: 6%;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+    </style>
+</head>
+
 <!--フッタ-->
-<footer id="footer">
-    <span class="homeButton">ホームへ</span>
-    <span id="footerClock"></span>
-</footer>
+
+<body>
+    <div class="footerElement">ホームへ</div>
+    <div class="footerElement">
+        <div id="footerClock"></div>
+    </div>
+</body>
+
+</html>

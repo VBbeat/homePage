@@ -10,25 +10,16 @@
     <meta property="og:image" content="http://vbbeat.com/img/muriko_icon.png" />
     <meta property="og:url" content="http://vbbeat.com/index.html" />
 
-    <script type="text/javascript" src="../scripts/jquery-3.5.1.min.js"></script>
-    <script type="text/javascript" src="../scripts/footerClock.js"></script>
-    <script>
-        $(function () {
-            $("#header").load("header.html");
-            $("#footer").load("footer.html");
-        });
-    </script>
-
     <link rel="stylesheet" type="text/css" href="../css/common.css">
-    <link rel="stylesheet" type="text/css" href="../css/header.css">
-    <link rel="stylesheet" type="text/css" href="../css/footer.css">
     <link rel="stylesheet" type="text/css" href="../css/iconTable.css">
 </head>
 
 <body>
 
     <!-- ヘッダ部分 -->
-    <div id="header"></div>
+    <header>
+        <iframe src="header.html" frameborder="0" width="100%"></iframe>
+    </header>
 
     <!-- メイン部分 -->
     <main>
@@ -46,7 +37,9 @@
     </main>
 
     <!-- フッタ部分 -->
-    <div id="footer"></div>
+    <footer>
+        <iframe src="footer.html" frameborder="0" width="100%"></iframe>
+    </footer>
 
 </body>
 

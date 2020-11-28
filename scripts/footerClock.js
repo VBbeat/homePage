@@ -1,13 +1,12 @@
 var footerClock = function () {
     var dateObj = new Date();
     var year = dateObj.getFullYear();
-    var month = dateObj.getMonth();
+    var month = dateObj.getMonth() + 1;
     var day = dateObj.getDate();
     var hour = dateObj.getHours();
     var minutes = dateObj.getMinutes();
-    var displayElement = document.getElementById('footerClock');
-    var timeStr = '';
-
+    var display = document.getElementById('footerClock');
+    var dateStr = '';
 
     if (hour < 10) {
         hour = '0' + hour;
@@ -17,13 +16,14 @@ var footerClock = function () {
         minutes = '0' + minutes;
     }
 
+    dateStr = hour + ':' + minutes + '\n';
+    dateStr += year + '/' + month + '/' + day;
 
-    timeStr = year + '/' + month + '/' + day + ' ';
-    timeStr += hour + ':' + minutes;
 
-    if (displayElement) {
-        displayElement.innerHTML = timeStr;
+    if (display) {
+        display.innerHTML = dateStr;
     }
+
 
     setTimeout(footerClock, 1000)
 };
