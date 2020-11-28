@@ -7,3 +7,12 @@
     margin: 0 auto;
     text-align: center;
 }
+
+.iconTable td{
+    border: 1px black solid;
+}
+
+.iconTable td div::before{
+    padding-top: 100%;
+    border: 1px black solid;
+}
