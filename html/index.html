@@ -1,7 +1,6 @@
 <html>
 
 <head>
-    <meta name="viewport" content="width=device-width, initial=1.0" />
     <meta http-equiv="Content-Type" charset="UTF-8">
     <meta name="twitter:card" content="summary" />
     <meta name="twitter:site" content="@egoismurako" />
@@ -12,6 +11,17 @@
 
     <link rel="stylesheet" type="text/css" href="../css/common.css">
     <link rel="stylesheet" type="text/css" href="../css/iconTable.css">
+
+    <script type="text/javascript">
+        var meta = document.createElement('meta');
+        metaSizeStr = 'width=' + screen.availHeight;
+        metaSizeStr += ',height=' + screen.availHeight;
+        metaSizeStr += ',initial-scale=1.0';
+
+        meta.setAttribute('name', 'viewport')
+        meta.setAttribute('content', metaSizeStr);
+
+    </script>
 </head>
 
 <body>
@@ -23,30 +33,26 @@
 
     <!-- メイン部分 -->
     <main>
-        <table class="iconTable">
-            <tr>
-                <td>
-                    <div>Member<br>a<br>a<br>a</div>
-                </td>
-                <td>
-                    <div>Music</div>
-                </td>
-                <td>
-                    <div>Game</div>
-                </td>
-                <td>
-                    <div>Illust</div>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <div>Novel</div>
-                </td>
-                <td>
-                    <div>Event</div>
-                </td>
-            </tr>
-        </table>
+        <div class="iconTable">
+            <div class="iconElement">
+                <div>Member</div>
+            </div>
+            <div class="iconElement">
+                <div>Music</div>
+            </div>
+            <div class="iconElement">
+                <div>Game</div>
+            </div>
+            <div class="iconElement">
+                <div>Illust</div>
+            </div>
+            <div class="iconElement">
+                <div>Novel</div>
+            </div>
+            <div class="iconElement">
+                <div>News</div>
+            </div>
+        </div>
     </main>
 
     <!-- フッタ部分 -->

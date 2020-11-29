@@ -24,8 +24,11 @@
 }
 
 body{
+    width: 100vw;
     font-family: 'PixelFont12N';
     background-color: #003000;
     color: white;
+    
+    overflow: hidden;
 }
 
