@@ -24,7 +24,8 @@
 }
 
 body{
-    width: 100vw;
+    max-width: 100vw;
+    min-width: 980px;
     font-family: 'PixelFont12N';
     background-color: #003000;
     color: white;
