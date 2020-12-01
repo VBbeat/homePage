@@ -16,6 +16,14 @@ var footerClock = function () {
         minutes = '0' + minutes;
     }
 
+    if (month < 10) {
+        month = '0' + month;
+    }
+
+    if (day < 10) {
+        day = '0' + day;
+    }
+
     dateStr = hour + ':' + minutes + '\n';
     dateStr += year + '/' + month + '/' + day;
 
