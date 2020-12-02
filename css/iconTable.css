@@ -15,3 +15,15 @@
     align-items: center;
 }
 
+.iconElement img{
+    width: 80%;
+    /* min-width: 144px; */
+}
+
+/* タブレット用
+@media screen and (max-width: 959px) {
+} */
+
+/* スマホ用
+@media screen and (max-width: 480px) {
+} */
