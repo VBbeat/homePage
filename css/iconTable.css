@@ -16,8 +16,8 @@
 }
 
 .iconElement img{
-    width: 80%;
-    /* min-width: 144px; */
+    width: 70%;
+    min-width: 128px;
 }
 
 /* タブレット用
