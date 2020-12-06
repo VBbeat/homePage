@@ -8,22 +8,25 @@
             background-color: #DEFEDE;
             color: black;
 
-            padding: 1%;
             display: flex;
             justify-content: space-between;
-            border: black;
-            border-width: 1px;
 
         }
 
         .footerElement {
-            max-width: 5%;
-            min-width: 4em;
+            width: 10ex;
+            padding: 1ex;
+
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
             align-items: center;
             text-align: center;
+        }
+
+        /* フッタのホームボタンの設定 */
+        #footerHome {
+            width: 64px;
         }
     </style>
 </head>
@@ -31,7 +34,12 @@
 <!--フッタ-->
 
 <body>
-    <div class="footerElement">ホームへ</div>
+    <div class="footerElement">
+        <div id="footerHome">
+            <img src="../img/footer_Home.png">
+        </div>
+
+    </div>
     <div class="footerElement">
         <div id="footerClock"></div>
     </div>
