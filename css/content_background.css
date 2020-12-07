@@ -1,9 +1,25 @@
-body div{
-    max-width: 100vw;
+main{
+    height: 100vh;
+    overflow-y: scroll;
+    }
+
+.article{
+    min-width: 720px;
+    height: 2000px;
+    font-family: 'PixelFont12N';
+    background-color: #9fc24d;
+    color: black;
+    border: 2px solid #9fc24d;
+}
+.articleTitle{
     min-width: 720px;
     font-family: 'PixelFont12N';
     background-color: #9fc24d;
     color: white;
-    
-    overflow: hidden;
+}
+.articleContent{
+    min-width: 720px;
+    font-family: 'PixelFont12N';
+    background-color: #ffffff;
+    color: black;
 }
