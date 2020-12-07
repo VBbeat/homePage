@@ -23,17 +23,45 @@
 *{
     margin: 0px;
     padding: 0px;
+    font-size: 2ex;
 }
 
 body{
     max-width: 100vw;
     min-width: 720px;
+    
     font-family: 'PixelFont12N';
     background-color: #003000;
     color: white;
     
     overflow: hidden;
 }
+
+header{
+    text-align: center;
+}
+
+header iframe{
+    width: 100%;
+    height: 15ex;
+}
+
+main{
+    margin: 5ex;
+}
+
+
+footer{
+    position: fixed;
+    width: 100%;
+    bottom: 0px;
+
+}
+
+footer iframe{
+    height: 12ex;
+}
+
 
 /* タブレット用 */
 @media screen and (max-width: 959px) {

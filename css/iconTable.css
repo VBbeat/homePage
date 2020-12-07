@@ -13,11 +13,18 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+
+    /* デバッグ用 */
+    /* border: 0.5px solid gray; */
 }
 
-.iconElement img{
-    width: 70%;
-    min-width: 128px;
+.iconImage{
+    padding: 20px 0px 5px;
+}
+
+.iconTitle{
+    padding: 5px 0px 20px;
+    font-size: 3.5ex;
 }
 
 /* タブレット用
