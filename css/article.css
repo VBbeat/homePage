@@ -1,0 +1,16 @@
+.article{
+    margin: 5ex;
+    border: 3px solid #9fc24d;
+    background-color: #9fc24d;
+}
+.articleTitle{
+    padding: 1ex;
+    font-family: 'PixelFont12B';
+    background-color: #9fc24d;
+    color: white;
+}
+.articleContent{
+    font-family: 'PixelFont12N';
+    background-color: white;
+    color: black;
+}

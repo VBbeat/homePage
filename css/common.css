@@ -33,29 +33,33 @@ body{
     font-family: 'PixelFont12N';
     background-color: #003000;
     color: white;
-    
-    overflow-x: hidden;
+
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 
 }
 
 header{
+    height: 15ex;
     text-align: center;
 }
 
 header iframe{
     width: 100%;
     height: 15ex;
+
 }
 
 main{
+    height: 100vh;
     overflow-y: auto;
 }
 
 
 footer{
-    position: fixed;
-    width: 100%;
-    bottom: 0px;
+    height: 12ex;
 
 }
 
