@@ -1,5 +1,4 @@
 main{
-    height:100vh;
     overflow-y: auto;
     }
 
@@ -7,7 +6,7 @@ main{
     min-width: 720px;
     height: 2000px;
     font-family: 'PixelFont12N';
-    background-color: #9fc24d;
+    background-color: #ffffff;
     color: black;
     border: 2px solid #9fc24d;
     overflow-y: scroll;
@@ -20,7 +19,9 @@ main{
 }
 .articleContent{
     min-width: 720px;
+    height: auto;
     font-family: 'PixelFont12N';
     background-color: #ffffff;
     color: black;
+    overflow-y: scroll;
 }
