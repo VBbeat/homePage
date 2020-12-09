@@ -54,6 +54,7 @@ header iframe{
 
 main{
     height: 100vh;
+    padding: 5ex;
     overflow-y: auto;
 }
 
