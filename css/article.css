@@ -2,11 +2,17 @@
     border: 3px solid #9fc24d;
     background-color: #9fc24d;
 }
-.articleTitle{
+.articleHeader{
+    height: 24px;
     padding: 1ex;
     font-family: 'PixelFont12B';
     background-color: #9fc24d;
     color: white;
+
+    display: flex;
+    justify-content: space-between;
+    
+    align-items: center;
 }
 .articleContent{
     font-family: 'PixelFont12N';
