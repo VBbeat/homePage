@@ -23,5 +23,8 @@
 }
 
 .toArticleListButton{
+    display: block;
+    width: 32px;
     font-family: 'PixelFont12N';
+    font-size: 4ex;
 }
