@@ -20,7 +20,7 @@
     <main>
         <div class="iconTable">
             <div class="iconElement">
-                <a href="article.html" class="tac">
+                <a href="article.php" class="tac">
                     <div class="iconImage">
                         <img src="../img/icon_article.png">
                     </div>
@@ -30,7 +30,7 @@
                 </a>
             </div>
             <div class="iconElement">
-                <a href="article.html" class="tac">
+                <a href="article.php" class="tac">
                     <div class="iconImage">
                         <img src="../img/icon_article.png">
                     </div>

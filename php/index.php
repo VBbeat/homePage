@@ -20,7 +20,7 @@
     <main>
         <div class="iconTable">
             <div class="iconElement">
-                <a href="articleList.html" class="tac">
+                <a href="articleList.php" class="tac">
                     <div class="iconImage">
                         <img src="../img/icon_Member.png">
                     </div>
@@ -30,7 +30,7 @@
                 </a>
             </div>
             <div class="iconElement">
-                <a href="articleList.html" class="tac">
+                <a href="articleList.php" class="tac">
                     <div class="iconImage">
                         <img src="../img/icon_Music.png">
                     </div>
@@ -40,7 +40,7 @@
                 </a>
             </div>
             <div class="iconElement">
-                <a href="articleList.html" class="tac">
+                <a href="articleList.php" class="tac">
                     <div class="iconImage">
                         <img src="../img/icon_Game.png">
                     </div>
@@ -50,7 +50,7 @@
                 </a>
             </div>
             <div class="iconElement">
-                <a href="articleList.html" class="tac">
+                <a href="articleList.php" class="tac">
                     <div class="iconImage">
                         <img src="../img/icon_Illust.png">
                     </div>
@@ -60,7 +60,7 @@
                 </a>
             </div>
             <div class="iconElement">
-                <a href="articleList.html" class="tac">
+                <a href="articleList.php" class="tac">
                     <div class="iconImage">
                         <img src="../img/icon_Novel.png">
                     </div>
@@ -70,7 +70,7 @@
                 </a>
             </div>
             <div class="iconElement">
-                <a href="articleList.html" class="tac">
+                <a href="articleList.php" class="tac">
                     <div class="iconImage">
                         <img src="../img/icon_Info.png">
                     </div>
