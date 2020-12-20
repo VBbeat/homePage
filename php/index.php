@@ -23,9 +23,9 @@
     <main>
         <div class="iconTable">
             <div class="iconElement">
-                <form method="get" name="category" action="articleList.php">
+                <form method="get" name="member" action="articleList.php">
                     <input type=hidden name="category" value="member">
-                    <a href="javascript:category.submit()" class="tac">
+                    <a href="javascript:member.submit()" class="tac">
                         <div class="iconImage">
                             <img src="../img/icon_Member.png">
                         </div>
@@ -36,9 +36,9 @@
                 </form>
             </div>
             <div class="iconElement">
-                <form method="get" name="category" action="articleList.php">
+                <form method="get" name="music" action="articleList.php">
                     <input type=hidden name="category" value="music">
-                    <a href="javascript:category.submit()" class="tac">
+                    <a href="javascript:music.submit()" class="tac">
                         <div class="iconImage">
                             <img src="../img/icon_Music.png">
                         </div>
@@ -49,9 +49,9 @@
                 </form>
             </div>
             <div class="iconElement">
-                <form method="get" name="category" action="articleList.php">
+                <form method="get" name="game" action="articleList.php">
                     <input type=hidden name="category" value="game">
-                    <a href="javascript:category.submit()" class="tac">
+                    <a href="javascript:game.submit()" class="tac">
                         <div class="iconImage">
                             <img src="../img/icon_Game.png">
                         </div>
@@ -62,9 +62,9 @@
                 </form>
             </div>
             <div class="iconElement">
-                <form method="get" name="category" action="articleList.php">
+                <form method="get" name="illust" action="articleList.php">
                     <input type=hidden name="category" value="illust">
-                    <a href="javascript:category.submit()" class="tac">
+                    <a href="javascript:illust.submit()" class="tac">
                         <div class="iconImage">
                             <img src="../img/icon_Illust.png">
                         </div>
@@ -75,9 +75,9 @@
                 </form>
             </div>
             <div class="iconElement">
-                <form method="get" name="category" action="articleList.php">
+                <form method="get" name="novel" action="articleList.php">
                     <input type=hidden name="category" value="novel">
-                    <a href="javascript:category.submit()" class="tac">
+                    <a href="javascript:novel.submit()" class="tac">
                         <div class="iconImage">
                             <img src="../img/icon_Novel.png">
                         </div>
@@ -88,9 +88,9 @@
                 </form>
             </div>
             <div class="iconElement">
-                <form method="get" name="category" action="articleList.php">
+                <form method="get" name="information" action="articleList.php">
                     <input type=hidden name="category" value="information">
-                    <a href="javascript:category.submit()" class="tac">
+                    <a href="javascript:information.submit()" class="tac">
                         <div class="iconImage">
                             <img src="../img/icon_Info.png">
                         </div>

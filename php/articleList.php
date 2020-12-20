@@ -1,5 +1,7 @@
 <?php
     $_SESSION["category"] = $_GET["category"];
+
+    // Todo むりこ ディレクトリから記事のタイトルだけを取得して、一覧で表示する
 ?>
 
 <html>
