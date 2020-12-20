@@ -5,7 +5,7 @@
     <script type="text/javascript" src="../scripts/head.js"></script>
 
     <!-- 各ページ固有のタグの読み込み -->
-    <meta property="og:url" content="http://vbbeat.com/articleList.html" />
+    <meta property="og:url" content="http://vbbeat.com/articleList.php" />
     <link rel="stylesheet" type="text/css" href="../css/iconTable.css">
 </head>
 
@@ -13,7 +13,7 @@
 
     <!-- ヘッダ部分 -->
     <header>
-        <iframe src="header.html" frameborder="0" width="100%"></iframe>
+        <iframe src="header.php" frameborder="0" width="100%"></iframe>
     </header>
 
     <!-- メイン部分 -->
@@ -44,7 +44,7 @@
 
     <!-- フッタ部分 -->
     <footer>
-        <iframe src="footer.html" frameborder="0" width="100%"></iframe>
+        <iframe src="footer.php" frameborder="0" width="100%"></iframe>
     </footer>
 
 </body>

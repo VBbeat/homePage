@@ -37,7 +37,7 @@
 
 <body>
     <div class="footerElement">
-        <a href="index.html" target="_parent">
+        <a href="index.php" target="_parent">
             <div id="footerHome">
                 <img src="../img/footer_Home.png">
             </div>
