@@ -1,3 +1,7 @@
+<?php
+    $_SESSION["category"] = $_GET["category"];
+?>
+
 <html>
 
 <head>

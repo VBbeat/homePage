@@ -1,11 +1,11 @@
 <?php
-    $articleFilePath = '../data/article/information/info_1.vbtx';
+    $articlePath = '../data/article/' . $_SESSION["category"] . '/1.vbtx';
 
     //ファイルが読み取れるか確認
-    if( is_readable($articleFilePath)){
+    if( is_readable($articlePath)){
 
         //ファイルを開く
-        $handle = fopen($articleFilePath, 'r');
+        $handle = fopen($articlePath, 'r');
 
         //データを取得する
         //タイトルを取得する
