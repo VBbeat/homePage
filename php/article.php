@@ -1,3 +1,38 @@
+<?php
+    $articleFilePath = '../data/article/information/info_1.vbtx';
+
+    //ファイルが読み取れるか確認
+    if( is_readable($articleFilePath)){
+
+        //ファイルを開く
+        $handle = fopen($articleFilePath, 'r');
+
+        //データを取得する
+        //タイトルを取得する
+        $title = fgets($handle);
+
+        //投稿日時を取得する
+        $date = fgets($handle);
+
+        //編集者名を取得する
+        $userName = fgets($handle);
+
+        //タグを取得する
+        $tags = fgetcsv($handle);
+
+        //記事を取得する
+        $content = array();
+        while($data = fgets($handle)){
+            array_push($content, $data);
+        }
+
+        //ファイルを閉じる
+        fclose($handle);
+    }else{
+        echo 'blah.';
+    }
+?>
+
 <html>
 
 <head>
@@ -21,63 +56,19 @@
         <div class="article">
             <div class="articleHeader">
                 <div class="articleTitle">
-                    <span class="articleIcon">■</span>記事のタイトルだよ
+                    <span class="articleIcon">■</span><?php echo $title; ?>
                 </div>
                 <a href="articleList.php" class="tac">
                     <span class="toArticleListButton">×</span>
                 </a>
             </div>
             <div class="articleContent">
-                aiueo
-
-                <p>
-                    aaaaaaaaaaa
-                </p>
-                <p>
-                    bbbbbbbbbbbbbb
-                </p>
-                <p>ccccccccc</p>
-                <p>
-                    あいうえおかきくけこ
-                </p>
-                <br>
-                <p>
-                </p>
-                aaaaaaaaaaaa<br>
-                aaaaaaaaaaaaa<br><br>
-                <br>
-                <br>
-                <br>
-                <br>
-                <br>
-                <br>
-                <br>
-                <br>
-                <br>
-                <br>
-                <br>
-                <br>
-                <br>
-                <br>
-                <br>
-                aiueokakikukeko
-                <br>
-                <br>
-                主様は麗しい
-                <br>
-                <br>
-                <br>
-                <br>
-                <br>
-                エモーショナルに生きたい
-                <br>
-                <br>
-                <br>
-                母上！！！母上！！うおお母上！！！！！！<br>
-                トワくんかわいいよおおおおおおお<br>
-                <br>
-                <br>
-                メア様は常に麗しいです
+                <?php
+                    foreach($content as $line){
+                        echo $line;
+                        echo '<br>';
+                    }
+                ?>
             </div>
         </div>
     </main>

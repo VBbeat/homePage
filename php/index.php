@@ -75,7 +75,7 @@
                         <img src="../img/icon_Info.png">
                     </div>
                     <div class="iconTitle">
-                        Infomation
+                        Information
                     </div>
                 </a>
             </div>
