@@ -1,8 +1,21 @@
 <?php
-    $articlePath = '../data/article/' . $_SESSION["category"] . '/1.vbtx';
+    //各フラグ変数
+    $failLoadArticle = false;
+    $noArticle = false;
+
+    //不正アクセス防止
+    if(is_null($_SESSION["category"]) || !isset($_GET["article"])){
+        $articlePath = '';
+        $failLoadArticle = true;
+    }else{
+        if(isset($_GET["category"])){
+            $_SESSION["category"] = $_GET["category"];
+        }
+        $articlePath = '../data/article/' . $_SESSION["category"] . '/' . $_GET["article"] + 1 . '.vbtx';
+    }
 
     //ファイルが読み取れるか確認
-    if( is_readable($articlePath)){
+    if(is_readable($articlePath)){
 
         //ファイルを開く
         $handle = fopen($articlePath, 'r');
@@ -29,7 +42,7 @@
         //ファイルを閉じる
         fclose($handle);
     }else{
-        echo 'blah.';
+        $noArticle = true;
     }
 ?>
 
@@ -53,24 +66,30 @@
 
     <!-- メイン部分 -->
     <main>
-        <div class="article">
-            <div class="articleHeader">
-                <div class="articleTitle">
-                    <span class="articleIcon">■</span><?php echo $title; ?>
+        <?php if($failLoadArticle) : ?>
+            <p>記事の読み込みに失敗しました。</p>
+        <?php elseif($noArticle) : ?>
+            <p>該当の記事は存在しません。</p>
+        <?php else : ?>
+            <div class="article">
+                <div class="articleHeader">
+                    <div class="articleTitle">
+                        <span class="articleIcon">■</span><?= $title ?>
+                    </div>
+                    <a href="articleList.php" class="tac">
+                        <span class="toArticleListButton">×</span>
+                    </a>
                 </div>
-                <a href="articleList.php" class="tac">
-                    <span class="toArticleListButton">×</span>
-                </a>
+                <div class="articleContent">
+                    <?php
+                        foreach($content as $line){
+                            echo $line;
+                            echo '<br>';
+                        }
+                    ?>
+                </div>
             </div>
-            <div class="articleContent">
-                <?php
-                    foreach($content as $line){
-                        echo $line;
-                        echo '<br>';
-                    }
-                ?>
-            </div>
-        </div>
+        <?php endif; ?>
     </main>
     <!-- フッタ部分 -->
     <footer>

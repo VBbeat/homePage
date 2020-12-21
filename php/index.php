@@ -1,4 +1,8 @@
 <?php
+    //セッションが開始されていない場合、開始する
+    if(is_null(session_id())){
+        session_start();
+    }
 ?>
 
 <html>

@@ -1,7 +1,27 @@
 <?php
-    $_SESSION["category"] = $_GET["category"];
+    //各フラグ変数
+    $failLoadCategory = false;
+    $noCategory = false;
 
-    // Todo むりこ ディレクトリから記事のタイトルだけを取得して、一覧で表示する
+    //カテゴリを取得する
+    if(isset($_GET["category"])){
+        $_SESSION["category"] = $_GET["category"];
+    }elseif(!isset($_SESSION["category"])){
+        $failLoadCategory = true;
+        $_SESSION["category"] = '';
+    }
+
+    //取得したカテゴリの記事のタイトルを取得する
+    //記事がない場合はその旨を表示
+    $articlePath = '../data/article/' . $_SESSION["category"] . '/*.vbtx';
+    $articleTitle = array();
+    foreach(glob($articlePath) as $articleFile){
+        $handle = fopen($articleFile, 'r');
+        $title = fgets($handle);
+        array_push($articleTitle, $title);
+        fclose($handle);
+    }
+
 ?>
 
 <html>
@@ -24,28 +44,32 @@
 
     <!-- メイン部分 -->
     <main>
-        <div class="iconTable">
-            <div class="iconElement">
-                <a href="article.php" class="tac">
-                    <div class="iconImage">
-                        <img src="../img/icon_article.png">
+        <!-- 記事がない場合 -->
+        <?php if($noCategory) : ?>
+            <p>該当のカテゴリは存在しません。</p>
+        <?php elseif($failLoadCategory) : ?>
+            <p>カテゴリの読み込みに失敗しました。</p>
+        <?php elseif(count($articleTitle) == 0) : ?>
+            <p>まだ記事が投稿されていません。</p>
+        <?php else : ?>
+            <div class="iconTable">
+                <?php foreach($articleTitle as $index => $title) : ?>
+                    <div class="iconElement">
+                        <form method="get" name="<?= 'art' . $index ?>" action="article.php">
+                            <input type=hidden name="article" value="<?= $index ?>">
+                            <a href="<?= 'javascript:art' . $index . '.submit()' ?>" class="tac">
+                                <div class="iconImage">
+                                    <img src="../img/icon_article.png">
+                                </div>
+                                <div class="iconTitle">
+                                    <?= $title ?>
+                                </div>
+                            </a>
+                        </form>
                     </div>
-                    <div class="iconTitle">
-                        テスト1
-                    </div>
-                </a>
+                <?php endforeach; ?>
             </div>
-            <div class="iconElement">
-                <a href="article.php" class="tac">
-                    <div class="iconImage">
-                        <img src="../img/icon_article.png">
-                    </div>
-                    <div class="iconTitle">
-                        テスト2
-                    </div>
-                </a>
-            </div>
-        </div>
+        <?php endif; ?>
     </main>
 
     <!-- フッタ部分 -->
