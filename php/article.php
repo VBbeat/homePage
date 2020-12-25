@@ -54,7 +54,7 @@
 
     <!-- 各ページ固有のタグの読み込み -->
     <meta property="og:url" content="http://vbbeat.com/article.php" />
-    <link rel="stylesheet" type="text/css" href="../css/article.css">
+    <link rel="stylesheet" type="text/css" href="../css/window.css">
 </head>
 
 <body>
@@ -71,16 +71,16 @@
         <?php elseif($noArticle) : ?>
             <p>該当の記事は存在しません。</p>
         <?php else : ?>
-            <div class="article">
-                <div class="articleHeader">
-                    <div class="articleTitle">
-                        <span class="articleIcon">■</span><?= $title ?>
+            <div class="window">
+                <div class="windowHeader">
+                    <div class="windowTitle">
+                        <span class="windowIcon">■</span><?= $title ?>
                     </div>
                     <a href="articleList.php" class="tac">
                         <span class="toArticleListButton">×</span>
                     </a>
                 </div>
-                <div class="articleContent">
+                <div class="windowContent">
                     <?php
                         foreach($content as $line){
                             echo $line;

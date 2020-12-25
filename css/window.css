@@ -1,8 +1,8 @@
-.article{
+.window{
     border: 2px solid #9fc24d;
     background-color: #9fc24d;
 }
-.articleHeader{
+.windowHeader{
     height: 24px;
     padding: 1ex;
     font-family: 'PixelFont12B';
@@ -15,7 +15,10 @@
     
     align-items: center;
 }
-.articleContent{
+/* .windowIcon{
+
+} */
+.windowContent{
     padding: 1ex;
     font-family: 'PixelFont12N';
     background-color: white;
