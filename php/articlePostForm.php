@@ -1,3 +1,9 @@
+<?php
+    $title = isset($_SESSION["postTitle"]) ? $_SESSION["postTitle"] : '';
+    $name = isset($_SESSION["postName"]) ? $_SESSION["postName"] : '';
+    $content = isset($_SESSION["postContent"]) ? $_SESSION["postContent"] : '';
+?>
+
 <html>
 
 <head>
@@ -32,13 +38,13 @@
                 <div class="windowContent">
                     <ul class="postItemList">
                         <li class="postItem">
-                            <input type="text" name="postTitle" placeholder="ここにタイトルを入力">
+                            <input type="text" name="postTitle" value="<?= $title ?>" placeholder="ここにタイトルを入力">
                         </li>
                         <li class="postItem">
-                            <input type="text" name="postName" placeholder="ここに投稿者名を入力">
+                            <input type="text" name="postName" value="<?= $name ?>" placeholder="ここに投稿者名を入力">
                         </li>
                         <li class="postItem">
-                            <textarea name="postContent" rows="15" cols="160" placeholder="ここに記事内容を入力"></textarea>
+                            <textarea name="postContent" rows="15" cols="160" placeholder="ここに記事内容を入力"><?= $content ?></textarea>
                         </li>
                         <li class="postItem">
                             <input type="submit" value="決定" class="miniButton">

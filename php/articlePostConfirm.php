@@ -1,8 +1,14 @@
 <?php
     date_default_timezone_set('Asia/Tokyo');
-    $_SESSION["postTitle"] = $_POST["postTitle"];
-    $_SESSION["postName"] = $_POST["postName"];
-    $_SESSION["postContent"] = $_POST["postContent"];
+    if(isset($_POST["postTitle"])){
+        $_SESSION["postTitle"] = $_POST["postTitle"];
+    }
+    if(isset($_POST["postName"])){
+        $_SESSION["postName"] = $_POST["postName"];
+    }
+    if(isset($_POST["postContent"])){
+        $_SESSION["postContent"] = $_POST["postContent"];
+    }
     $_SESSION["postDate"] = date("Y/m/d H:i:s");
 ?>
 
@@ -42,7 +48,7 @@
                 <p>投稿日時：<?= $_SESSION["postDate"] ?></p>
                 <hr>
                 <p><?= nl2br($_SESSION["postContent"]) ?></p>
-                <form action="index.php" method="post">
+                <form action="articlePostComplete.php" method="post">
                     <input type="submit" value="投稿" class="miniButton">
                 </form>
             </div>
