@@ -48,9 +48,12 @@
                 <p>投稿日時：<?= $_SESSION["postDate"] ?></p>
                 <hr>
                 <p><?= nl2br($_SESSION["postContent"]) ?></p>
-                <form action="articlePostComplete.php" method="post">
-                    <input type="submit" value="投稿" class="miniButton">
-                </form>
+                <hr>
+                <p>
+                    <form action="articlePostComplete.php" method="post">
+                        <input type="submit" value="投稿" class="miniButton">
+                    </form>
+                </p>
             </div>
         </div>
     </main>
