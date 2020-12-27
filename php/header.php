@@ -11,8 +11,7 @@
             justify-content: center;
             align-items: center;
             text-align: center;
-            font-size: 7ex;
-
+            font-size: 36px;
         }
     </style>
 </head>

@@ -4,9 +4,9 @@
 }
 .windowHeader{
     height: 24px;
-    padding: 1ex;
+    padding: 10px;
     font-family: 'PixelFont12B';
-    font-size: 2.5ex;
+    font-size: 22px;
     background-color: #9fc24d;
     color: white;
 
@@ -19,15 +19,16 @@
 
 } */
 .windowContent{
-    padding: 1ex;
-    font-family: 'PixelFont12N';
+    padding: 10px;
     background-color: white;
     color: black;
 }
+.windowContent hr{
+    border-top: 2px dashed #9fc24d;
+}
 
-.toArticleListButton{
+.backButton{
     display: block;
-    width: 32px;
-    font-family: 'PixelFont12N';
-    font-size: 4ex;
+    width: 36px;
+    font-size: 36px;
 }

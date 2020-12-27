@@ -19,16 +19,16 @@
 
     <!-- メイン部分 -->
     <main>
-        <form action="#" method="post">
-            <div class="window">
-                <div class="windowHeader">
-                    <div class="windowTitle">
-                        <span class="windowIcon">■</span>記事投稿フォーム
-                    </div>
-                    <a href="articleList.php" class="tac">
-                        <span class="toArticleListButton">×</span>
-                    </a>
+        <div class="window">
+            <div class="windowHeader">
+                <div class="windowTitle">
+                    <span class="windowIcon">■</span>記事投稿フォーム
                 </div>
+                <a href="articleList.php" class="tac">
+                    <span class="backButton">×</span>
+                </a>
+            </div>
+            <form action="articlePostConfirm.php" method="post">
                 <div class="windowContent">
                     <ul class="postItemList">
                         <li class="postItem">
@@ -37,13 +37,16 @@
                         <li class="postItem">
                             <input type="text" name="postName" placeholder="ここに投稿者名を入力">
                         </li>
-                        <li>
-                            <textarea name="postContent" rows="10" cols="40">ここに記事内容を入力</textarea>
+                        <li class="postItem">
+                            <textarea name="postContent" rows="15" cols="160" placeholder="ここに記事内容を入力"></textarea>
+                        </li>
+                        <li class="postItem">
+                            <input type="submit" value="決定" class="miniButton">
                         </li>
                     </ul>
                 </div>
-            </div>
-        </form>
+            </form>
+        </div>
     </main>
     <!-- フッタ部分 -->
     <footer>

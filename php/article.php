@@ -77,16 +77,21 @@
                         <span class="windowIcon">■</span><?= $title ?>
                     </div>
                     <a href="articleList.php" class="tac">
-                        <span class="toArticleListButton">×</span>
+                        <span class="backButton">×</span>
                     </a>
                 </div>
                 <div class="windowContent">
-                    <?php
-                        foreach($content as $line){
-                            echo $line;
-                            echo '<br>';
-                        }
-                    ?>
+                    <p>投稿者：<?= $userName ?></p>
+                    <p>投稿日時：<?= $date ?></p>
+                    <hr>
+                    <p>
+                        <?php
+                            foreach($content as $line){
+                                echo $line;
+                                echo '<br>';
+                            }
+                        ?>
+                    </p>
                 </div>
             </div>
         <?php endif; ?>
