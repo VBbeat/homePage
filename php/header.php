@@ -8,17 +8,27 @@
             color: black;
 
             display: flex;
-            justify-content: center;
-            align-items: center;
             text-align: center;
             font-size: 36px;
         }
+
+        #title{
+            padding-top: 8px;
+        }
+
+        #version{
+            font-size: 24px
+        }
+
     </style>
 </head>
-<!--ヘッダ-->
 
+<!-- ヘッダ -->
 <body>
-    <h1>System VBbeat</h1>
+    <div id="title">
+        <h1>System VBbeat</h1>
+        <div id="version">version 0.1</div>
+    </div>
 </body>
 
 </html>
