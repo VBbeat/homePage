@@ -16,8 +16,8 @@
         }
 
         .footerElement {
-            width: 10ex;
-            margin: 1ex;
+            width: 80px;
+            margin: 12px;
 
             display: flex;
             flex-wrap: wrap;
