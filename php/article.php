@@ -11,7 +11,8 @@
         if(isset($_GET["category"])){
             $_SESSION["category"] = $_GET["category"];
         }
-        $articlePath = '../data/article/' . $_SESSION["category"] . '/' . $_GET["article"] + 1 . '.vbtx';
+        $articlePath = '../data/article/' . $_SESSION["category"] . '/' . strval($_GET["article"] + 1) . '.vbtx';
+
     }
 
     //ファイルが読み取れるか確認
@@ -70,6 +71,8 @@
             <p>記事の読み込みに失敗しました。</p>
         <?php elseif($noArticle) : ?>
             <p>該当の記事は存在しません。</p>
+            <p><?= $articlePath ?></p>
+            <p><?= $_SESSION["category"] ?></p>
         <?php else : ?>
             <div class="window">
                 <div class="windowHeader">
