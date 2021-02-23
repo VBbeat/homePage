@@ -1,0 +1,45 @@
+#loginForm {
+    width: 100%;
+}
+
+form {
+    width: 220px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+#errorMsg {
+    margin: 0 auto;
+    text-align: center;
+}
+
+#loginButton {
+    display: flex;
+    justify-content: space-between;
+}
+
+input[type="text"] {
+    width: 100%;
+    background-color: #003000;
+    outline: none;
+    border: 2px solid white;
+    color: white;
+}
+
+input[type="text"]:focus{
+    background-color: white;
+    outline: none;
+    border: 2px solid white;
+    color: black;
+}
+
+.miniButton {
+    border: 2px solid white;
+    background-color: #003000;
+    color: white;
+}
+
+.miniButton:hover{
+    background-color: white;
+    color: #003000
+}

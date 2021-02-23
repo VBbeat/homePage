@@ -1,4 +1,16 @@
 <?php
+    require_once "system/common.php";
+
+    //セッションが開始されていない場合、開始する
+    startSession(session_id());
+
+    //ログインしていない場合、ログインページに遷移する
+    if(toLoginPage($_SESSION["userName"], basename(__FILE__))) {
+        $no_login_url = "../index.php";
+        header("Location: {$no_login_url}");
+        exit;
+    }
+
     //各フラグ変数
     $failLoadArticle = false;
     $noArticle = false;
@@ -10,8 +22,9 @@
     }else{
         if(isset($_GET["category"])){
             $_SESSION["category"] = $_GET["category"];
+            $_SESSION["article"] = $_GET["article"];
         }
-        $articlePath = '../data/article/' . $_SESSION["category"] . '/' . strval($_GET["article"] + 1) . '.vbtx';
+        $articlePath = '../data/article/' . $_SESSION["category"] . '/' . strval($_SESSION["article"] + 1) . '.vbtx';
 
     }
 

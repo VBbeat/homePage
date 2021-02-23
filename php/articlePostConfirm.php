@@ -1,4 +1,17 @@
 <?php
+    require_once "system/common.php";
+
+    //セッションが開始されていない場合、開始する
+    startSession(session_id());
+
+    //ログインしていない場合、ログインページに遷移する
+    if(toLoginPage($_SESSION["userName"], basename(__FILE__))) {
+        $no_login_url = "../index.php";
+        header("Location: {$no_login_url}");
+        exit;
+    }
+
+    
     date_default_timezone_set('Asia/Tokyo');
     if(isset($_POST["postTitle"])){
         $_SESSION["postTitle"] = $_POST["postTitle"];

@@ -21,7 +21,7 @@ var footerClock = function () {
         day = '0' + day;
     }
 
-    dateStr = hour + ':' + minutes + '\n';
+    dateStr = hour + ':' + minutes + "<br>";
     dateStr += year + '/' + month + '/' + day;
 
 

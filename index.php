@@ -1,19 +1,42 @@
 <?php
+    require_once "php/system/common.php";
+
     //セッションが開始されていない場合、開始する
-    if(is_null(session_id())){
-        session_start();
+    startSession(session_id());
+
+    $error_message = "";
+    $login_success_url = "php/home.php";
+
+    if(isset($_SESSION["lastPage"])){
+        $login_success_url = $_SESSION["lastPage"];
     }
+
+    if(isset($_POST["login"])) {
+        if(isMember($_POST["userName"])) {
+            $_SESSION["userName"] = $_POST["userName"];
+            $_SESSION["isMemberLogin"] = true;
+            header("Location: {$login_success_url}");
+            exit;
+        }
+        $error_message = "※ユーザ名が間違っています。<br>　もう一度入力して下さい。";
+    } else if(isset($_POST["guestLogin"])) {
+        $_SESSION["userName"] = "guest";
+        header("Location: {$login_success_url}");
+        exit;
+    }
+
 ?>
 
 <html>
 
 <head>
     <!-- 共通したメタタグの読み込み -->
-    <script type="text/javascript" src="./scripts/head.js"></script>
+    <script type="text/javascript" src="../scripts/head.js"></script>
 
     <!-- 各ページ固有のタグの読み込み -->
-    <meta property="og:url" content="http://vbbeat.com/index.php" />
-    <link rel="stylesheet" type="text/css" href="./css/iconTable.css">
+    <meta property="og:url" content="http://vbbeat.com/login.php" />
+    <link rel="stylesheet" type="text/css" href="../css/loginForm.css">
+
 </head>
 
 <body>
@@ -25,93 +48,19 @@
 
     <!-- メイン部分 -->
     <main>
-        <div class="iconTable">
-            <div class="iconElement">
-                <form method="get" name="member" action="php/articleList.php">
-                    <input type=hidden name="category" value="member">
-                    <a href="javascript:member.submit()" class="tac">
-                        <div class="iconImage">
-                            <img src="./img/icon_Member.png">
-                        </div>
-                        <div class="iconTitle">
-                            Member
-                        </div>
-                    </a>
-                </form>
-            </div>
-            <div class="iconElement">
-                <form method="get" name="music" action="php/articleList.php">
-                    <input type=hidden name="category" value="music">
-                    <a href="javascript:music.submit()" class="tac">
-                        <div class="iconImage">
-                            <img src="./img/icon_Music.png">
-                        </div>
-                        <div class="iconTitle">
-                            Music
-                        </div>
-                    </a>
-                </form>
-            </div>
-            <div class="iconElement">
-                <form method="get" name="game" action="php/articleList.php">
-                    <input type=hidden name="category" value="game">
-                    <a href="javascript:game.submit()" class="tac">
-                        <div class="iconImage">
-                            <img src="./img/icon_Game.png">
-                        </div>
-                        <div class="iconTitle">
-                            Game
-                        </div>
-                    </a>
-                </form>
-            </div>
-            <div class="iconElement">
-                <form method="get" name="illust" action="php/articleList.php">
-                    <input type=hidden name="category" value="illust">
-                    <a href="javascript:illust.submit()" class="tac">
-                        <div class="iconImage">
-                            <img src="./img/icon_Illust.png">
-                        </div>
-                        <div class="iconTitle">
-                            Illust
-                        </div>
-                    </a>
-                </form>
-            </div>
-            <div class="iconElement">
-                <form method="get" name="novel" action="php/articleList.php">
-                    <input type=hidden name="category" value="novel">
-                    <a href="javascript:novel.submit()" class="tac">
-                        <div class="iconImage">
-                            <img src="./img/icon_Novel.png">
-                        </div>
-                        <div class="iconTitle">
-                            Nobel
-                        </div>
-                    </a>
-                </form>
-            </div>
-            <div class="iconElement">
-                <form method="get" name="information" action="php/articleList.php">
-                    <input type=hidden name="category" value="information">
-                    <a href="javascript:information.submit()" class="tac">
-                        <div class="iconImage">
-                            <img src="./img/icon_Info.png">
-                        </div>
-                        <div class="iconTitle">
-                            Information
-                        </div>
-                    </a>
-                </form>
-            </div>
+
+        <div id="loginForm">
+            <form action="index.php" method="POST" autocomplete="off">
+                <p>ユーザ名</p>
+                <p><input type="text" name="userName"></p>
+                <p id="loginButton"><input type="submit" name="login" value="ログイン" class="miniButton">
+                <input type="submit" name="guestLogin" value="ゲストでログイン" class="miniButton">
+                </p>
+            </form>
+            <div id="errorMsg"><?= $error_message ?></div>
         </div>
+
     </main>
-
-    <!-- フッタ部分 -->
-    <footer>
-        <iframe src="php/footer.php" frameborder="0" width="100%"></iframe>
-    </footer>
-
 </body>
 
 </html>

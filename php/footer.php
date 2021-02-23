@@ -1,3 +1,7 @@
+<?php
+    require_once "system/common.php";
+?>
+
 <html>
 
 <head>
@@ -15,10 +19,26 @@
 
         }
 
-        .footerElement {
-            width: 80px;
+        .footerElementLeft {
+            width: 200px;
             margin: 12px;
 
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+
+        /* フッタのボタンの設定 */
+        .footerButton {
+            width: 64px;
+            display: inline-block;
+        }
+
+        /* 右下の時計の設定 */
+        .footerElementRight {
+            width: 80px;
+            margin: 12px;
+            
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
@@ -26,24 +46,31 @@
             text-align: center;
         }
 
-        /* フッタのホームボタンの設定 */
-        #footerHome {
-            width: 64px;
-        }
     </style>
 </head>
 
 <!--フッタ-->
 
 <body>
-    <div class="footerElement">
-        <a href="../index.php" target="_parent">
-            <div id="footerHome">
-                <img src="../img/footer_Home.png">
-            </div>
-        </a>
+    <div class="footerElementLeft">
+        <span class="footerButton">
+            <a href="home.php" target="_parent">
+                <div>
+                    <img src="../img/footer_Home.png">
+                </div>
+            </a>
+        </span>
+        <?php if(isset($_SESSION["isMemberLogin"])) { ?>
+            <span class="footerButton">
+                <a href="articlePostForm.php" target="_parent">
+                    <div>
+                        <img src="../img/footer_Article.png">
+                    </div>
+                </a>
+            </span>
+        <?php } ?>
     </div>
-    <div class="footerElement">
+    <div class="footerElementRight">
         <div id="footerClock"></div>
     </div>
 </body>
