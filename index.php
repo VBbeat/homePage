@@ -51,7 +51,7 @@
 
         <div id="loginForm">
             <form action="index.php" method="POST" autocomplete="off">
-                <p>ユーザ名</p>
+                <p>ようこそ</p>
                 <p><input type="text" name="userName"></p>
                 <p id="loginButton"><input type="submit" name="login" value="ログイン" class="miniButton">
                 <input type="submit" name="guestLogin" value="ゲストでログイン" class="miniButton">
