@@ -60,7 +60,7 @@
                 </div>
             </a>
         </span>
-        <?php if(isset($_SESSION["isMemberLogin"])) { ?>
+        <?php if(isset($_SESSION["isMemberLogin"])) : ?>
             <span class="footerButton">
                 <a href="articlePostForm.php" target="_parent">
                     <div>
@@ -68,7 +68,7 @@
                     </div>
                 </a>
             </span>
-        <?php } ?>
+        <?php endif ?>
     </div>
     <div class="footerElementRight">
         <div id="footerClock"></div>

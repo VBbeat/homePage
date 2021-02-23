@@ -5,3 +5,7 @@
 .postItem{
     padding: 6px 0;
 }
+
+#postCategory option:nth-child(n){
+    font-family: sans-serif;
+}

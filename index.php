@@ -4,6 +4,7 @@
     //セッションが開始されていない場合、開始する
     startSession(session_id());
 
+    $_SESSION["userName"] = "";
     $error_message = "";
     $login_success_url = "php/home.php";
 
@@ -13,7 +14,6 @@
 
     if(isset($_POST["login"])) {
         if(isMember($_POST["userName"])) {
-            $_SESSION["userName"] = $_POST["userName"];
             $_SESSION["isMemberLogin"] = true;
             header("Location: {$login_success_url}");
             exit;

@@ -5,16 +5,23 @@
     startSession(session_id());
 
     //ログインしていない場合、ログインページに遷移する
-    if(toLoginPage($_SESSION["userName"], basename(__FILE__))) {
+    if(toLoginPage($_SESSION["userName"], basename($_SERVER["REQUEST_URI"]))) {
         $no_login_url = "../index.php";
         header("Location: {$no_login_url}");
         exit;
     }
-
-    
+  
     $title = isset($_SESSION["postTitle"]) ? $_SESSION["postTitle"] : '';
-    $name = isset($_SESSION["postName"]) ? $_SESSION["postName"] : '';
+    $name = '';
     $content = isset($_SESSION["postContent"]) ? $_SESSION["postContent"] : '';
+
+    if(isset($_SESSION["postName"])){
+        $name = $_SESSION["postName"];
+    }else{
+        if(isLogin()){
+            $name = $_SESSION["userName"];
+        }
+    }
 ?>
 
 <html>
@@ -51,10 +58,21 @@
                 <div class="windowContent">
                     <ul class="postItemList">
                         <li class="postItem">
+                            <select name="postCategory" id="postCategory">
+                                <option value="" hidden disabled selected><label>記事カテゴリを選択</label></option>
+                                <option value="Member"><label>Member</label></option>
+                                <option value="Music"><label>Music</label></option>
+                                <option value="Game"><label>Game</label></option>
+                                <option value="Illust"><label>Illust</label></option>
+                                <option value="Novel"><label>Novel</label></option>
+                                <option value="Information"><label>Information</label></option>
+                            </select>
+                        </li>
+                        <li class="postItem">
                             <input type="text" name="postTitle" value="<?= $title ?>" placeholder="ここにタイトルを入力">
                         </li>
                         <li class="postItem">
-                            <input type="text" name="postName" value="<?= $name ?>" placeholder="ここに投稿者名を入力">
+                            <input type="text" name="postName" value="<?= $name ?>" readonly>
                         </li>
                         <li class="postItem">
                             <textarea name="postContent" rows="15" cols="160" placeholder="ここに記事内容を入力"><?= $content ?></textarea>

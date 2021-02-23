@@ -5,14 +5,14 @@
     startSession(session_id());
 
     //ログインしていない場合、ログインページに遷移する
-    if(toLoginPage($_SESSION["userName"], basename(__FILE__))) {
+    if(toLoginPage($_SESSION["userName"], basename($_SERVER["REQUEST_URI"]))) {
         $no_login_url = "../index.php";
         header("Location: {$no_login_url}");
         exit;
     }
 
     
-    $articlePath = '../data/article/' . $_SESSION["category"] . '/';
+    $articlePath = '../data/article/' . $_SESSION["postCategory"] . '/';
     $articleNo = 1;
     $artNoGlb = glob($articlePath . "*.vbtx");
     foreach($artNoGlb as $art){

@@ -19,12 +19,20 @@ function isMember($userName){
     if(is_readable($memberListPath)){
         $handle = fopen($memberListPath, 'r');
 
-        while($name = fgets($handle)){
-            $name = rtrim($name);
-            if(strcmp($userName, $name) == 0){
+        while($userData = fgets($handle)){
+            $userDataArray = explode(",", $userData);
+            if(strcmp($userDataArray[0], $userName) == 0){
+                $_SESSION["userName"] = rtrim($userDataArray[1]);
                 return true;
             }
         }
+    }
+    return false;
+}
+
+function isLogin(){
+    if($_SESSION["isMemberLogin"]){
+        return true;
     }
     return false;
 }

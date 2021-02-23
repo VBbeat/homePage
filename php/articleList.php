@@ -5,7 +5,7 @@
     startSession(session_id());
 
     //ログインしていない場合、ログインページに遷移する
-    if(toLoginPage($_SESSION["userName"], basename(__FILE__))) {
+    if(toLoginPage($_SESSION["userName"], basename($_SERVER["REQUEST_URI"]))) {
         $no_login_url = "../index.php";
         header("Location: {$no_login_url}");
         exit;
@@ -70,6 +70,7 @@
                     <div class="iconElement">
                         <form method="get" name="<?= 'art' . $index ?>" action="article.php">
                             <input type=hidden name="article" value="<?= $index ?>">
+                            <input type=hidden name="category" value="<?= $_SESSION["category"] ?>">
                             <a href="<?= 'javascript:art' . $index . '.submit()' ?>" class="tac">
                                 <div class="iconImage">
                                     <img src="../img/icon_article.png">

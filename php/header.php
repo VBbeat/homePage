@@ -27,7 +27,7 @@
 <body>
     <div id="title">
         <h1>System VBbeat</h1>
-        <div id="version">version 0.1</div>
+        <div id="version">version 0.2</div>
     </div>
 </body>
 

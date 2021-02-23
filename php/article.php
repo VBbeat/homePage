@@ -5,7 +5,7 @@
     startSession(session_id());
 
     //ログインしていない場合、ログインページに遷移する
-    if(toLoginPage($_SESSION["userName"], basename(__FILE__))) {
+    if(toLoginPage($_SESSION["userName"], basename($_SERVER["REQUEST_URI"]))) {
         $no_login_url = "../index.php";
         header("Location: {$no_login_url}");
         exit;
@@ -16,15 +16,15 @@
     $noArticle = false;
 
     //不正アクセス防止
-    if(is_null($_SESSION["category"]) || !isset($_GET["article"])){
+    if(!isset($_GET["category"]) || !isset($_GET["article"])){
         $articlePath = '';
         $failLoadArticle = true;
     }else{
         if(isset($_GET["category"])){
             $_SESSION["category"] = $_GET["category"];
-            $_SESSION["article"] = $_GET["article"];
         }
-        $articlePath = '../data/article/' . $_SESSION["category"] . '/' . strval($_SESSION["article"] + 1) . '.vbtx';
+        $_GET["article"];
+        $articlePath = '../data/article/' . $_SESSION["category"] . '/' . strval($_GET["article"] + 1) . '.vbtx';
 
     }
 

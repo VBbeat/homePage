@@ -5,7 +5,7 @@
     startSession(session_id());
 
     //ログインしていない場合、ログインページに遷移する
-    if(toLoginPage($_SESSION["userName"], basename(__FILE__))) {
+    if(toLoginPage($_SESSION["userName"], basename($_SERVER["REQUEST_URI"]))) {
         $no_login_url = "../index.php";
         header("Location: {$no_login_url}");
         exit;
@@ -13,6 +13,9 @@
 
     
     date_default_timezone_set('Asia/Tokyo');
+    if(isset($_POST["postCategory"])){
+        $_SESSION["postCategory"] = $_POST["postCategory"];
+    }
     if(isset($_POST["postTitle"])){
         $_SESSION["postTitle"] = $_POST["postTitle"];
     }
@@ -57,7 +60,8 @@
                 </a>
             </div>
             <div class="windowContent">
-                <p>投稿者：<?= $_SESSION["postName"] ?></p>
+                <p>カテゴリ：<?= $_SESSION["postCategory"] ?></p>
+                <p>投稿者　：<?= $_SESSION["postName"] ?></p>
                 <p>投稿日時：<?= $_SESSION["postDate"] ?></p>
                 <hr>
                 <p><?= nl2br($_SESSION["postContent"]) ?></p>

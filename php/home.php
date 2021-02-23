@@ -5,7 +5,7 @@
     startSession(session_id());
 
     //ログインしていない場合、ログインページに遷移する
-    if(toLoginPage($_SESSION["userName"], basename(__FILE__))) {
+    if(toLoginPage($_SESSION["userName"], basename($_SERVER["REQUEST_URI"]))) {
         $no_login_url = "../index.php";
         header("Location: {$no_login_url}");
         exit;
@@ -94,7 +94,7 @@
                             <img src="../img/icon_Novel.png">
                         </div>
                         <div class="iconTitle">
-                            Nobel
+                            Novel
                         </div>
                     </a>
                 </form>
