@@ -5,6 +5,7 @@
 
 .iconElement{
     width: 25%;
+    height: 40%;
 
     display: flex;
     flex-direction: column;
@@ -12,16 +13,22 @@
     align-items: center;
 
     /* デバッグ用 */
-    /* border: 0.5px solid red; */
 }
 
 .iconImage{
+    width: 100%;
     padding: 20px 0px 5px;
 }
 
+.iconImage > img {
+    width: 80%;
+}
+
 .iconTitle{
+    width: 100%;
+    height: 36px;
     padding: 5px 0px 20px;
-    font-size: 24px;
+    font-size: 4px;
 }
 
 /* タブレット用
