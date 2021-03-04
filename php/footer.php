@@ -2,14 +2,11 @@
     require_once "system/common.php";
 ?>
 
-<html>
-
 <head>
     <script type="text/javascript" src="../scripts/footerClock.js"></script>
     <link rel="stylesheet" type="text/css" href="../css/common.css">
     <style type="text/css">
-        body {
-            width: 100%;
+        #footer {
             background-color: #DEFEDE;
             color: black;
 
@@ -50,8 +47,7 @@
 </head>
 
 <!--フッタ-->
-
-<body>
+<div id="footer">
     <div class="footerElementLeft">
         <span class="footerButton">
             <a href="home.php" target="_parent">
@@ -73,6 +69,4 @@
     <div class="footerElementRight">
         <div id="footerClock"></div>
     </div>
-</body>
-
-</html>
+</div>

@@ -43,7 +43,7 @@
 
     <!-- ヘッダ部分 -->
     <header>
-        <iframe src="header.php" frameborder="0" width="100%"></iframe>
+        <?php include('header.php'); ?>
     </header>
 
     <!-- メイン部分 -->
@@ -76,7 +76,7 @@
     </main>
     <!-- フッタ部分 -->
     <footer>
-        <iframe src="footer.php" frameborder="0" width="100%"></iframe>
+        <?php include('footer.php'); ?>
     </footer>
 </body>
 

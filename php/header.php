@@ -1,18 +1,13 @@
-<html>
 
 <head>
     <link rel="stylesheet" type="text/css" href="../css/common.css">
     <style type="text/css">
-        body {
-            background-color: #DEFEDE;
-            color: black;
-
-            display: flex;
-            text-align: center;
-            font-size: 36px;
-        }
 
         #title{
+            color: black;
+            margin: 0 auto;
+            font-size: 36px;
+
             padding-top: 8px;
         }
 
@@ -24,11 +19,7 @@
 </head>
 
 <!-- ヘッダ -->
-<body>
-    <div id="title">
-        <h1>System VBbeat</h1>
-        <div id="version">version 0.2</div>
-    </div>
-</body>
-
-</html>
+<div id="title">
+    <h1>System VBbeat</h1>
+    <div id="version">version 0.2</div>
+</div>

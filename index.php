@@ -43,7 +43,7 @@
 
     <!-- ヘッダ部分 -->
     <header>
-        <iframe src="php/header.php" frameborder="0" width="100%"></iframe>
+        <?php include('php/header.php'); ?>
     </header>
 
     <!-- メイン部分 -->
