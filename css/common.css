@@ -52,7 +52,7 @@ a{
 
 /* pタグの余白設定 */
 p{
-    padding: 12px 0px;
+    padding: 9px 0px;
 }
 
 /* 入力フォームの設定 */
@@ -132,6 +132,10 @@ header{
     text-align: center;
     position: fixed;
     top: 0;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
 }
 
 main{
@@ -159,6 +163,10 @@ footer{
         background-color: #003000;
         color: white;
     }
+
+    header{
+        height: 100px;
+    }
 }
 
 /* スマホ用 */
@@ -166,5 +174,9 @@ footer{
     body{
         background-color: #003000;
         color: white;
+    }
+
+    header{
+        height: 80px;
     }
 }

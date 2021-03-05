@@ -16,8 +16,14 @@
     align-items: center;
 }
 /* .windowIcon{
-
 } */
+.windowTitle{
+    width: 100%; /* 要素の横幅を指定 */
+    white-space: nowrap; /* 横幅のMAXに達しても改行しない */
+    overflow: hidden; /* ハミ出した部分を隠す */
+    text-overflow: ellipsis; /* 「…」と省略 */
+    -webkit-text-overflow: ellipsis; /* Safari */
+}
 .windowContent{
     padding: 10px;
     background-color: white;
@@ -31,4 +37,28 @@
     display: block;
     width: 36px;
     font-size: 36px;
+}
+
+/* タブレット用 */
+@media screen and (max-width: 959px) {
+    .window{
+        font-size: 12px;
+    }
+    .windowHeader{
+        height: 20px;
+        padding: 8px;
+        font-size: 18px;
+    }
+}
+
+/* スマホ用 */
+@media screen and (max-width: 480px) {
+    .window{
+        font-size: 9px;
+    }
+    .windowHeader{
+        height: 18px;
+        padding: 6px;
+        font-size: 16px;
+    }
 }

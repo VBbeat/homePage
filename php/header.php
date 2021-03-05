@@ -6,13 +6,34 @@
         #title{
             color: black;
             margin: 0 auto;
-            font-size: 36px;
 
-            padding-top: 8px;
+            font-size: 36px;
         }
 
         #version{
             font-size: 24px
+        }
+        
+        /* タブレット用 */
+        @media screen and (max-width: 959px) {
+            #title{
+                font-size: 24px;
+            }
+
+            #version{
+                font-size: 18px
+            }
+        }
+
+        /* スマホ用 */
+        @media screen and (max-width: 480px) {
+            #title{
+                font-size: 18px;
+            }
+
+            #version{
+                font-size: 14px
+            }
         }
 
     </style>

@@ -16,25 +16,52 @@
 }
 
 .iconImage{
-    width: 100%;
+    width: 80%;
     padding: 20px 0px 5px;
+    margin: 0 auto;
 }
 
 .iconImage > img {
-    width: 80%;
+    width: 80px;
+    margin: 0 -30%;
 }
 
 .iconTitle{
     width: 100%;
     height: 36px;
+    margin: 0 auto;
     padding: 5px 0px 20px;
-    font-size: 4px;
+    font-size: 18px;
+
+    white-space: nowrap; /* 横幅のMAXに達しても改行しない */
+    overflow: hidden; /* ハミ出した部分を隠す */
+    text-overflow: ellipsis; /* 「…」と省略 */
+    -webkit-text-overflow: ellipsis; /* Safari */
 }
 
-/* タブレット用
-@media screen and (max-width: 959px) {
-} */
+form{
+    width: 100%;
+}
 
-/* スマホ用
+/* タブレット用 */
+@media screen and (max-width: 959px) {
+    .iconImage > img {
+        width: 60px;
+        margin: 0 -30%;
+    }
+    .iconTitle{
+        font-size: 15px;
+    }
+    
+}
+
+/* スマホ用 */
 @media screen and (max-width: 480px) {
-} */
+    .iconImage > img {
+        width: 40px;
+        margin: 0 -30%;
+    }
+    .iconTitle{
+        font-size: 9px;
+    }
+}
