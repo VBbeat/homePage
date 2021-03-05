@@ -60,12 +60,12 @@
                         <li class="postItem">
                             <select name="postCategory" id="postCategory">
                                 <option value="" hidden disabled selected><label>記事カテゴリを選択</label></option>
-                                <option value="Member"><label>Member</label></option>
-                                <option value="Music"><label>Music</label></option>
-                                <option value="Game"><label>Game</label></option>
-                                <option value="Illust"><label>Illust</label></option>
-                                <option value="Novel"><label>Novel</label></option>
-                                <option value="Information"><label>Information</label></option>
+                                <option value="member"><label>Member</label></option>
+                                <option value="music"><label>Music</label></option>
+                                <option value="mame"><label>Game</label></option>
+                                <option value="illust"><label>Illust</label></option>
+                                <option value="novel"><label>Novel</label></option>
+                                <option value="information"><label>Information</label></option>
                             </select>
                         </li>
                         <li class="postItem">
@@ -75,7 +75,7 @@
                             <input type="text" name="postName" value="<?= $name ?>" readonly>
                         </li>
                         <li class="postItem">
-                            <textarea name="postContent" rows="15" cols="160" placeholder="ここに記事内容を入力"><?= $content ?></textarea>
+                            <textarea name="postContent" rows="15" placeholder="ここに記事内容を入力"><?= $content ?></textarea>
                         </li>
                         <li class="postItem">
                             <input type="submit" value="決定" class="miniButton">

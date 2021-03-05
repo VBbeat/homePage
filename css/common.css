@@ -144,7 +144,7 @@ main{
     overflow-y: auto;
 }
 
-main > div {
+main > div , main > p {
     box-sizing: border-box;
     margin: 40px;
 }

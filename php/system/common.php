@@ -37,4 +37,17 @@ function isLogin(){
     return false;
 }
 
+function getTitle(){
+    $titleMstPath = './data/master/title_and_version.vbtx';
+    if(is_readable($titleMstPath)){
+        $handle = fopen($titleMstPath, 'r');
+        $_SESSION["SiteTitle"] = fgets($handle);
+        $_SESSION["version"] = fgets($handle);
+
+        fclose($handle);
+        return true;
+    }
+    return false;
+}
+
 ?>

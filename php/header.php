@@ -1,3 +1,7 @@
+<?php 
+    require_once "system/common.php";
+    echo getTitle();
+?>
 
 <head>
     <link rel="stylesheet" type="text/css" href="../css/common.css">
@@ -32,7 +36,7 @@
             }
 
             #version{
-                font-size: 14px
+                font-size: 15px
             }
         }
 
@@ -41,6 +45,6 @@
 
 <!-- ヘッダ -->
 <div id="title">
-    <h1>System VBbeat</h1>
-    <div id="version">version 0.2</div>
+    <h1><?= $_SESSION["SiteTitle"] ?></h1>
+    <div id="version">version <?= $_SESSION["version"] ?></div>
 </div>
