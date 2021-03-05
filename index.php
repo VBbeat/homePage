@@ -35,7 +35,6 @@
 
     <!-- 各ページ固有のタグの読み込み -->
     <meta property="og:url" content="http://vbbeat.com/login.php" />
-    <link rel="stylesheet" type="text/css" href="../css/loginForm.css">
 
 </head>
 
@@ -47,8 +46,9 @@
     </header>
 
     <!-- メイン部分 -->
+    
+    <link rel="stylesheet" type="text/css" href="../css/loginForm.css">
     <main>
-
         <div id="loginForm">
             <form action="index.php" method="POST" autocomplete="off">
                 <p>ようこそ</p>
