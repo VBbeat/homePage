@@ -62,7 +62,7 @@
                                 <option value="" hidden disabled selected><label>記事カテゴリを選択</label></option>
                                 <option value="member"><label>Member</label></option>
                                 <option value="music"><label>Music</label></option>
-                                <option value="mame"><label>Game</label></option>
+                                <option value="game"><label>Game</label></option>
                                 <option value="illust"><label>Illust</label></option>
                                 <option value="novel"><label>Novel</label></option>
                                 <option value="information"><label>Information</label></option>

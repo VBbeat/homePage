@@ -15,17 +15,23 @@
     $failLoadArticle = false;
     $noArticle = false;
 
-    //不正アクセス防止
-    if(!isset($_GET["category"]) || !isset($_GET["article"])){
-        $articlePath = '';
-        $failLoadArticle = true;
+    
+    //記事削除確認から戻ってきた場合
+    if(isset($_POST["articlePath"])) {
+        $articlePath = $_POST["articlePath"];
     }else{
-        if(isset($_GET["category"])){
-            $_SESSION["category"] = $_GET["category"];
-        }
-        $_GET["article"];
-        $articlePath = '../data/article/' . $_SESSION["category"] . '/' . strval($_GET["article"] + 1) . '.vbtx';
+        //不正アクセス防止
+        if(!isset($_GET["category"]) || !isset($_GET["article"])){
+            $articlePath = '';
+            $failLoadArticle = true;
+        }else{
+            if(isset($_GET["category"])){
+                $_SESSION["category"] = $_GET["category"];
+            }
+            $_GET["article"];
+            $articlePath = '../data/article/' . $_SESSION["category"] . '/' . strval($_GET["article"] + 1) . '.vbtx';
 
+        }
     }
 
     //ファイルが読み取れるか確認
@@ -36,13 +42,13 @@
 
         //データを取得する
         //タイトルを取得する
-        $title = fgets($handle);
+        $title = trim(fgets($handle));
 
         //投稿日時を取得する
-        $date = fgets($handle);
+        $date = trim(fgets($handle));
 
         //編集者名を取得する
-        $userName = fgets($handle);
+        $userName = trim(fgets($handle));
 
         //タグを取得する
         $tags = fgetcsv($handle);
@@ -108,6 +114,16 @@
                             }
                         ?>
                     </p>
+                    <?php if(strcmp($userName, $_SESSION["userName"]) == 0) : ?>
+                        <hr>
+                        <p>
+                            <form method="POST">
+                                <input type="submit" name="edit" value="編集" formaction="articlePostForm.php" class="miniButton">
+                                <input type="submit" name="delete" value="削除" formaction="articleDelete.php" class="miniButton">
+                                <input type="hidden" name="articlePath" value="<?= $articlePath ?>">
+                            </form>
+                        </p>
+                    <?php endif ?>
                 </div>
             </div>
         <?php endif; ?>
