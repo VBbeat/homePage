@@ -11,7 +11,8 @@
         exit;
     }
 
-    echo unlink($_POST["articlePath"]);
+    //記事ファイル削除処理
+    unlink($_POST["articlePath"]);
 
 ?>
 
