@@ -15,6 +15,12 @@
     $name = '';
     $content = isset($_SESSION["postContent"]) ? $_SESSION["postContent"] : '';
 
+    //フッターの新規作成ボタンから遷移した場合
+    if(isset($_POST["newArticle"])){
+        $title = '';
+        $content = '';
+    }
+
     if(isset($_SESSION["postName"])){
         $name = $_SESSION["postName"];
     }else{

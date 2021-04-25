@@ -33,7 +33,6 @@
 
         /* 右下の時計の設定 */
         .footerElementRight {
-            width: 80px;
             margin: 12px;
             
             display: flex;
@@ -41,6 +40,15 @@
             justify-content: center;
             align-items: center;
             text-align: center;
+        }
+
+        .footerRightIcon{
+            width: 80px;
+            display: inline-block;
+        }
+
+        #userName{
+            width: 100px;
         }
 
     </style>
@@ -58,15 +66,21 @@
         </span>
         <?php if(isset($_SESSION["isMemberLogin"])) : ?>
             <span class="footerButton">
-                <a href="articlePostForm.php" target="_parent">
-                    <div>
-                        <img src="../img/footer_Article.png">
-                    </div>
-                </a>
+                <form method="post" name="artPost" action="articlePostForm.php">
+                    <input type="hidden" name="newArticle" value="1">
+                    <a href="articlePostForm.php" target="_parent">
+                        <div>
+                            <img src="../img/footer_Article.png">
+                        </div>
+                    </a>
+                </form>
             </span>
         <?php endif ?>
     </div>
     <div class="footerElementRight">
-        <div id="footerClock"></div>
+        <?php if(isset($_SESSION["userName"])) : ?>
+            <span id="userName" class="footerRightIcon">Login User<br><?= $_SESSION["userName"] ?></span>
+        <?php endif ?>
+        <span id="footerClock" class="footerRightIcon"></span>
     </div>
 </div>

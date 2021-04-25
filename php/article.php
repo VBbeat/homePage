@@ -118,7 +118,11 @@
                         <hr>
                         <p>
                             <form method="POST">
-                                <input type="submit" name="edit" value="編集" formaction="articlePostForm.php" class="miniButton">
+                                <input type="submit" name="edit" value="編集" formaction="articleEditForm.php" class="miniButton">
+                                <input type="hidden" name="postTitle" value="<?= $title ?>">
+                                <input type="hidden" name="postContent" value="<?= $content ?>">
+                                <input type="hidden" name="artEdit" value="1">
+
                                 <input type="submit" name="delete" value="削除" formaction="articleDelete.php" class="miniButton">
                                 <input type="hidden" name="articlePath" value="<?= $articlePath ?>">
                             </form>
