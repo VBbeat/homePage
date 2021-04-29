@@ -11,20 +11,40 @@
         exit;
     }
 
-    
+    //各入力項目が空の場合、記事投稿画面に戻る
+
     date_default_timezone_set('Asia/Tokyo');
     if(isset($_POST["postCategory"])){
         $_SESSION["postCategory"] = $_POST["postCategory"];
+        $_SESSION["postCategoryError"] = 0;
+    }else{
+        $_SESSION["postCategoryError"] = 1;
     }
-    if(isset($_POST["postTitle"])){
+
+    if(isset($_POST["postTitle"]) && !empty($_POST["postTitle"])){
         $_SESSION["postTitle"] = $_POST["postTitle"];
+        $_SESSION["postTItleError"] = 0;
+    }else{
+        $_SESSION["postTitleError"] = 1;
     }
+    
     if(isset($_POST["postName"])){
         $_SESSION["postName"] = $_POST["postName"];
     }
-    if(isset($_POST["postContent"])){
+
+    if(isset($_POST["postContent"]) && !empty($_POST["postContent"])){
         $_SESSION["postContent"] = $_POST["postContent"];
+        $_SESSION["postContentError"] = 0;
+    }else{
+        $_SESSION["postContentError"] = 1;
     }
+
+    if(isset($_SESSION["postCategoryError"]) || isset($_SESSION["postTitleError"]) || isset($_SESSION["postContentError"])){
+        $articlePostPage = "articlePostForm.php";
+        header("Location: {$articlePostPage}");
+        exit;
+    }
+
     $_SESSION["postDate"] = date("Y/m/d H:i:s");
 ?>
 

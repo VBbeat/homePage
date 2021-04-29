@@ -100,6 +100,12 @@ input[type="text"]:focus, textarea:focus{
     padding: 2px 10px;
 }
 
+/* エラーメッセージの表示設定 */
+.errorMessage{
+    font-family: "PixelFont12B";
+    color: #DD0000;
+}
+
 .miniButton_direct:hover{
     background-color: white;
     color: #003000;

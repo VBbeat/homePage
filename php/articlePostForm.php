@@ -19,6 +19,17 @@
     if(isset($_POST["newArticle"])){
         $title = '';
         $content = '';
+
+        //エラー表示を初期化する
+        $_SESSION["postCategoryError"] = 0;
+        $_SESSION["postTitleError"] = 0;
+        $_SESSION["postContentError"] = 0;
+
+        //入力内容を初期化する
+        $_SESSION["postCategory"] = '';
+        $_SESSION["postTitle"] = '';
+        $_SESSION["postContent"] = '';
+
     }
 
     if(isset($_SESSION["postName"])){
@@ -51,6 +62,18 @@
 
     <!-- メイン部分 -->
     <main>
+        <?php if($_SESSION["postCategoryError"] === 1) : ?>
+            <p class="errorMessage">記事のカテゴリを選択してください</p>
+        <?php endif ?>
+        
+        <?php if($_SESSION["postTitleError"] === 1) : ?>
+            <p class="errorMessage">記事のタイトルを設定してください</p>
+        <?php endif ?>
+        
+        <?php if($_SESSION["postContentError"] === 1) : ?>
+            <p class="errorMessage">記事の内容を記述してください</p>
+        <?php endif ?>
+
         <div class="window">
             <div class="windowHeader">
                 <div class="windowTitle">

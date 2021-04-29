@@ -66,9 +66,9 @@
         </span>
         <?php if(isset($_SESSION["isMemberLogin"])) : ?>
             <span class="footerButton">
-                <form method="post" name="artPost" action="articlePostForm.php">
+                <form method="post" name="newArticle" action="articlePostForm.php">
                     <input type="hidden" name="newArticle" value="1">
-                    <a href="articlePostForm.php" target="_parent">
+                    <a href="javascript:newArticle.submit()" target="_parent">
                         <div>
                             <img src="../img/footer_Article.png">
                         </div>
