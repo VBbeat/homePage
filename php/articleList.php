@@ -24,14 +24,16 @@
         $_SESSION["category"] = '';
     }
 
-    //取得したカテゴリの記事のタイトルを取得する
+    //取得したカテゴリの記事のタイトル, ファイルパスを取得する
     //記事がない場合はその旨を表示
     $articlePath = '../data/article/' . $_SESSION["category"] . '/*.vbtx';
+    $articlePathList = array();
     $articleTitle = array();
     foreach(glob($articlePath) as $articleFile){
         $handle = fopen($articleFile, 'r');
         $title = fgets($handle);
         array_push($articleTitle, $title);
+        array_push($articlePathList, $articleFile);
         fclose($handle);
     }
 
@@ -69,8 +71,7 @@
                 <?php foreach($articleTitle as $index => $title) : ?>
                     <div class="iconElement">
                         <form method="get" name="<?= 'art' . $index ?>" action="article.php">
-                            <input type=hidden name="article" value="<?= $index ?>">
-                            <input type=hidden name="category" value="<?= $_SESSION["category"] ?>">
+                            <input type=hidden name="article" value="<?= $articlePathList[$index] ?>">
                             <a href="<?= 'javascript:art' . $index . '.submit()' ?>" class="tac">
                                 <div class="iconImage">
                                     <img src="../img/icon_article.png">

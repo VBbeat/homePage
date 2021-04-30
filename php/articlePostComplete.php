@@ -11,14 +11,10 @@
         exit;
     }
 
-    
+    date_default_timezone_set('Asia/Tokyo');
     $articlePath = '../data/article/' . $_SESSION["postCategory"] . '/';
-    $articleNo = 1;
-    $artNoGlb = glob($articlePath . "*.vbtx");
-    foreach($artNoGlb as $art){
-        $articleNo++;
-    }
-    $handle = fopen($articlePath . $articleNo . '.vbtx', 'w+');
+    $articleFile = date('YmdHis');
+    $handle = fopen($articlePath . $articleFile . '.vbtx', 'w+');
 
     /* ダミータグの設定 */
     $_SESSION["postTags"] = "#testTag";

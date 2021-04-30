@@ -21,15 +21,11 @@
         $articlePath = $_POST["articlePath"];
     }else{
         //不正アクセス防止
-        if(!isset($_GET["category"]) || !isset($_GET["article"])){
+        if(!isset($_GET["article"])){
             $articlePath = '';
             $failLoadArticle = true;
         }else{
-            if(isset($_GET["category"])){
-                $_SESSION["category"] = $_GET["category"];
-            }
-            $_GET["article"];
-            $articlePath = '../data/article/' . $_SESSION["category"] . '/' . strval($_GET["article"] + 1) . '.vbtx';
+            $articlePath = $_GET["article"];
 
         }
     }
@@ -114,20 +110,22 @@
                             }
                         ?>
                     </p>
+                    
                     <?php if(strcmp($userName, $_SESSION["userName"]) == 0) : ?>
                         <hr>
                         <p>
                             <form method="POST">
-                                <input type="submit" name="edit" value="編集" formaction="articleEditForm.php" class="miniButton">
+                                <!-- <input type="submit" name="edit" value="編集" formaction="articleEditForm.php" class="miniButton">
                                 <input type="hidden" name="postTitle" value="<?= $title ?>">
                                 <input type="hidden" name="postContent" value="<?= $content ?>">
-                                <input type="hidden" name="artEdit" value="1">
+                                <input type="hidden" name="artEdit" value="1"> -->
 
                                 <input type="submit" name="delete" value="削除" formaction="articleDelete.php" class="miniButton">
                                 <input type="hidden" name="articlePath" value="<?= $articlePath ?>">
                             </form>
                         </p>
                     <?php endif ?>
+                    
                 </div>
             </div>
         <?php endif; ?>
