@@ -29,7 +29,6 @@
         $_SESSION["postCategory"] = '';
         $_SESSION["postTitle"] = '';
         $_SESSION["postContent"] = '';
-
     }
 
     if(isset($_SESSION["postName"])){
@@ -74,6 +73,13 @@
             <p class="errorMessage">記事の内容を記述してください</p>
         <?php endif ?>
 
+        <?php
+            //もうエラーは表示済みなのでエラー判定を初期化する
+            $_SESSION["postCategoryError"] = 0;
+            $_SESSION["postTitleError"] = 0;
+            $_SESSION["postContentError"] = 0;
+        ?>
+
         <div class="window">
             <div class="windowHeader">
                 <div class="windowTitle">
@@ -88,13 +94,13 @@
                     <ul class="postItemList">
                         <li class="postItem">
                             <select name="postCategory" id="postCategory">
-                                <option value="" hidden disabled selected><label>記事カテゴリを選択</label></option>
-                                <option value="member"><label>Member</label></option>
-                                <option value="music"><label>Music</label></option>
-                                <option value="game"><label>Game</label></option>
-                                <option value="illust"><label>Illust</label></option>
-                                <option value="novel"><label>Novel</label></option>
-                                <option value="information"><label>Information</label></option>
+                                <option value="" hidden disabled <?php if(!(isset($_POST["postCategory"])))echo 'selected' ?>><label>記事カテゴリを選択</label></option>
+                                <option value="member" <?php if(isset($_SESSION["postCategory"]) && $_SESSION["postCategory"]==="member")echo 'selected' ?>><label>Member</label></option>
+                                <option value="music" <?php if(isset($_SESSION["postCategory"]) && $_SESSION["postCategory"]==="music")echo 'selected' ?>><label>Music</label></option>
+                                <option value="game" <?php if(isset($_SESSION["postCategory"]) && $_SESSION["postCategory"]==="game")echo 'selected' ?>><label>Game</label></option>
+                                <option value="illust" <?php if(isset($_SESSION["postCategory"]) && $_SESSION["postCategory"]==="illust")echo 'selected' ?>><label>Illust</label></option>
+                                <option value="novel" <?php if(isset($_SESSION["postCategory"]) && $_SESSION["postCategory"]==="novel")echo 'selected' ?>><label>Novel</label></option>
+                                <option value="information" <?php if(isset($_SESSION["postCategory"]) && $_SESSION["postCategory"]==="information")echo 'selected' ?>><label>Information</label></option>
                             </select>
                         </li>
                         <li class="postItem">
@@ -113,6 +119,7 @@
                 </div>
             </form>
         </div>
+
     </main>
     <!-- フッタ部分 -->
     <footer>

@@ -39,7 +39,7 @@
         $_SESSION["postContentError"] = 1;
     }
 
-    if(isset($_SESSION["postCategoryError"]) || isset($_SESSION["postTitleError"]) || isset($_SESSION["postContentError"])){
+    if($_SESSION["postCategoryError"] || $_SESSION["postTitleError"] || $_SESSION["postContentError"] ){
         $articlePostPage = "articlePostForm.php";
         header("Location: {$articlePostPage}");
         exit;
