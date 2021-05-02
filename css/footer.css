@@ -1,0 +1,134 @@
+
+#footer {
+    background-color: #DEFEDE;
+    color: black;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+}
+
+.footerElementLeft {
+    width: 200px;
+    margin: 12px;
+
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+/* フッタのボタンの設定 */
+.footerButton {
+    width: 64px;
+    display: inline-block;
+}
+
+/* 右下のエリアの設定 */
+.footerElementRight {
+    margin: 12px;
+    
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.footerRightIcon{
+    width: 80px;
+    display: inline-block;
+}
+
+#userName{
+    width: 100px;
+}
+
+/* タブレット用 */
+@media screen and (max-width: 960px) {
+    .footerElementLeft {
+        width: 180px;
+        margin: 12px;
+
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+    }
+
+    /* フッタのボタンの設定 */
+    .footerButton {
+        width: 56px;
+        height: 56px;
+        display: inline-block;
+    }
+
+    img{
+        width: 100%;
+    }
+
+    /* 文字サイズの設定 */
+
+    /* 右下のエリアの設定 */
+    .footerElementRight {
+        margin: 8px;
+        
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+
+        font-size: 15px;
+    }
+
+    #userName{
+        width: 80px;
+    }
+}
+
+
+/* スマホ用 */
+@media screen and (max-width: 480px) {
+    .footerElementLeft {
+        width: 180px;
+        margin: 12px;
+
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+    }
+
+    /* フッタのボタンの設定 */
+    .footerButton {
+        width: 48px;
+        height: 48px;
+        display: inline-block;
+    }
+
+    img{
+        width: 100%;
+    }
+
+    /* 文字サイズの設定 */
+
+    /* 右下のエリアの設定 */
+    .footerElementRight {
+        margin: 8px;
+        
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+
+        font-size: 12px;
+    }
+
+    #footerClock{
+        display: none;
+    }
+
+    #userName{
+        width: 60px;
+    }
+}

@@ -5,53 +5,7 @@
 <head>
     <script type="text/javascript" src="../scripts/footerClock.js"></script>
     <link rel="stylesheet" type="text/css" href="../css/common.css">
-    <style type="text/css">
-        #footer {
-            background-color: #DEFEDE;
-            color: black;
-
-            display: flex;
-            flex-direction: row;
-            justify-content: space-between;
-
-        }
-
-        .footerElementLeft {
-            width: 200px;
-            margin: 12px;
-
-            display: flex;
-            flex-wrap: wrap;
-            align-items: center;
-        }
-
-        /* フッタのボタンの設定 */
-        .footerButton {
-            width: 64px;
-            display: inline-block;
-        }
-
-        /* 右下の時計の設定 */
-        .footerElementRight {
-            margin: 12px;
-            
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-        }
-
-        .footerRightIcon{
-            width: 80px;
-            display: inline-block;
-        }
-
-        #userName{
-            width: 100px;
-        }
-
-    </style>
+    <link rel="stylesheet" type="text/css" href="../css/footer.css">
 </head>
 
 <!--フッタ-->

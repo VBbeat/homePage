@@ -194,6 +194,10 @@ footer{
     header{
         height: 100px;
     }
+
+    footer{
+        height: 72px;
+    }
 }
 
 /* スマホ用 */
@@ -205,5 +209,9 @@ footer{
 
     header{
         height: 80px;
+    }
+
+    footer{
+        height: 64px;
     }
 }
