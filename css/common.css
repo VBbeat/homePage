@@ -106,6 +106,13 @@ input[type="text"]:focus, textarea:focus{
     color: #DD0000;
 }
 
+/* 注意メッセージの表示設定 */
+.alertMessage{
+    
+    font-family: "PixelFont12B";
+    color: #DD7700;
+}
+
 .miniButton_direct:hover{
     background-color: white;
     color: #003000;

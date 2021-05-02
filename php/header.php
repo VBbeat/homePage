@@ -45,6 +45,6 @@
 
 <!-- ヘッダ -->
 <div id="title">
-    <h1><?= $_SESSION["SiteTitle"] ?></h1>
+    <h1><?= $_SESSION["siteTitle"] ?></h1>
     <div id="version">version <?= $_SESSION["version"] ?></div>
 </div>

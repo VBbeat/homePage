@@ -1,5 +1,6 @@
 <?php
     require_once "system/common.php";
+    require_once "system/updateMaster.php";
 
     //セッションが開始されていない場合、開始する
     startSession(session_id());
@@ -11,6 +12,13 @@
         exit;
     }
 
+    //マスタ内容編集処理
+    $headerHandle = fopen("../data/master/title_and_version.vbtx", "w");
+    fwrite($headerHandle, $_POST["newSiteTitle"] . "\n");
+    fwrite($headerHandle, $_POST["newVersion"] . "\n");
+    fclose($headerHandle);
+
+    updateMaster();
 ?>
 
 <html>
@@ -18,7 +26,9 @@
 <head>
     <!-- 共通したメタタグの読み込み -->
     <script type="text/javascript" src="../scripts/head.js"></script>
-    
+
+    <!-- 各ページ固有のタグの読み込み -->
+    <meta http-equiv="refresh" content="3; url=home.php" />
 </head>
 
 <body>
@@ -30,14 +40,7 @@
 
     <!-- メイン部分 -->
     <main>
-        <p>本当に記事を削除しますか？（一度削除すると復元できません）</p>
-        <div>
-            <form method="POST">
-                <input type="submit" name="delete" value="削除" formaction="articleDeleteComplete.php" class="miniButton_direct">
-                <input type="submit" name="back" value="戻る" formaction="article.php" class="miniButton_direct">
-                <input type="hidden" name="articlePath" value="<?= $_POST["articlePath"] ?>">
-            </form>
-        </div>
+        <p>マスタ情報の変更が完了しました。3秒後にホーム画面に戻ります。</p>
     </main>
 
     <!-- フッタ部分 -->
