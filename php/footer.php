@@ -76,13 +76,15 @@
                 </form>
             </span>
         <?php endif ?>
-        <span class="footerButton">
-            <a href="masterEdit.php" target="_parent">
-                <div>
-                    <img src="../img/footer_Setting.png">
-                </div>
-            </a>
-        </span>
+        <?php if(isset($_SESSION["isMemberLogin"])) : ?>
+            <span class="footerButton">
+                <a href="masterEdit.php" target="_parent">
+                    <div>
+                        <img src="../img/footer_Setting.png">
+                    </div>
+                </a>
+            </span>
+        <?php endif ?>
     </div>
     <div class="footerElementRight">
         <?php if(isset($_SESSION["userName"])) : ?>
