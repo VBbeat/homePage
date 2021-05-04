@@ -100,6 +100,19 @@
                 </form>
             </div>
             <div class="iconElement">
+                <form method="get" name="tools" action="articleList.php">
+                    <input type=hidden name="category" value="tools">
+                    <a href="javascript:tools.submit()" class="tac">
+                        <div class="iconImage">
+                            <img src="../img/icon_Tools.png">
+                        </div>
+                        <div class="iconTitle">
+                            Tools
+                        </div>
+                    </a>
+                </form>
+            </div>
+            <div class="iconElement">
                 <form method="get" name="information" action="articleList.php">
                     <input type=hidden name="category" value="information">
                     <a href="javascript:information.submit()" class="tac">
