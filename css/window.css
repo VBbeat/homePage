@@ -24,6 +24,8 @@
     text-overflow: ellipsis; /* 「…」と省略 */
     -webkit-text-overflow: ellipsis; /* Safari */
 }
+
+/* 記事内の文字装飾の設定 */
 .windowContent{
     padding: 10px;
     background-color: white;
@@ -32,6 +34,13 @@
 .windowContent hr{
     border-top: 2px dashed #9fc24d;
 }
+
+.windowContent a{
+    text-decoration: underline;
+    color: blue;
+}
+
+/* 閉じるボタンの設定 */
 
 .backButton{
     display: block;
