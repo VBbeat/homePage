@@ -1,0 +1,25 @@
+<html>
+
+<head>
+    <link rel="stylesheet" href="LifeGame.css" type="text/css">
+</head>
+
+<body>
+    <div>
+        <h1>ライフゲーム</h1>
+        <h3>ver 1.0</h3>
+    </div>
+    <div>
+        <canvas id="canvas" width="1000px" height="500px"></canvas>
+    </div>
+    <div>
+        <b><span id="loopState"></span></b>
+        <button onclick="startLoop();setLoopState();">開始</button>
+        <button onclick="stepLoop();">一つ進む</button>
+        <button onclick="stopLoop();setLoopState();">停止</button>
+        <button onclick="initFieldState();">初期化</button>
+    </div>
+    <script type="text/javascript" src="LifeGame.js"></script>
+</body>
+
+</html>
