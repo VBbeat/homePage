@@ -210,3 +210,17 @@ function setLoopState() {
 
     loopStateElement.innerHTML = loopState;
 }
+
+// 背景色、セルの色を設定する
+function setColor() {
+    // テキストボックスに入力した値を取得する
+    var bgColor = document.getElementById("bgColor").value;
+    var cellColor = document.getElementById("cellColor").value;
+
+    // 各設定を変数に反映する
+    fieldBgColor = bgColor;
+    fieldStrokeColor = cellColor;
+
+    // 画面の再描画を行う
+    drawField();
+}
