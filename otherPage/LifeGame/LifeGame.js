@@ -211,15 +211,19 @@ function setLoopState() {
     loopStateElement.innerHTML = loopState;
 }
 
-// 背景色、セルの色を設定する
-function setColor() {
+// 各入力値を設定し反映する
+function setOption() {
     // テキストボックスに入力した値を取得する
     var bgColor = document.getElementById("bgColor").value;
     var cellColor = document.getElementById("cellColor").value;
+    // var width = document.getElementById("width").value;
+    // var height = document.getElementById("height").value;
 
     // 各設定を変数に反映する
     fieldBgColor = bgColor;
     fieldStrokeColor = cellColor;
+    // fieldWidth = width;
+    // fieldHeight = height;
 
     // 画面の再描画を行う
     drawField();
