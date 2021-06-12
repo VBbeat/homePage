@@ -11,51 +11,84 @@
 }
 
 #cardArea{
-    width: 600px;
-    margin: 0 auto;
-}
-
-#cardArea_old, #cardArea_pool{
     width: 180px;
     height: 240px;
-    display: inline-block;
+    margin: 15px auto 5px;
+    line-height: 240px;
 
-    /* デバッグ */
-    border: 1px solid #000000;
+    border: 2px dashed #000000;
+}
+
+#yourChoice{
+    width: 240px;
+    font-size: 1.2em;
+    margin: 5px auto 0;
+}
+
+#choice{
+    font-weight: bold;
+    color: red;
+}
+
+#currentNumber{
+    font-size: 5em;
+    font-weight: 600;
+}
+
+#buttonArea{
+    width: 50%;
+    min-width: 300px;
+    margin: 15px auto;
+
+}
+
+#buttonArea button{
+    margin: 2px;
+    border: 2px solid #004E00;
+    color: #004E00;
+    background-color: #FFFFFF;
+    font-size: 70%;
+    font-weight: 600;
 }
 
 #charaBox{
-    width: 640px;
-    margin: 40px auto 10px;
+    max-width: 600px;
+    width: 80%;
+    min-width: 300px;
+    margin: 10px auto 10px;
+    padding: 5px;
 
     border: double 8px #004E00;
     background-color: #DDFFDD;
 }
 
-#charaBox div{
-    margin-top: 5px;
-    margin-bottom: 5px;
-}
-
 #charaImage{
-    width: 260px;
-    height: 200px;
+    max-width: 260px;
+    width: 30%;
     margin: 5px auto;
 }
 
 #charaImage img{
     margin: 5px;
+    width: 100%;
 }
 
 .charaStatus{
-    width: 600px;
+    width: 90%;
+    max-width: 280px;
     margin: 0 auto;
     
-    /* デバッグ */
-    border: 1px solid #000000;
+    /* デバッグ
+    border: 1px solid #000000; */
 }
 
 .charaSttElm{
     width: 30%;
+    margin: 0 auto;
     display: inline-block;
+}
+
+.sttTitle{
+    margin-bottom: 0;
+    font-weight: bold;
 }

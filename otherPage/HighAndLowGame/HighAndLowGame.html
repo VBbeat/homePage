@@ -9,13 +9,21 @@
 
 <body>
     <div>
-        <h1>ハイアンドローゲーム</h1>
+        <h1>ハイアンドロー</h1>
         <h3>ver 1.0</h3>
     </div>
 
     <div id="cardArea" class="tac">
-        <div id="cardArea_old">ここがカード置き場</div>
-        <div id="cardArea_pool">ここが山札</div>
+        <span id="currentNumber">10</span>
+    </div>
+
+    <div id="yourChoice" class="tac">あなたの選択：<span id="choice">ハイ</span></div>
+
+    <div id="buttonArea" class="tac">
+        <button id="setNextNumber">カードをめくる</button>
+        <button id="betCoin">コインをかける</button>
+        <button id="high">ハイ</button>
+        <button id="low">ロー</button>
     </div>
 
     <div id="charaBox" class="tac">
@@ -23,9 +31,9 @@
             <img src="img/chara_slime_normal.png">
         </div>
         <div class="charaStatus tac">
-            <div class="charaSttElm">連勝数</div>
-            <div class="charaSttElm">合計勝利数</div>
-            <div class="charaSttElm">持ちコイン枚数</div>
+            <div class="charaSttElm sttTitle">連勝数</div>
+            <div class="charaSttElm sttTitle">合計勝利数</div>
+            <div class="charaSttElm sttTitle">コイン枚数</div>
         </div>
         <div class="charaStatus tac">
             <div class="charaSttElm" id="currentChain">2連勝</div>
