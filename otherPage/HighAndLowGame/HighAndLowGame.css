@@ -1,0 +1,61 @@
+*{
+    margin: 5px;
+}
+
+.tac{
+    text-align: center;
+}
+
+.debug{
+    border: 2px solid #000000;
+}
+
+#cardArea{
+    width: 600px;
+    margin: 0 auto;
+}
+
+#cardArea_old, #cardArea_pool{
+    width: 180px;
+    height: 240px;
+    display: inline-block;
+
+    /* デバッグ */
+    border: 1px solid #000000;
+}
+
+#charaBox{
+    width: 640px;
+    margin: 40px auto 10px;
+
+    border: double 8px #004E00;
+    background-color: #DDFFDD;
+}
+
+#charaBox div{
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+#charaImage{
+    width: 260px;
+    height: 200px;
+    margin: 5px auto;
+}
+
+#charaImage img{
+    margin: 5px;
+}
+
+.charaStatus{
+    width: 600px;
+    margin: 0 auto;
+    
+    /* デバッグ */
+    border: 1px solid #000000;
+}
+
+.charaSttElm{
+    width: 30%;
+    display: inline-block;
+}

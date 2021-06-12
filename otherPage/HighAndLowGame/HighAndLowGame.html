@@ -1,0 +1,38 @@
+<html>
+
+<head>
+    <script type="text/javascript" src="HighAndLowGame.js"></script>
+    <link rel="stylesheet" href="HighAndLowGame.css" type="text/css">
+    <link rel="stylesheet" href="../common.css" type="text/css">
+    <meta charset="utf-8" http-equiv="content-type">
+</head>
+
+<body>
+    <div>
+        <h1>ハイアンドローゲーム</h1>
+        <h3>ver 1.0</h3>
+    </div>
+
+    <div id="cardArea" class="tac">
+        <div id="cardArea_old">ここがカード置き場</div>
+        <div id="cardArea_pool">ここが山札</div>
+    </div>
+
+    <div id="charaBox" class="tac">
+        <div id="charaImage">
+            <img src="img/chara_slime_normal.png">
+        </div>
+        <div class="charaStatus tac">
+            <div class="charaSttElm">連勝数</div>
+            <div class="charaSttElm">合計勝利数</div>
+            <div class="charaSttElm">持ちコイン枚数</div>
+        </div>
+        <div class="charaStatus tac">
+            <div class="charaSttElm" id="currentChain">2連勝</div>
+            <div class="charaSttElm" id="currentWin">10勝</div>
+            <div class="charaSttElm" id="currentCoin">200</div>
+        </div>
+    </div>
+</body>
+
+</html>
