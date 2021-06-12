@@ -19,6 +19,10 @@
     border: 2px dashed #000000;
 }
 
+#gameStateArea{
+    width: 240px;
+}
+
 #yourChoice{
     width: 240px;
     font-size: 1.2em;
@@ -49,6 +53,11 @@
     background-color: #FFFFFF;
     font-size: 70%;
     font-weight: 600;
+}
+
+#buttonArea button:hover{
+    color: #FFFFFF;
+    background-color: #004E00;
 }
 
 #charaBox{
