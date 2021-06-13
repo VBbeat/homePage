@@ -71,5 +71,19 @@ function setNewCard() {
 
 /**
  * コインをかける
- *
+ * 
  */
+
+function betCoin() {
+    // 入力ダイアログを表示、賭けコイン枚数を入力
+    betNum = window.prompt("賭けるコインの枚数を入力してください", "");
+    if (isNaN(betNum)) {
+        // 数字入力エラー
+        window.alert("数字で入力してください");
+    }
+    betNum = Number(betNum);
+    if (betNum <= 0 || betNum > currentCoin) {
+        // 入力範囲エラー
+        window.alert("コインの枚数は(0-持ちコイン枚数)で入力してください");
+    }
+}
