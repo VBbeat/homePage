@@ -83,7 +83,7 @@
 }
 
 .charaStatus{
-    width: 90%;
+    width: 100%;
     max-width: 280px;
     margin: 0 auto;
     
@@ -92,12 +92,14 @@
 }
 
 .charaSttElm{
-    width: 30%;
+    width: 23%;
     margin: 0 auto;
     display: inline-block;
+    font-size: 12px;
 }
 
 .sttTitle{
     margin-bottom: 0;
     font-weight: bold;
+    font-size: 12px;
 }

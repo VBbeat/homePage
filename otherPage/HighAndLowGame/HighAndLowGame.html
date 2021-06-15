@@ -22,10 +22,10 @@
     </div>
 
     <div id="buttonArea" class="tac">
-        <button id="setNextNumber">カードをめくる</button>
-        <button id="betCoin">コインをかける</button>
-        <button id="high" onclick="setValue('choice', 'ハイ')">ハイ</button>
-        <button id="low" onclick="setValue('choice', 'ロー')">ロー</button>
+        <button id="setNextNumber" onclick="runGame()">カードをめくる</button>
+        <button id="betCoin" onclick="betCoin()">コインをかける</button>
+        <button id="high" onclick="setChoice(1)">ハイ</button>
+        <button id="low" onclick="setChoice(2)">ロー</button>
     </div>
 
     <div id="charaBox" class="tac">
@@ -35,12 +35,14 @@
         <div class="charaStatus tac">
             <div class="charaSttElm sttTitle">連勝数</div>
             <div class="charaSttElm sttTitle">合計勝利数</div>
+            <div class="charaSttElm sttTitle">勝負数</div>
             <div class="charaSttElm sttTitle">コイン枚数</div>
         </div>
         <div class="charaStatus tac">
             <div class="charaSttElm" id="currentChain">2連勝</div>
             <div class="charaSttElm" id="currentWin">10勝</div>
-            <div class="charaSttElm" id="currentCoin">200</div>
+            <div class="charaSttElm" id="currentBattleNum">0回</div>
+            <div class="charaSttElm" id="currentCoin">100</div>
         </div>
     </div>
     <script type="text/javascript" src="HighAndLowGame.js"></script>

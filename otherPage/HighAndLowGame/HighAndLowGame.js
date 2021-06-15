@@ -1,14 +1,28 @@
 // 各変数の設定
-currentChoice = "";
-choice_high = "ハイ";
-choice_low = "ロー";
-choice_equal = "イコール";
+currentChoice = 0;
+choice_no = 0;
+choice_high = 1;
+choice_low = 2;
+choice_equal = 3;
+choice_string = [
+    "　　",
+    "ハイ",
+    "ロー",
+    "イコール"
+];
+
+gameResult_win = 1;
+gameResult_lose = 2;
+gameResult_equal = 3;
+
 currentChain = 0;
 currentWin = 0;
+currentBattleNum = 0;
 currentRatio = 1;
 currentCoin = 100;
 currentNumber = "";
 newNumber = "";
+
 betCoinNum = 0;
 betCoinMin = 1;
 betCoinMax = currentCoin;
@@ -18,7 +32,22 @@ cardNum = 4;
 MaxNumber = 10;
 currentNumber = 0;
 
+battleResult = 0;
 gameOverFlg = false;
+
+// 変数の初期化を行う
+initAll();
+
+// 勝敗決定後にダイアログを表示する
+var observer = new MutationObserver(showResult);
+const obsElm = document.getElementById("currentBattleNum");
+const obsConfig = {
+    childList: true,
+    characterData: true
+};
+
+observer.observe(obsElm, obsConfig);
+
 
 /**
  * すべての変数の初期化
@@ -27,12 +56,19 @@ function initAll() {
     currentChoice = "";
     currentChain = 0;
     currentWin = 0;
+    currentBattleNum = 0;
     currentRatio = 1;
     currentCoin = 100;
     gameOverFlg = false;
 
     // カードプールの初期化
     initcardPool();
+
+    // 各値の更新を行う。
+    setValue("currentChain", currentChain + "連勝");
+    setValue("currentWin", currentWin + "勝");
+    setValue("currentBattleNum", currentBattleNum + "回");
+    setValue("currentCoin", currentCoin + "枚");
 }
 
 /**
@@ -52,6 +88,15 @@ function initcardPool() {
 function setValue(id, value) {
     var element = document.getElementById(id);
     element.innerHTML = value;
+}
+
+/**
+ * ハイかローを選択する
+ * @param choiceNum 1, 2, 3 
+ */
+function setChoice(choiceNum) {
+    currentChoice = choiceNum;
+    setValue("choice", choice_string[choiceNum]);
 }
 
 /**
@@ -89,18 +134,20 @@ function betCoin() {
     if (isNaN(betNum)) {
         // 数字入力エラー
         window.alert("数字で入力してください");
+        return;
     }
     betNum = Number(betNum);
     if (betNum < betCoinMin || betNum > betCoinMax) {
         // 入力範囲エラー
         window.alert("コインの枚数は(" + betCoinMin + "-" + betCoinMax + ")で入力してください");
+        return;
     }
 
     // 賭けコインを現在の枚数から引く
     currentCoin -= betNum;
 
     // 賭けコインを変数に設定する
-    betCoinNum += betCoinNum;
+    betCoinNum += betNum;
 
     // 各値の更新を行う
     setValue("currentCoin", currentCoin + "枚");
@@ -110,20 +157,38 @@ function betCoin() {
 /**
  * 勝敗の判定を行う。
  * @returns 0 エラー
- * @returns 1 ロー
- * @returns 2 ハイ
+ * @returns 1 ハイ
+ * @returns 2 ロー
  * @returns 3 同じ数字
  */
 function judge() {
     if (newNumber > currentNumber) {
-        return 2;
-    } else if (newNumber < currentNumber) {
         return 1;
+    } else if (newNumber < currentNumber) {
+        return 2;
     } else if (newNumber == currentNumber) {
         return 3;
     }
 
     return 0;
+}
+
+/**
+ * 勝敗の判定をもとに、コインと倍率の処理を行う
+ * @param gameResult 1: 勝ち 2: 負け
+ */
+function updateBetCoin(gameResult) {
+    if (gameResult == gameResult_win) {
+        // 勝負に勝った場合
+        betCoinNum *= currentRatio;
+        currentRatio = currentRatio *= 2;
+
+    } else if (gameResult == gameResult_lose) {
+        // 勝負に負けた場合
+        betCoinNum = 0;
+        currentRatio = 1;
+    }
+    return;
 }
 
 /**
@@ -135,12 +200,14 @@ function setFirstCard() {
 }
 
 /**
- * 勝負を行い、諸々のステータスの更新を行う。
+ * 勝負を行う
+ * @returns 1: 勝ち 2: 負け 3: 引き分け
  */
 function runGame() {
     if (currentNumber == "") {
-        // 最初のカードをセットする。
+        // 最初のカードをセットする
         setFirstCard();
+        setValue("currentNumber", currentNumber);
         return;
     }
     // 賭けコインの枚数が足りていない場合
@@ -150,7 +217,7 @@ function runGame() {
     }
 
     // ハイ,ローの選択がされていない場合
-    if (currentChoice == "") {
+    if (currentChoice == choice_no) {
         window.alert("ハイかローを選択してください");
         return;
     }
@@ -160,4 +227,37 @@ function runGame() {
 
     // 勝敗の判定を行う
     result = judge();
+    currentNumber = newNumber;
+    setValue("currentNumber", currentNumber + 1);
+
+    battleResult = result;
+    currentBattleNum++;
+    setValue("currentBattleNum", currentBattleNum + "回");
+
+    return battleResult;
+}
+
+/**
+ * 勝敗のダイアログを表示し、各値の更新を行う
+ */
+
+function showResult() {
+    if (battleResult == gameResult_equal) {
+        // 引き分けだった場合
+        updateBetCoin(gameResult_equal);
+        window.alert("引き分けです");
+    } else if (battleResult == currentChoice) {
+        // 勝利した場合
+        updateBetCoin(gameResult_win);
+        window.alert("あなたの勝ちです");
+    } else if (battleResult != currentChoice) {
+        // 負けた場合
+        updateBetCoin(gameResult_lose);
+        window.alert("あなたの負けです");
+    }
+
+    // 各値の更新を行う
+    setChoice(choice_no);
+    setValue("ratio", betCoinNum + "(×" + Math.floor(currentRatio) + ")");
+
 }
