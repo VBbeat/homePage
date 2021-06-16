@@ -30,7 +30,7 @@ betCoinMax = currentCoin;
 cardPool = [];
 cardNum = 4;
 MaxNumber = 10;
-currentNumber = 0;
+currentNumber = -1;
 
 battleResult = 0;
 gameOverFlg = false;
@@ -163,11 +163,11 @@ function betCoin() {
  */
 function judge() {
     if (newNumber > currentNumber) {
-        return 1;
+        return choice_high;
     } else if (newNumber < currentNumber) {
-        return 2;
+        return choice_low;
     } else if (newNumber == currentNumber) {
-        return 3;
+        return choice_equal;
     }
 
     return 0;
@@ -180,13 +180,15 @@ function judge() {
 function updateBetCoin(gameResult) {
     if (gameResult == gameResult_win) {
         // 勝負に勝った場合
+        currentChain += 1;
+        currentRatio = currentRatio * (currentChain + 1);
         betCoinNum *= currentRatio;
-        currentRatio = currentRatio *= 2;
 
     } else if (gameResult == gameResult_lose) {
         // 勝負に負けた場合
         betCoinNum = 0;
         currentRatio = 1;
+        currentChain = 0;
     }
     return;
 }
@@ -204,7 +206,7 @@ function setFirstCard() {
  * @returns 1: 勝ち 2: 負け 3: 引き分け
  */
 function runGame() {
-    if (currentNumber == "") {
+    if (currentNumber == -1) {
         // 最初のカードをセットする
         setFirstCard();
         setValue("currentNumber", currentNumber);
@@ -226,11 +228,10 @@ function runGame() {
     newNumber = setNewCard();
 
     // 勝敗の判定を行う
-    result = judge();
+    battleResult = judge();
     currentNumber = newNumber;
     setValue("currentNumber", currentNumber + 1);
 
-    battleResult = result;
     currentBattleNum++;
     setValue("currentBattleNum", currentBattleNum + "回");
 
@@ -250,6 +251,7 @@ function showResult() {
         // 勝利した場合
         updateBetCoin(gameResult_win);
         window.alert("あなたの勝ちです");
+        currentWin++;
     } else if (battleResult != currentChoice) {
         // 負けた場合
         updateBetCoin(gameResult_lose);
@@ -259,5 +261,8 @@ function showResult() {
     // 各値の更新を行う
     setChoice(choice_no);
     setValue("ratio", betCoinNum + "(×" + Math.floor(currentRatio) + ")");
+    setValue("currentChain", currentChain + "回");
+    setValue("currentCoin", currentCoin + "枚");
+    setValue("currentWin", currentWin + "勝");
 
 }
