@@ -9,7 +9,7 @@
 <body>
     <div>
         <h1>ハイアンドロー</h1>
-        <h3>ver 1.0</h3>
+        <h3>ver 1.1</h3>
     </div>
 
     <div id="cardArea" class="tac">
@@ -26,6 +26,7 @@
         <button id="betCoin" onclick="betCoin()">コインをかける</button>
         <button id="high" onclick="setChoice(1)">ハイ</button>
         <button id="low" onclick="setChoice(2)">ロー</button>
+        <button id="refund" onclick="refund()">払い戻し</button>
     </div>
 
     <div id="charaBox" class="tac">
@@ -44,6 +45,18 @@
             <div class="charaSttElm" id="currentBattleNum">0回</div>
             <div class="charaSttElm" id="currentCoin">100</div>
         </div>
+    </div>
+
+    <div id="howToPlay">
+        <h2>遊び方</h2>
+        <ul>
+            <li>次に出るカードが、今場にあるカードよりも高いか（ハイ）低いか（ロー）を予想するゲームです。</li>
+            <li>最初にコインをかけ、予想に成功すれば賭けたコインが増えていきます。連勝するほど多くコインがもらえます。（倍率＝連勝数+1）</li>
+            <li>カードプールには1~10のカードがそれぞれ4枚ずつ存在しています。</li>
+            <li>カードをめくる→ハイ、ローを選択→カードをめくる→ハイ、ローを選択、、、といった流れでゲームが進んでいきますが、負けた場合は賭けコインが0になります。</li>
+            <li>コインの払い戻しができる（手元に戻せる）のは、3連勝してからとなります。払い戻しをした場合、連勝数とカードプールの状態はリセットされます。</li>
+            <li>（現在のコインの枚数（持ちコイン）÷勝負数）でランキング機能を実装する予定です。</li>
+        </ul>
     </div>
     <script type="text/javascript" src="HighAndLowGame.js"></script>
 </body>

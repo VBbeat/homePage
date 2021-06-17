@@ -25,7 +25,7 @@
 }
 
 .gameSttElm{
-    width: 240px;
+    width: 90%;
     margin: 0 auto;
 }
 
@@ -87,8 +87,8 @@
     max-width: 280px;
     margin: 0 auto;
     
-    /* デバッグ
-    border: 1px solid #000000; */
+    /* デバッグ */
+    /* border: 1px solid #000000; */
 }
 
 .charaSttElm{
@@ -102,4 +102,28 @@
     margin-bottom: 0;
     font-weight: bold;
     font-size: 12px;
+}
+
+#howToPlay{
+    position: fixed;
+    top: 5px;
+    left: 5px;
+    width: 35%;
+    font-size: 0.8em;
+
+    border: 2px dashed #22AA22;
+}
+
+#howToPlay h2{
+    color: red;
+}
+
+@media screen and (max-width: 960px) {
+    #howToPlay{
+        width: 50%;
+        min-width: 300px;
+        margin: 5px auto;
+
+        position: static;
+    }
 }
