@@ -118,12 +118,12 @@
     color: red;
 }
 
-@media screen and (max-width: 960px) {
+@media screen and (max-width: 1200px) {
     #howToPlay{
+        position: static;
         width: 50%;
         min-width: 300px;
         margin: 5px auto;
 
-        position: static;
     }
 }
