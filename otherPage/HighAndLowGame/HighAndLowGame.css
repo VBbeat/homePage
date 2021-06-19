@@ -2,16 +2,21 @@
     margin: 5px;
 }
 
-.tac{
-    text-align: center;
-}
-
-.debug{
-    border: 2px solid #000000;
+.contentArea{
+    border: 2px dashed #22AA22;
+    min-height: 600px;
+    box-sizing: border-box;
 }
 
 #gameArea{
+    margin: 0;
+    width: 100%;
+}
+
+#gameContentArea{
     display: inline-block;
+    width: 45%;
+    min-width: 360px;
 }
 
 #cardArea{
@@ -24,12 +29,12 @@
 }
 
 #gameStateArea{
-    width: 300px;
+    width: 100%;
     margin: 10px auto 0;
 }
 
 .gameSttElm{
-    width: 90%;
+    width: 100%;
     margin: 0 auto;
 }
 
@@ -44,7 +49,7 @@
 }
 
 #buttonArea{
-    width: 50%;
+    width: 100%;
     min-width: 300px;
     margin: 15px auto;
 
@@ -66,7 +71,7 @@
 
 #charaBox{
     max-width: 600px;
-    width: 80%;
+    width: 90%;
     min-width: 300px;
     margin: 10px auto 10px;
     padding: 5px;
@@ -88,7 +93,6 @@
 
 .charaStatus{
     width: 100%;
-    max-width: 280px;
     margin: 0 auto;
     
     /* デバッグ */
@@ -108,26 +112,40 @@
     font-size: 12px;
 }
 
-#howToPlay{
+#howToPlayArea{
+    padding: 5px;
     display: inline-block;
-    width: 35%;
+    width: 45%;
     font-size: 0.8em;
 
+    vertical-align: top;
     border: 2px dashed #22AA22;
 }
 
-#howToPlay h2{
+#howToPlayArea h2{
     color: red;
 }
 
-
-
 @media screen and (max-width: 1200px) {
-    #howToPlay{
+    .contentArea{
+        max-height: initial;
+        max-height: auto;
+        min-height: initial;
+        min-height: auto;
+    }
+
+    #howToPlayArea{
         position: static;
         width: 95%;
         min-width: 300px;
+        height: auto;
         margin: 10px auto 5px;
 
+    }
+
+    #gameContentArea{
+        display: inline-block;
+        width: 95%;
+        min-width: 360px;
     }
 }

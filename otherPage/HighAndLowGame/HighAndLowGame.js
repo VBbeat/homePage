@@ -18,7 +18,7 @@ const gameResult_equal = 3;
 currentChain = 0;
 currentWin = 0;
 currentBattleNum = 0;
-currentRatio = 1;
+currentRatio = 2;
 currentCoin = 100;
 currentNumber = "";
 newNumber = "";
@@ -59,7 +59,7 @@ function initAll() {
     currentChain = 0;
     currentWin = 0;
     currentBattleNum = 0;
-    currentRatio = 1;
+    currentRatio = 2;
     currentCoin = 100;
     currentNumber = -1;
     betCoinNum = 0;
@@ -203,13 +203,13 @@ function updateBetCoin(gameResult) {
     if (gameResult == gameResult_win) {
         // 勝負に勝った場合
         currentChain += 1;
-        currentRatio = currentRatio * (currentChain + 1);
+        currentRatio = currentChain + 2;
         betCoinNum *= currentRatio;
 
     } else if (gameResult == gameResult_lose) {
         // 勝負に負けた場合
         betCoinNum = 0;
-        currentRatio = 1;
+        currentRatio = 2;
         currentChain = 0;
 
         if (currentCoin == 0) {
@@ -249,6 +249,7 @@ function runGame() {
         setValue("currentNumber", currentNumber + 1);
         return;
     }
+
     // 賭けコインの枚数が足りていない場合
     if (betCoinNum < betCoinMin) {
         window.alert("賭けコインの枚数が足りていません");
@@ -333,7 +334,7 @@ function refund() {
 
     // 連勝数をリセットする
     currentChain = 0;
-    currentRatio = 1;
+    currentRatio = 2;
 
     // カードプールと現在のカードをリセットする
     initcardPool();

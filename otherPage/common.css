@@ -1,3 +1,15 @@
+.tac{
+    text-align: center;
+}
+
+.tal{
+    text-align: left;
+}
+
+.debug{
+    border: 2px solid #000000;
+}
+
 h1{
     margin: 5px;
     text-align: center;
