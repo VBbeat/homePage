@@ -3,9 +3,10 @@
 }
 
 .contentArea{
-    border: 2px dashed #22AA22;
-    min-height: 600px;
     box-sizing: border-box;
+    min-height: 600px;
+    min-width: 360px;
+    border: 2px dashed #22AA22;
 }
 
 #gameArea{
@@ -19,18 +20,42 @@
     min-width: 360px;
 }
 
+.contentBox_green{
+    box-sizing: border-box;
+    padding: 0px;
+    margin: 8px;
+    border: double 5px #004E00;
+    background-color: #DDFFDD;
+}
+
 #cardArea{
-    width: 180px;
-    height: 240px;
+    width: 150px;
+    height: 200px;
     margin: 15px auto 5px;
-    line-height: 240px;
+    line-height: 200px;
 
     border: 2px dashed #000000;
 }
 
+#cardInfoArea{
+    width: 90%;
+    margin: 10px auto;
+}
+
+#cardTotal{
+    color: red;
+    font-weight: 600;
+}
+
+
+#playerChoiceArea{
+    width: 90%;
+    margin: 10px auto;
+}
+
 #gameStateArea{
     width: 100%;
-    margin: 10px auto 0;
+    margin: 5px auto 0;
 }
 
 .gameSttElm{
@@ -44,14 +69,14 @@
 }
 
 #currentNumber{
-    font-size: 5em;
+    font-size: 4em;
     font-weight: 600;
 }
 
 #buttonArea{
     width: 100%;
-    min-width: 300px;
-    margin: 15px auto;
+    min-width: 280px;
+    margin: 10px auto 5px;
 
 }
 
@@ -70,14 +95,9 @@
 }
 
 #charaBox{
-    max-width: 600px;
     width: 90%;
     min-width: 300px;
-    margin: 10px auto 10px;
-    padding: 5px;
-
-    border: double 8px #004E00;
-    background-color: #DDFFDD;
+    margin: 10px auto;
 }
 
 #charaImage{
@@ -116,7 +136,7 @@
     padding: 5px;
     display: inline-block;
     width: 45%;
-    font-size: 0.8em;
+    font-size: 0.9em;
 
     vertical-align: top;
     border: 2px dashed #22AA22;
@@ -137,7 +157,7 @@
     #howToPlayArea{
         position: static;
         width: 95%;
-        min-width: 300px;
+        min-width: 340px;
         height: auto;
         margin: 10px auto 5px;
 
@@ -146,6 +166,7 @@
     #gameContentArea{
         display: inline-block;
         width: 95%;
-        min-width: 360px;
+        min-width: 340px;
+        margin: 5px auto 5px;
     }
 }

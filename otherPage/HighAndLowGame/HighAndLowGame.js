@@ -16,6 +16,7 @@ const gameResult_lose = 2;
 const gameResult_equal = 3;
 
 currentChain = 0;
+maxChain = 0;
 currentWin = 0;
 currentBattleNum = 0;
 currentRatio = 2;
@@ -29,13 +30,25 @@ betCoinMax = 100;
 const canRefundWinNum = 3;
 
 cardPool = [];
-const cardNum = 4;
-const MaxNumber = 10;
+const eachCardNum = 4;
+const maxCardNumber = 10;
+cardTotal = eachCardNum * maxCardNumber;
 currentNumber = -1;
 
 battleResult = 0;
 gameOverFlg = false;
 restartGameFlg = false;
+
+const maxCoinNum = 100000000;
+
+// 最終ステータスパラメータ
+finalStateParam = {
+    "maxChain": 0,    // 最大連勝数
+    "WinNum": 0,    // 合計勝利数
+    "battleNum": 0,    // 最終勝負数
+    "totalCoinNum": 0,    // 最終持ちコイン枚数
+    "coinGetRate": 0     // コイン獲得率
+};
 
 // 変数の初期化を行う
 initAll();
@@ -76,6 +89,7 @@ function initAll() {
     setValue("currentBattleNum", currentBattleNum + "回");
     setValue("currentCoin", currentCoin + "枚");
     setChoice(choice_no);
+    setValue("cardTotal", cardTotal + "枚");
 
 }
 
@@ -83,9 +97,10 @@ function initAll() {
  * カードプールの初期化
  */
 function initcardPool() {
-    for (var number = 0; number < MaxNumber; number++) {
-        cardPool[number] = cardNum;
+    for (var number = 0; number < maxCardNumber; number++) {
+        cardPool[number] = eachCardNum;
     }
+    cardTotal = eachCardNum * maxCardNumber;
 }
 
 /**
@@ -119,21 +134,25 @@ function setChoice(choiceNum) {
  * @returns -1 残りカード0枚
  */
 function setNewCard() {
+    if (cardTotal == 0) {
+        // カードが残り0枚の場合
+        return -1;
+    }
+
     settableNumber = [];
-    for (var i = 0; i < MaxNumber; i++) {
+    for (var i = 0; i < maxCardNumber; i++) {
         if (cardPool[i] > 0) {
             settableNumber.push(i);
         }
-    }
-
-    if (settableNumber.length == 0) {
-        return -1;
     }
 
     newCardIndex = Math.floor(Math.random() * settableNumber.length);
     newCardNumber = settableNumber[newCardIndex];
 
     cardPool[newCardNumber] -= 1;
+    cardTotal -= 1;
+
+    setValue("cardTotal", cardTotal + "枚");
 
     return newCardNumber;
 }
@@ -148,6 +167,12 @@ function betCoin() {
     if (showGameOver() == 0) {
         // ゲームオーバーの場合、何もせず終了する
         return;
+    }
+
+    if (currentChain > 0) {
+        // 勝負中にコインを賭けようとした場合
+        // アラートを表示し終了する
+        window.alert("勝負中なのでコインを賭けられません");
     }
 
     // 入力ダイアログを表示、賭けコイン枚数を入力
@@ -177,7 +202,7 @@ function betCoin() {
 }
 
 /**
- * 勝敗の判定を行う。
+ * 勝敗の判定を行う
  * @returns 0 エラー
  * @returns 1 ハイ
  * @returns 2 ロー
@@ -310,6 +335,11 @@ function showResult() {
     setValue("currentCoin", currentCoin + "枚");
     setValue("currentWin", currentWin + "勝");
 
+    // ゲーム終了条件を満たした場合、終了時の処理を行う。
+    if (isClearFinishCond()) {
+        setFinalSttParam();
+    }
+
 }
 
 /**
@@ -362,4 +392,42 @@ function showGameOver() {
     } else {
         return 1;
     }
+}
+
+/**
+ * ゲーム終了条件の判定を行う。
+ * @returns true  終了条件を満たしている
+ * @returns false 終了条件を満たしていない
+ */
+function isClearFinishCond() {
+    isFinish = false;
+
+    if (cardTotal == 0) {
+        // カード枚数が0になった場合
+        currentCoin += betCoinNum;
+        isFinish = true;
+    }
+
+    if (currentCoin >= maxCoinNum) {
+        // コイン枚数が上限を超えた場合
+        isFinish = true;
+    }
+
+    return isFinish;
+}
+
+/**
+ * ゲーム終了時、最終持ちコイン枚数、コイン獲得率の計算を行い、
+ * 最終ステータスパラメータを設定する。
+ */
+function setFinalSttParam() {
+    // コイン獲得率の計算（小数第二位まで算出する）
+    coinGetRate = Math.floor((currentCoin / currentBattleNum) * 100) / 100;
+
+    // 各パラメータの設定
+    finalStateParam.maxChain = maxChain;
+    finalStateParam.winNum = currentWin;
+    finalStateParam.battleNum = currentBattleNum;
+    finalStateParam.totalCoinNum = currentCoin;
+    finalStateParam.coinGetRate = coinGetRate;
 }

@@ -13,24 +13,29 @@
     </div>
     <div id="gameArea" class="tac">
         <div id="gameContentArea" class="contentArea">
-            <div id="cardArea" class="tac">
-                <span id="currentNumber"> </span>
+            <div id="cardInfoArea" class="contentBox_green">
+                <div id="cardArea" class="tac">
+                    <div id="currentNumber"> </div>
+                </div>
+                <div id="currentCardTotal">残り枚数：<span id="cardTotal"></span></div>
             </div>
 
-            <div id="gameStateArea" class="tac">
-                <div class="gameSttElm">あなたの選択：<span id="choice">　　</span></div>
-                <div class="gameSttElm">賭けコイン(×倍率)：<span id="ratio"> 　 </span></div>
+            <div id="playerChoiceArea" class="contentBox_green">
+                <div id="gameStateArea" class="tac">
+                    <div class="gameSttElm">あなたの選択：<span id="choice">　　</span></div>
+                    <div class="gameSttElm">賭けコイン(×倍率)：<span id="ratio"> 　 </span></div>
+                </div>
+
+                <div id="buttonArea" class="tac">
+                    <button class="gameButton" id="setNextNumber" onclick="runGame()">カードをめくる</button>
+                    <button class="gameButton" id="betCoin" onclick="betCoin()">コインをかける</button>
+                    <button class="gameButton" id="high" onclick="setChoice(1)">ハイ</button>
+                    <button class="gameButton" id="low" onclick="setChoice(2)">ロー</button>
+                    <button class="gameButton" id="refund" onclick="refund()">払い戻し</button>
+                </div>
             </div>
 
-            <div id="buttonArea" class="tac">
-                <button class="gameButton" id="setNextNumber" onclick="runGame()">カードをめくる</button>
-                <button class="gameButton" id="betCoin" onclick="betCoin()">コインをかける</button>
-                <button class="gameButton" id="high" onclick="setChoice(1)">ハイ</button>
-                <button class="gameButton" id="low" onclick="setChoice(2)">ロー</button>
-                <button class="gameButton" id="refund" onclick="refund()">払い戻し</button>
-            </div>
-
-            <div id="charaBox" class="tac">
+            <div id="charaBox" class="contentBox_green tac">
                 <div id="charaImage">
                     <img src="img/chara_slime_normal.png">
                 </div>
@@ -41,10 +46,10 @@
                     <div class="charaSttElm sttTitle">コイン枚数</div>
                 </div>
                 <div class="charaStatus tac">
-                    <div class="charaSttElm" id="currentChain">2連勝</div>
-                    <div class="charaSttElm" id="currentWin">10勝</div>
+                    <div class="charaSttElm" id="currentChain">0連勝</div>
+                    <div class="charaSttElm" id="currentWin">0勝</div>
                     <div class="charaSttElm" id="currentBattleNum">0回</div>
-                    <div class="charaSttElm" id="currentCoin">100</div>
+                    <div class="charaSttElm" id="currentCoin">100000000枚</div>
                 </div>
             </div>
         </div>
@@ -56,7 +61,7 @@
                 <li>最初にコインをかけ、予想に成功すれば賭けたコインが増えていきます。連勝するほど多くコインがもらえます。（倍率＝連勝数+1）</li>
                 <li>カードプールには1~10のカードがそれぞれ4枚ずつ存在しています。</li>
                 <li>カードをめくる→ハイ、ローを選択→カードをめくる→ハイ、ローを選択、、、といった流れでゲームが進んでいきますが、負けた場合は賭けコインが0になります。</li>
-                <li>持ちコインが20億枚まで到達する、またはカードが残り0枚になるとゲームが終了します。</li>
+                <li>持ちコインが1億枚まで到達する、またはカードが残り0枚になるとゲームが終了します。</li>
                 <li>コインの払い戻しができる（手元に戻せる）のは、3連勝してからとなります。払い戻しをした場合、連勝数とカードプールの状態はリセットされます。</li>
                 <li>（持ちコイン÷勝負数）でランキング機能を実装する予定です。</li>
             </ul>
