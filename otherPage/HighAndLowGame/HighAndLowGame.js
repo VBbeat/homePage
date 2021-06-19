@@ -231,6 +231,8 @@ function updateBetCoin(gameResult) {
         currentRatio = currentChain + 2;
         betCoinNum *= currentRatio;
 
+        maxChain = Math.max(currentChain, maxChain);
+
     } else if (gameResult == gameResult_lose) {
         // 勝負に負けた場合
         betCoinNum = 0;
@@ -338,6 +340,14 @@ function showResult() {
     // ゲーム終了条件を満たした場合、終了時の処理を行う。
     if (isClearFinishCond()) {
         setFinalSttParam();
+        window.alert("\
+            ゲームクリアです　あなたの最終スコアは以下の通りです\n" +
+            "最大連勝数：" + maxChain + "回\n" +
+            "合計勝利数：" + currentWin + "回\n" +
+            "最終勝負数：" + currentBattleNum + "回\n" +
+            "最終持ちコイン枚数：" + currentCoin + "枚\n" +
+            "コイン獲得率：" + coinGetRate + "\n"
+        );
     }
 
 }
