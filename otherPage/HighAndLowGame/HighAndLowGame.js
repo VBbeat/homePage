@@ -333,7 +333,7 @@ function refund() {
 
     // 連勝数をリセットする
     currentChain = 0;
-    currentRatio = 0;
+    currentRatio = 1;
 
     // カードプールと現在のカードをリセットする
     initcardPool();

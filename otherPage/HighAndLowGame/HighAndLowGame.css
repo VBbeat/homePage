@@ -10,6 +10,10 @@
     border: 2px solid #000000;
 }
 
+#gameArea{
+    display: inline-block;
+}
+
 #cardArea{
     width: 180px;
     height: 240px;
@@ -105,9 +109,7 @@
 }
 
 #howToPlay{
-    position: fixed;
-    top: 5px;
-    left: 5px;
+    display: inline-block;
     width: 35%;
     font-size: 0.8em;
 
@@ -118,12 +120,14 @@
     color: red;
 }
 
+
+
 @media screen and (max-width: 1200px) {
     #howToPlay{
         position: static;
-        width: 50%;
+        width: 95%;
         min-width: 300px;
-        margin: 5px auto;
+        margin: 10px auto 5px;
 
     }
 }
