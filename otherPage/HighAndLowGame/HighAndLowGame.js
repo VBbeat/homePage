@@ -1,19 +1,19 @@
 // 各変数の設定
 currentChoice = 0;
-const choice_no = 0;
-const choice_high = 1;
-const choice_low = 2;
-const choice_equal = 3;
-const choice_string = [
+const CHOICE_NO = 0;
+const CHOICE_HIGH = 1;
+const CHOICE_LOW = 2;
+const CHOICE_EQUAL = 3;
+const CHOICE_STRING_LIST = [
     "　　",
     "ハイ",
     "ロー",
     "イコール"
 ];
 
-const gameResult_win = 1;
-const gameResult_lose = 2;
-const gameResult_equal = 3;
+const GAMERESULT_WIN = 1;
+const GAMERESULT_LOSE = 2;
+const GAMERESULT_EQUAL = 3;
 
 currentChain = 0;
 maxChain = 0;
@@ -27,19 +27,20 @@ newNumber = "";
 betCoinNum = 0;
 betCoinMin = 1;
 betCoinMax = 100;
-const canRefundWinNum = 3;
+const CAN_REFUND_WIN_NUM = 3;
 
 cardPool = [];
-const eachCardNum = 4;
-const maxCardNumber = 10;
-cardTotal = eachCardNum * maxCardNumber;
+const EACH_CARD_NUM = 4;
+const MAX_CARD_VALUE = 10;
+cardTotal = EACH_CARD_NUM * MAX_CARD_VALUE;
 currentNumber = -1;
 
 battleResult = 0;
 gameOverFlg = false;
+gameClearFlg = false;
 restartGameFlg = false;
 
-const maxCoinNum = 100000000;
+const MAX_COIN_NUM = 100000000;
 
 // 最終ステータスパラメータ
 finalStateParam = {
@@ -78,6 +79,7 @@ function initAll() {
     betCoinNum = 0;
     battleResult = 0;
     gameOverFlg = false;
+    gameClearFlg = false;
 
     // カードプールの初期化
     initcardPool();
@@ -88,7 +90,8 @@ function initAll() {
     setValue("currentWin", currentWin + "勝");
     setValue("currentBattleNum", currentBattleNum + "回");
     setValue("currentCoin", currentCoin + "枚");
-    setChoice(choice_no);
+    setChoice(CHOICE_NO);
+
     setValue("cardTotal", cardTotal + "枚");
 
 }
@@ -97,10 +100,10 @@ function initAll() {
  * カードプールの初期化
  */
 function initcardPool() {
-    for (var number = 0; number < maxCardNumber; number++) {
-        cardPool[number] = eachCardNum;
+    for (var number = 0; number < MAX_CARD_VALUE; number++) {
+        cardPool[number] = EACH_CARD_NUM;
     }
-    cardTotal = eachCardNum * maxCardNumber;
+    cardTotal = EACH_CARD_NUM * MAX_CARD_VALUE;
 }
 
 /**
@@ -119,13 +122,13 @@ function setValue(id, value) {
  */
 function setChoice(choiceNum) {
 
-    if (showGameOver() == 0) {
-        // ゲームオーバーの場合、何もせず終了する
+    if (showGameOver() != 1) {
+        // ゲームオーバーまたはゲームクリアの場合、何もせず終了する
         return;
     }
 
     currentChoice = choiceNum;
-    setValue("choice", choice_string[choiceNum]);
+    setValue("choice", CHOICE_STRING_LIST[choiceNum]);
 }
 
 /**
@@ -140,7 +143,7 @@ function setNewCard() {
     }
 
     settableNumber = [];
-    for (var i = 0; i < maxCardNumber; i++) {
+    for (var i = 0; i < MAX_CARD_VALUE; i++) {
         if (cardPool[i] > 0) {
             settableNumber.push(i);
         }
@@ -164,8 +167,8 @@ function setNewCard() {
 
 function betCoin() {
 
-    if (showGameOver() == 0) {
-        // ゲームオーバーの場合、何もせず終了する
+    if (showGameOver() != 1) {
+        // ゲームオーバーまたはゲームクリアの場合、何もせず終了する
         return;
     }
 
@@ -173,6 +176,7 @@ function betCoin() {
         // 勝負中にコインを賭けようとした場合
         // アラートを表示し終了する
         window.alert("勝負中なのでコインを賭けられません");
+        return;
     }
 
     // 入力ダイアログを表示、賭けコイン枚数を入力
@@ -210,11 +214,11 @@ function betCoin() {
  */
 function judge() {
     if (newNumber > currentNumber) {
-        return choice_high;
+        return CHOICE_HIGH;
     } else if (newNumber < currentNumber) {
-        return choice_low;
+        return CHOICE_LOW;
     } else if (newNumber == currentNumber) {
-        return choice_equal;
+        return CHOICE_EQUAL;
     }
 
     return 0;
@@ -225,15 +229,15 @@ function judge() {
  * @param gameResult 1: 勝ち 2: 負け
  */
 function updateBetCoin(gameResult) {
-    if (gameResult == gameResult_win) {
+    if (gameResult == GAMERESULT_WIN) {
         // 勝負に勝った場合
+        betCoinNum *= currentRatio;
         currentChain += 1;
         currentRatio = currentChain + 2;
-        betCoinNum *= currentRatio;
 
         maxChain = Math.max(currentChain, maxChain);
 
-    } else if (gameResult == gameResult_lose) {
+    } else if (gameResult == GAMERESULT_LOSE) {
         // 勝負に負けた場合
         betCoinNum = 0;
         currentRatio = 2;
@@ -262,9 +266,10 @@ function setFirstCard() {
  * @returns 3 引き分け
  */
 function runGame() {
-    if (gameOverFlg) {
+    if (gameOverFlg || gameClearFlg) {
         window.alert("ゲームを再開します");
         gameOverFlg = false;
+        gamgeClearFlg = false;
         restartGameFlg = true;
         initAll();
         return;
@@ -284,7 +289,7 @@ function runGame() {
     }
 
     // ハイ,ローの選択がされていない場合
-    if (currentChoice == choice_no) {
+    if (currentChoice == CHOICE_NO) {
         window.alert("ハイかローを選択してください");
         return;
     }
@@ -315,23 +320,23 @@ function showResult() {
         return;
     }
 
-    if (battleResult == gameResult_equal) {
+    if (battleResult == GAMERESULT_EQUAL) {
         // 引き分けだった場合
-        updateBetCoin(gameResult_equal);
+        updateBetCoin(GAMERESULT_EQUAL);
         window.alert("引き分けです");
     } else if (battleResult == currentChoice) {
         // 勝利した場合
-        updateBetCoin(gameResult_win);
+        updateBetCoin(GAMERESULT_WIN);
         window.alert("あなたの勝ちです");
         currentWin++;
     } else if (battleResult != currentChoice) {
         // 負けた場合
-        updateBetCoin(gameResult_lose);
+        updateBetCoin(GAMERESULT_LOSE);
         window.alert("あなたの負けです");
     }
 
     // 各値の更新を行う
-    setChoice(choice_no);
+    setChoice(CHOICE_NO);
     setValue("ratio", betCoinNum + "(×" + Math.floor(currentRatio) + ")");
     setValue("currentChain", currentChain + "回");
     setValue("currentCoin", currentCoin + "枚");
@@ -340,8 +345,8 @@ function showResult() {
     // ゲーム終了条件を満たした場合、終了時の処理を行う。
     if (isClearFinishCond()) {
         setFinalSttParam();
-        window.alert("\
-            ゲームクリアです　あなたの最終スコアは以下の通りです\n" +
+        window.alert(
+            "ゲームクリアです　あなたの最終スコアは以下の通りです\n" +
             "最大連勝数：" + maxChain + "回\n" +
             "合計勝利数：" + currentWin + "回\n" +
             "最終勝負数：" + currentBattleNum + "回\n" +
@@ -357,14 +362,14 @@ function showResult() {
  */
 
 function refund() {
-    if (showGameOver() == 0) {
-        // ゲームオーバーの場合、何もせず終了する
+    if (showGameOver() != 1) {
+        // ゲームオーバーまたはゲームクリアの場合、何もせず終了する
         return;
     }
 
-    if (currentChain < canRefundWinNum) {
+    if (currentChain < CAN_REFUND_WIN_NUM) {
         // 連勝数が規定回数未満の場合
-        window.alert("連勝数が" + canRefundWinNum + "回未満です。");
+        window.alert("連勝数が" + CAN_REFUND_WIN_NUM + "回未満です。");
         return;
     }
 
@@ -382,23 +387,39 @@ function refund() {
     setValue("currentNumber", "");
 
     // 各値の更新を行う
-    setChoice(choice_no);
+    setChoice(CHOICE_NO);
     setValue("ratio", betCoinNum + "(×" + currentRatio + ")");
     setValue("currentChain", currentChain + "回");
     setValue("currentCoin", currentCoin + "枚");
 
+    // ゲーム終了条件を満たした場合、終了時の処理を行う。
+    if (isClearFinishCond()) {
+        setFinalSttParam();
+        window.alert(
+            "ゲームクリアです　あなたの最終スコアは以下の通りです\n" +
+            "最大連勝数：" + maxChain + "回\n" +
+            "合計勝利数：" + currentWin + "回\n" +
+            "最終勝負数：" + currentBattleNum + "回\n" +
+            "最終持ちコイン枚数：" + currentCoin + "枚\n" +
+            "コイン獲得率：" + coinGetRate + "\n"
+        );
+    }
 }
 
 /**
  * コインがない場合のアラートを表示する。
  * @returns 0 ゲームオーバー
  * @returns 1 ゲーム継続中
+ * @returns 2 ゲームクリア
  */
 
 function showGameOver() {
     if (gameOverFlg) {
         window.alert("ゲームオーバーです 再開する場合はカードをめくってください");
         return 0;
+    } else if (gameClearFlg) {
+        window.alert("ゲームクリアです 再開する場合はカードをめくってください");
+        return 2;
     } else {
         return 1;
     }
@@ -418,10 +439,12 @@ function isClearFinishCond() {
         isFinish = true;
     }
 
-    if (currentCoin >= maxCoinNum) {
+    if (currentCoin >= MAX_COIN_NUM) {
         // コイン枚数が上限を超えた場合
         isFinish = true;
     }
+
+    gameClearFlg = isFinish;
 
     return isFinish;
 }
