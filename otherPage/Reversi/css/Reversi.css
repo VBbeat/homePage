@@ -5,13 +5,14 @@
 
 #puzzleGroupArea{
     margin: 0 auto;
-    padding: 0;
+    padding: 10px;
     width: 400px;
 }
 
 #puzzleGroupArea table{
     margin: 0 auto;
     border-spacing: 0;
+    border: 1px solid #000000;
 }
 
 #puzzleGroupArea td{
