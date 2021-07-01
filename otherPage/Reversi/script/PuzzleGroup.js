@@ -1,9 +1,9 @@
 
 document.write('<table>');
-for (var i = 0; i < PUZZLE_ROW; i++) {
+for (var row = 0; row < BOARD_ROW; row++) {
     document.write('<tr>');
-    for (var j = 0; j < PUZZLE_COL; j++) {
-        document.writeln('<td id="puzzle' + i + '_' + j + '"></td>');
+    for (var col = 0; col < BOARD_COL; col++) {
+        document.writeln('<td id="board' + row + '_' + col + '"></td>');
     }
     document.write('</tr>');
 }
