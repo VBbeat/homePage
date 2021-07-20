@@ -3,10 +3,15 @@
     padding: 5px;
 }
 
+#currentColorArea{
+    width: 480px;
+    margin: 0 auto;
+}
+
 #puzzleGroupArea{
     margin: 0 auto;
     padding: 10px;
-    width: 400px;
+    width: 480px;
 }
 
 #puzzleGroupArea table{
@@ -17,7 +22,10 @@
 
 #puzzleGroupArea td{
     background-color: green;
-    width: 50px;
-    height: 50px;
+    width: 60px;
+    height: 60px;
     border: 1px solid #000000;
+    text-align: center;
+    font-size: 2.2em;
+    padding: 0px;
 }

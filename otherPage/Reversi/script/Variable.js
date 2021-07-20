@@ -7,13 +7,15 @@ const STATE_WHITE = 1;
 const STATE_BLACK = -1;
 const STATE_EMPTY = 0;
 
-// ボードに表示する文字を表す変数
-const BOARD_CHAR = {
-    "WHITE": "●",
-    "BLACK": "○",
-    "EMPTY": " "
+// 黒白の色の定義
+const STONE_COLOR = {
+    "1": "#FFFFFF",
+    "-1": "#000000"
 };
 
 // ボードそのものを表す変数
 var boardState = [];
 var boardState_new = [];
+
+// 現在の手番
+var currentColor;
