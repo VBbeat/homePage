@@ -6,20 +6,24 @@
     text-align: left;
 }
 
+/* デバッグ用黒枠 */
 .debug{
     border: 2px solid #000000;
 }
 
+/* タイトル */
 h1{
     margin: 5px;
     text-align: center;
 }
 
+/* タイトル直下の小文字 */
 h3{
     margin: 5px;
     text-align: center;
 }
 
+/* 点線で囲む */
 .contentArea{
     box-sizing: border-box;
     border: 2px dashed #22AA22;
