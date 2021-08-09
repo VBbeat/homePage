@@ -61,9 +61,16 @@ function setValue(id, value) {
  * 指定した位置に現在の色の石を置く
  * @param col 石の列 
  * @param row 石の行
- * @param color 石の色
+ * @param isReverse 周りの石をひっくり返すかどうか
  */
-function putStone(col, row, color
-) {
+function putStone(col, row, isReverse) {
 
+    if (isReverse) {
+        // 石を直接置く場合
+        if (boardState[row][col] == STATE_CANPUT) {
+            // その座標に石が置ける場合
+            boardState_new[row][col] = currentColor;
+
+        }
+    }
 }

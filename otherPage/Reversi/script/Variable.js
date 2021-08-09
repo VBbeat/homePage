@@ -6,6 +6,7 @@ const BOARD_ROW = 8;
 const STATE_WHITE = 1;
 const STATE_BLACK = -1;
 const STATE_EMPTY = 0;
+const STATE_CANPUT = 10;
 
 // 黒白の色の定義
 const STONE_COLOR = {
