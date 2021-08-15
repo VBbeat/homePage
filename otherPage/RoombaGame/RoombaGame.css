@@ -1,3 +1,16 @@
+#fieldArea{
+    width: 60%;
+    min-width: 350px;
+}
+
 table{
-    width: auto;
+    width: 20%;
+    height: 20%;
+    border-collapse: collapse;
+    border: 1px solid #000000;
+}
+
+td{
+   border-collapse: collapse;
+   border: 1px solid #000000;
 }
