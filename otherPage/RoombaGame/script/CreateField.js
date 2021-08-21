@@ -8,5 +8,3 @@ for (let i = 0; i < FIELD_ROW; i++) {
     document.writeln("</tr>");
 }
 document.writeln("</table>");
-
-test
