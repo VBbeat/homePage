@@ -18,14 +18,6 @@ class Roomba {
         this.y += vy;
     }
 
-    set x() {
-        return this.x;
-    }
-
-    set y() {
-        return this.y;
-    }
-
 }
 
 /**
@@ -39,6 +31,9 @@ function setField() {
  * 盤面を初期化する
  */
 function initField() {
+    field_masking = [];
+    field_true = [];
 
+    let field_tmp = [];
 }
 
