@@ -11,7 +11,17 @@ class Roomba {
     }
 
     /**
+     * プレイヤーの位置の初期化を行う
+     */
+    init() {
+        this.x = 0;
+        this.y = 0;
+    }
+
+    /**
      * 任意の方向に移動する
+     * @param {int} vx x方向
+     * @param {int} vy y方向
      */
     move(vx, vy) {
         this.x += vx;
@@ -34,6 +44,20 @@ function initField() {
     field_masking = [];
     field_true = [];
 
-    let field_tmp = [];
+    for (let i = 0; i < FIELD_ROW; i++) {
+        field_masking[i] = [];
+        field_true[i] = [];
+        for (let j = 0; j < FIELD_COL; j++) {
+            field_masking[i][j] = STATE_MASKING;
+            field_true[i][j] = STATE_BLANK;
+        }
+    }
 }
 
+/**
+ * 初期化処理を行う
+ */
+function initGame(roomba) {
+    initField();
+    roomba.init();
+}

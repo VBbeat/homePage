@@ -8,5 +8,8 @@ const STATE_BLOCK = 2;
 const STATE_BOMB = 3;
 const STATE_GOAL = 4;
 
+const STATE_OPEN = 0;
+const STATE_MASKING = 1;
+
 let field_masking = [];
 let field_true = [];
