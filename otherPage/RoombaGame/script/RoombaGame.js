@@ -41,17 +41,18 @@ function setField() {
  * 盤面を初期化する
  */
 function initField() {
-    field_masking = [];
     field_true = [];
 
     for (let i = 0; i < FIELD_ROW; i++) {
-        field_masking[i] = [];
         field_true[i] = [];
         for (let j = 0; j < FIELD_COL; j++) {
-            field_masking[i][j] = STATE_MASKING;
             field_true[i][j] = STATE_BLANK;
         }
     }
+}
+
+function updateGame() {
+
 }
 
 /**
@@ -61,3 +62,4 @@ function initGame(roomba) {
     initField();
     roomba.init();
 }
+
