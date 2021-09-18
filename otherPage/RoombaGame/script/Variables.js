@@ -9,4 +9,7 @@ const STATE_BOMB = 3;
 const STATE_GOAL = 4;
 const STATE_PASSED = 5;
 
+const STRING_ROOMBA = "●";
+const STRING_ROOMBA_COLOR = "#FF0000"
+
 let field_true = [];

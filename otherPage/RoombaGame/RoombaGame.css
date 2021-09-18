@@ -10,14 +10,25 @@
     padding: 5px 0;
 }
 
+#buttonArea button{
+    width: 25%;
+    height: 35px;
+    margin: 2px;
+}
+
 table{
     width: 350px;
     height: 350px;
     margin: 0 auto;
     border-collapse: collapse;
+    table-layout: fixed;
 }
 
 td{
    border-collapse: collapse;
    border: 2px solid #000000;
+   width: 50px;
+   height: 50px;
+   font-size: 32px;
+   padding: 0;
 }

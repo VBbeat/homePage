@@ -51,16 +51,16 @@ function initField() {
     }
 }
 
-
-function updateGame() {
-
-}
-
 /**
  * 初期化処理を行う
  */
-function initGame(roomba) {
+function initGame() {
     initField();
+    let roomba = new Roomba();
     roomba.init();
+    setTableValue(roomba.y, roomba.x, "gameField", STRING_ROOMBA);
+    setTableColor(roomba.y, roomba.x, "gameField", STRING_ROOMBA_COLOR);
 }
 
+
+initGame();
