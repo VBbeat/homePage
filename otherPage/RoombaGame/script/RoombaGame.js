@@ -51,6 +51,7 @@ function initField() {
     }
 }
 
+
 function updateGame() {
 
 }
