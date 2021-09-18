@@ -31,3 +31,9 @@ function setTableColor(row, col, tableId, color){
     let cell = tableElm.rows[row].cells[col];
     cell.style.color = color;
 }
+
+function setTableBg(row, col, tableId, color){
+    let tableElm = document.getElementById(tableId);
+    let cell = tableElm.rows[row].cells[col];
+    cell.style.background = color;
+}
