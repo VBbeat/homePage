@@ -5,27 +5,27 @@
 </head>
 
 <body>
-    <div>タイトルのブロック
+    <div>
         <h1>反転パズル</h1>
         <h3>ver 1.0</h3>
-    </div>タイトルのブロック
-    <div>点線で囲まれたブロック
+    </div>
+    <div class="contentArea">
         <div>パズル全体のブロック
-            <table>
+            <table class="puzzleArea">
                 <tr>
-                    <td>パズル単体</td>
-                    <td>パズル単体</td>
-                    <td>パズル単体</td>
+                    <td id="1_1" onclick="reversePuzzle(1, 1)"></td>
+                    <td id="1_2" onclick="reversePuzzle(2, 1)"></td>
+                    <td id="1_3" onclick="reversePuzzle(3, 1)"></td>
                 </tr>
                 <tr>
-                    <td>パズル単体</td>
-                    <td>パズル単体</td>
-                    <td>パズル単体</td>
+                    <td id="2_1" onclick="reversePuzzle(1, 2)"></td>
+                    <td id="2_2" onclick="reversePuzzle(2, 2)"></td>
+                    <td id="2_3" onclick="reversePuzzle(3, 2)"></td>
                 </tr>
                 <tr>
-                    <td>パズル単体</td>
-                    <td>パズル単体</td>
-                    <td>パズル単体</td>
+                    <td id="3_1" onclick="reversePuzzle(1, 3)"></td>
+                    <td id="3_2" onclick="reversePuzzle(2, 3)"></td>
+                    <td id="3_3" onclick="reversePuzzle(3, 3)"></td>
                 </tr>
             </table>
         </div>パズル全体のブロック
@@ -33,7 +33,7 @@
             <div>経過時間：<span>XXX</span>秒</div>
             <div>反転回数：<span>XXX</span>回</div>
         </div>各パラメータ表示ブロック
-    </div>点線で囲まれたブロック
+    </div>
 
     <div>点線で囲まれたブロック
         <h2>遊び方</h2>
