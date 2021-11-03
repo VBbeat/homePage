@@ -1,7 +1,15 @@
 /**
  * ゲームを開始する
  */
-function startGame(){
+function startGame() {
+
+    if (gameStartFlg) {
+        // ゲーム中の場合
+
+        // 処理を終了する
+        return;
+    }
+
     gameStartTime_ms = (new Date()).getTime();
     gameStartFlg = true;
     currentReverseNum = 0;
@@ -17,8 +25,8 @@ function startGame(){
  * @param col 行
  * @param row 列
  */
-function doReversePuzzle(col, row) { 
-    if(!gameStartFlg){
+function doReversePuzzle(col, row) {
+    if (!gameStartFlg) {
         // ゲームが始まっていない場合
 
         // 終了する
@@ -41,15 +49,18 @@ function doReversePuzzle(col, row) {
 /**
  * ゲームクリア時にダイアログを表示する
  */
-function showResultDialog(){
+function showResultDialog() {
 
-    if(puzzle.checkGroupState()){
-        // パズルが揃っている場合、クリア時のダイアログを表示する
+    if (puzzle.checkGroupState()) {
+        // パズルが揃っている場合
+
+        // ゲーム開始フラグをfalseにする
+        gameStartFlg = false;
 
         // ゲームクリア時の時刻を取得し、ゲームのプレイ時間を計算する（秒）
         gameEndTime_ms = (new Date()).getTime();
         var gameTime_sec = (gameEndTime_ms - gameStartTime_ms) / 1000;
-        
+
         // ゲームクリア時のメッセージを生成する
         var clearString =
             'ゲームクリア！ \n' +
@@ -64,11 +75,11 @@ function showResultDialog(){
 /**
  * 画面の状態をを更新する
  */
-function updateHtml(){
-    for(var i = 0; i < PUZZLE_ROW; i++){
-        for(var j = 0; j < PUZZLE_COL; j++){
+function updateHtml() {
+    for (var i = 0; i < PUZZLE_ROW; i++) {
+        for (var j = 0; j < PUZZLE_COL; j++) {
 
-            switch(puzzle.puzzleGroup[i][j]){
+            switch (puzzle.puzzleGroup[i][j]) {
                 case 0:
                     // パズルの状態が裏の場合
 
