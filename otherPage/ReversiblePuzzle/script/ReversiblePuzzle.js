@@ -17,6 +17,8 @@ function startGame() {
     puzzle = new Puzzle();
     puzzle.initPuzzle();
 
+    puzzle.setRandomReversePuzzle(3);
+
     updateHtml();
 }
 
