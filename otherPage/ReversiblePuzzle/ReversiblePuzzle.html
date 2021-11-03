@@ -2,6 +2,7 @@
 
 <head>
     <link rel="stylesheet" href="../common.css">
+    <link rel="stylesheet" href="ReversiblePuzzle.css">
 </head>
 
 <body>
@@ -10,40 +11,32 @@
         <h3>ver 1.0</h3>
     </div>
     <div class="contentArea">
-        <div>パズル全体のブロック
-            <table class="puzzleArea">
+        <div id="puzzleArea">
+            <table>
                 <tr>
-                    <td id="1_1" onclick="reversePuzzle(1, 1)"></td>
-                    <td id="1_2" onclick="reversePuzzle(2, 1)"></td>
-                    <td id="1_3" onclick="reversePuzzle(3, 1)"></td>
+                    <td id="1_1" onclick="doReversePuzzle(1, 1)"></td>
+                    <td id="1_2" onclick="doReversePuzzle(2, 1)"></td>
+                    <td id="1_3" onclick="doReversePuzzle(3, 1)"></td>
                 </tr>
                 <tr>
-                    <td id="2_1" onclick="reversePuzzle(1, 2)"></td>
-                    <td id="2_2" onclick="reversePuzzle(2, 2)"></td>
-                    <td id="2_3" onclick="reversePuzzle(3, 2)"></td>
+                    <td id="2_1" onclick="doReversePuzzle(1, 2)"></td>
+                    <td id="2_2" onclick="doReversePuzzle(2, 2)"></td>
+                    <td id="2_3" onclick="doReversePuzzle(3, 2)"></td>
                 </tr>
                 <tr>
-                    <td id="3_1" onclick="reversePuzzle(1, 3)"></td>
-                    <td id="3_2" onclick="reversePuzzle(2, 3)"></td>
-                    <td id="3_3" onclick="reversePuzzle(3, 3)"></td>
+                    <td id="3_1" onclick="doReversePuzzle(1, 3)"></td>
+                    <td id="3_2" onclick="doReversePuzzle(2, 3)"></td>
+                    <td id="3_3" onclick="doReversePuzzle(3, 3)"></td>
                 </tr>
             </table>
-        </div>パズル全体のブロック
-        <div>各パラメータ表示ブロック
-            <div>経過時間：<span>XXX</span>秒</div>
-            <div>反転回数：<span>XXX</span>回</div>
-        </div>各パラメータ表示ブロック
+        </div>
+        <div class="doubleBorderArea" id="paramaterArea">
+            <div class="tac">反転回数：<span>XXX</span>回</div>
+        </div>
+        <div id="startButton" class="commonButton tac" onclick="startGame()">
+            スタート
+        </div>
     </div>
-
-    <div>点線で囲まれたブロック
-        <h2>遊び方</h2>
-        <ul>
-            <li>説明</li>
-            <li>説明</li>
-            ・・・
-        </ul>
-    </div>点線で囲まれたブロック
-
     <script type="text/javascript" src="script/ReversiblePuzzle.js"></script>
 </body>
 

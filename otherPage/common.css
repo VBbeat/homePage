@@ -28,3 +28,25 @@ h3{
     box-sizing: border-box;
     border: 2px dashed #22AA22;
 }
+
+/* 二重線で囲む */
+.doubleBorderArea{
+    box-sizing: border-box;
+    border: double 5px #003300;
+    background-color: #DDFFDD;
+}
+
+/* ボタン */
+.commonButton{
+    margin: 2px;
+    border: 2px solid #004E00;
+    color: #004E00;
+    background-color: #FFFFFF;
+    font-weight: 600;
+}
+
+/* ボタン hover */
+.commonButton:hover{
+    color: #FFFFFF;
+    background-color: #004E00;
+}

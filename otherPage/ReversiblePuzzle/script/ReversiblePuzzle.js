@@ -1,3 +1,8 @@
+function startGame(){
+    gameStartTime_ms = (new Date()).getTime();
+    gameStartFlg = true;
+}
+
 /**
  * Puzzle.reversePuzzle(col, row)を呼び出す
  * @param col 行
