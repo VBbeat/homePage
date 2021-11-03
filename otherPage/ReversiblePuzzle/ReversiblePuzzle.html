@@ -14,29 +14,70 @@
         <div id="puzzleArea">
             <table>
                 <tr>
+                    <td id="0_0" onclick="doReversePuzzle(0, 0)"></td>
+                    <td id="0_1" onclick="doReversePuzzle(1, 0)"></td>
+                    <td id="0_2" onclick="doReversePuzzle(2, 0)"></td>
+                </tr>
+                <tr>
+                    <td id="1_0" onclick="doReversePuzzle(0, 1)"></td>
                     <td id="1_1" onclick="doReversePuzzle(1, 1)"></td>
                     <td id="1_2" onclick="doReversePuzzle(2, 1)"></td>
-                    <td id="1_3" onclick="doReversePuzzle(3, 1)"></td>
                 </tr>
                 <tr>
+                    <td id="2_0" onclick="doReversePuzzle(0, 2)"></td>
                     <td id="2_1" onclick="doReversePuzzle(1, 2)"></td>
                     <td id="2_2" onclick="doReversePuzzle(2, 2)"></td>
-                    <td id="2_3" onclick="doReversePuzzle(3, 2)"></td>
-                </tr>
-                <tr>
-                    <td id="3_1" onclick="doReversePuzzle(1, 3)"></td>
-                    <td id="3_2" onclick="doReversePuzzle(2, 3)"></td>
-                    <td id="3_3" onclick="doReversePuzzle(3, 3)"></td>
                 </tr>
             </table>
         </div>
         <div class="doubleBorderArea" id="paramaterArea">
-            <div class="tac">反転回数：<span>XXX</span>回</div>
+            <div class="tac">反転回数：<span id="reverseNum">0</span>回</div>
         </div>
         <div id="startButton" class="commonButton tac" onclick="startGame()">
             スタート
         </div>
+        <div class="doubleBorderArea rankArea tac">
+            <div>ランキング（自分）</div>
+            <table>
+                <tr>
+                    <td>1位</td>
+                    <td>経過時間：<span id="rank_player_1_time">0</span>秒</td>
+                    <td>反転回数：<span id="rank_player_1_revNum">0</span>回</td>
+                </tr>
+                <tr>
+                    <td>2位</td>
+                    <td>経過時間：<span id="rank_player_2_time">0</span>秒</td>
+                    <td>反転回数：<span id="rank_player_2_revNum">0</span>回</td>
+                </tr>
+                <tr>
+                    <td>3位</td>
+                    <td>経過時間：<span id="rank_player_3_time">0</span>秒</td>
+                    <td>反転回数：<span id="rank_player_3_revNum">0</span>回</td>
+                </tr>
+            </table>
+            <div>ランキング（オンライン）</div>
+            <table>
+                <tr>
+                    <td>1位</td>
+                    <td>経過時間：<span id="rank_online_1_time">0</span>秒</td>
+                    <td>反転回数：<span id="rank_online_1_revNum">0</span>回</td>
+                </tr>
+                <tr>
+                    <td>2位</td>
+                    <td>経過時間：<span id="rank_online_2_time">0</span>秒</td>
+                    <td>反転回数：<span id="rank_online_2_revNum">0</span>回</td>
+                </tr>
+                <tr>
+                    <td>3位</td>
+                    <td>経過時間：<span id="rank_online_3_time">0</span>秒</td>
+                    <td>反転回数：<span id="rank_online_3_revNum">0</span>回</td>
+                </tr>
+            </table>
+        </div>
     </div>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js"></script>
+    <script type="text/javascript" src="script/Variable.js"></script>
+    <script type="text/javascript" src="script/PuzzleLogic.js"></script>
     <script type="text/javascript" src="script/ReversiblePuzzle.js"></script>
 </body>
 

@@ -1,9 +1,11 @@
-td{
+#puzzleArea td{
     border: 2px solid #003300;
+    background-color: #DDFFDD;
 }
 
 .contentArea{
     margin: 5px;
+    padding: 5px;
 }
 
 #puzzleArea table{
@@ -26,4 +28,15 @@ td{
     width: 300px;
     margin: 5px auto;
     box-sizing: border-box;
+}
+
+.rankArea{
+    width: 100%;
+    margin: 5px auto;
+    padding-top: 10px;
+}
+
+.rankArea table{
+    margin: 5px auto;
+    padding-bottom: 10px;
 }
