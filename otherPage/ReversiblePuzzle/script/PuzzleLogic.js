@@ -1,7 +1,13 @@
 class Puzzle {
     // コンストラクタ
-    constructor() {
+    constructor(mode) {
         this.puzzleGroup = [];
+
+        // 難易度いじげんフラグ
+        this.superHardFlg = mode == 3 ? true : false;
+
+        // パズル状態数
+        this.puzzleStateNum = this.superHardFlg ? 3 : 2;
     }
 
     /**
@@ -17,20 +23,32 @@ class Puzzle {
     }
 
     /**
-     * 
+     * パズルの状態をランダムに変化させる
      * @param reverseNum 反転する個数（1~パズル個数-1）
      */
     setRandomReversePuzzle(reverseNum) {
         for (var i = 0; i < reverseNum; i++) {
             do {
                 // ランダムな数を生成する
-                var rndNum = Math.floor(Math.random() * (PUZZLE_COL * PUZZLE_ROW))
+                var rndNum = Math.floor(Math.random() * (PUZZLE_COL * PUZZLE_ROW));
 
                 var row = Math.floor(rndNum / 3);
                 var col = Math.floor(rndNum % 3);
-            } while (this.puzzleGroup[row][col] == 1);
+
+            } while (this.puzzleGroup[row][col] != 0);
 
             this.puzzleGroup[row][col] = 1;
+
+            if (this.superHardFlg) {
+                // 難易度いじげんの場合
+
+                // 50%の確率でニュートラルにする
+                var rndNum = Math.random();
+
+                if (rndNum < 0.5) {
+                    this.puzzleGroup[row][col] = 2;
+                }
+            }
 
         }
     }
@@ -44,7 +62,7 @@ class Puzzle {
         for (var i = 0; i < PUZZLE_ROW; i++) {
             for (var j = 0; j < PUZZLE_COL; j++) {
 
-                if (this.puzzleGroup[i][j] == 0) {
+                if (this.puzzleGroup[i][j] != 1) {
                     // 一つでも揃っていない場合、falseを返す
                     return false;
                 }
@@ -56,17 +74,18 @@ class Puzzle {
     }
 
     /**
-     * 指定の位置のパズルを反転させる、隣のパズルも反転させる
+     * 指定の位置のパズルを変化させる、隣のパズルも変化させる
      * @param col 列
      * @param row 行
-     * @param rvsNxtPzlFlg 隣のパズルを反転させるフラグ
+     * @param rvsNxtPzlFlg 隣のパズルを変化させるフラグ
      */
     reversePuzzle(col, row, rvsNxtPzlFlg) {
-        // 該当するパズルの状態を反転させる
-        this.puzzleGroup[row][col] = (this.puzzleGroup[row][col] + 1) % 2;
+
+        // 該当するパズルの状態を変化させる
+        this.puzzleGroup[row][col] = (this.puzzleGroup[row][col] + 1) % this.puzzleStateNum;
 
         if (rvsNxtPzlFlg) {
-            // 隣のパズルも反転させる場合
+            // 隣のパズルも変化させる場合
 
             for (var i = -1; i <= 1; i++) {
                 if (row + i < 0 || row + i >= PUZZLE_ROW) {

@@ -24,7 +24,7 @@
     box-sizing: border-box;
 }
 
-#startButton{
+.startButton{
     width: 300px;
     margin: 5px auto;
     box-sizing: border-box;
@@ -39,4 +39,17 @@
 .rankArea table{
     margin: 5px auto;
     padding-bottom: 10px;
+}
+
+#superHard{
+    border: 2px solid #800080;
+    color: #800080;
+    background-color: #FFC1FF;
+    font-weight: 600;
+    margin: 5px auto;
+}
+
+#superHard:hover{
+    color: #FFC1FF;
+    background-color: #800080;
 }

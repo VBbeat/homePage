@@ -1,7 +1,8 @@
 /**
  * ゲームを開始する
+ * @param mode 難易度 0:かんたん 1:ふつう 2:むずかしい 3:いじげん
  */
-function startGame() {
+function startGame(mode) {
 
     if (gameStartFlg) {
         // ゲーム中の場合
@@ -10,16 +11,63 @@ function startGame() {
         return;
     }
 
-    gameStartTime_ms = (new Date()).getTime();
+    // ゲーム開始フラグをオンにする
     gameStartFlg = true;
+
+    // 反転回数を初期化する
     currentReverseNum = 0;
 
-    puzzle = new Puzzle();
+    // パズルを生成する
+    puzzle = new Puzzle(mode);
     puzzle.initPuzzle();
 
-    puzzle.setRandomReversePuzzle(3);
+    switch (mode) {
+        case 0:
+            // 難易度かんたんの場合
 
+            // プレイ済フラグをオンにする
+            clearEasyFlg = true;
+
+            // 全て裏の状態で開始する
+            break;
+        case 1:
+            // 難易度普通の場合
+
+            // プレイ済フラグをオンにする
+            clearNormalFlg = true;
+
+            // ランダムでパネルを3つ表にする
+            puzzle.setRandomReversePuzzle(3);
+
+            break;
+        case 2:
+            // 難易度むずかしいの場合
+
+            // プレイ済フラグをオンにする
+            clearHardFlg = true;
+
+            // ランダムで1, 2, 7, 8つのパネルをオンにする
+            var rand = (Math.floor(Math.random() * 4 + 6) % 8) + 1;
+            puzzle.setRandomReversePuzzle(rand);
+
+            break;
+
+        case 3:
+            // 難易度いじげんの場合
+
+            // ランダムで1, 2, 7, 8つのパネルをオンまたはニュートラルにする
+            var rand = (Math.floor(Math.random() * 4 + 6) % 8) + 1;
+            puzzle.setRandomReversePuzzle(rand);
+
+            break;
+    }
+
+
+    // 画面の描画を行う
     updateHtml();
+
+    // ゲームの開始時間を取得する
+    gameStartTime_ms = (new Date()).getTime();
 }
 
 /**
@@ -71,11 +119,22 @@ function showResultDialog() {
 
         // ゲームクリアのダイアログを表示する
         alert(clearString);
+
+        if (clearEasyFlg && clearNormalFlg && clearHardFlg && !openSuperHardModeFlg) {
+
+            // 全ての難易度をプレイした場合、難易度いじげんを開放する
+            document.getElementById("superHard").style.display = "block";
+
+            alert("難易度：いじげん　が解放されました。")
+
+            openSuperHardModeFlg = true;
+
+        }
     }
 }
 
 /**
- * 画面の状態をを更新する
+ * 画面の状態を更新する
  */
 function updateHtml() {
     for (var i = 0; i < PUZZLE_ROW; i++) {
@@ -95,6 +154,13 @@ function updateHtml() {
 
                     // パズルの色を変更する
                     document.getElementById(i + "_" + j).style.backgroundColor = PUZZLE_COLOR_TRUE;
+
+                    break;
+                case 2:
+                    // パズルの状態がニュートラルの場合
+
+                    // パズルの色を変更する
+                    document.getElementById(i + "_" + j).style.backgroundColor = PUZZLE_COLOR_NEUTRAL;
 
                     break;
             }

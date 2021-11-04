@@ -34,44 +34,31 @@
         <div class="doubleBorderArea" id="paramaterArea">
             <div class="tac">反転回数：<span id="reverseNum">0</span>回</div>
         </div>
-        <div id="startButton" class="commonButton tac" onclick="startGame()">
-            スタート
+        <div class="commonButton startButton tac" onclick="startGame(0)">
+            スタート（かんたん）
+        </div>
+        <div class="commonButton startButton tac" onclick="startGame(1)">
+            スタート（ふつう）
+        </div>
+        <div class="commonButton startButton tac" onclick="startGame(2)">
+            スタート（むずかしい）
+        </div>
+        <div id="superHard" class="commonButton startButton tac hidden" onclick="startGame(3)">
+            スタート（いじげん）
         </div>
         <div class="doubleBorderArea rankArea tac">
-            <div>ランキング（自分）</div>
+            <div>１位のスコア（自分）</div>
             <table>
                 <tr>
-                    <td>1位</td>
                     <td>経過時間：<span id="rank_player_1_time">0</span>秒</td>
                     <td>反転回数：<span id="rank_player_1_revNum">0</span>回</td>
                 </tr>
-                <tr>
-                    <td>2位</td>
-                    <td>経過時間：<span id="rank_player_2_time">0</span>秒</td>
-                    <td>反転回数：<span id="rank_player_2_revNum">0</span>回</td>
-                </tr>
-                <tr>
-                    <td>3位</td>
-                    <td>経過時間：<span id="rank_player_3_time">0</span>秒</td>
-                    <td>反転回数：<span id="rank_player_3_revNum">0</span>回</td>
-                </tr>
             </table>
-            <div>ランキング（オンライン）</div>
+            <div>１位のスコア（オンライン）</div>
             <table>
                 <tr>
-                    <td>1位</td>
                     <td>経過時間：<span id="rank_online_1_time">0</span>秒</td>
                     <td>反転回数：<span id="rank_online_1_revNum">0</span>回</td>
-                </tr>
-                <tr>
-                    <td>2位</td>
-                    <td>経過時間：<span id="rank_online_2_time">0</span>秒</td>
-                    <td>反転回数：<span id="rank_online_2_revNum">0</span>回</td>
-                </tr>
-                <tr>
-                    <td>3位</td>
-                    <td>経過時間：<span id="rank_online_3_time">0</span>秒</td>
-                    <td>反転回数：<span id="rank_online_3_revNum">0</span>回</td>
                 </tr>
             </table>
         </div>
