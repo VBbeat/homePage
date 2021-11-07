@@ -16,9 +16,3 @@ var clearHardFlg;
 var openSuperHardModeFlg;
 
 var puzzle;
-
-var scoreRankObj_player =
-{
-    time: 0,
-    revNum: 0
-};
