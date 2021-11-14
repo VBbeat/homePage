@@ -100,6 +100,7 @@
                                 <option value="game" <?php if(isset($_SESSION["postCategory"]) && $_SESSION["postCategory"]==="game")echo 'selected' ?>><label>Game</label></option>
                                 <option value="illust" <?php if(isset($_SESSION["postCategory"]) && $_SESSION["postCategory"]==="illust")echo 'selected' ?>><label>Illust</label></option>
                                 <option value="novel" <?php if(isset($_SESSION["postCategory"]) && $_SESSION["postCategory"]==="novel")echo 'selected' ?>><label>Novel</label></option>
+                                <option value="tools" <?php if(isset($_SESSION["postCategory"]) && $_SESSION["postCategory"]==="tools")echo 'selected' ?>><label>Tools</label></option>
                                 <option value="information" <?php if(isset($_SESSION["postCategory"]) && $_SESSION["postCategory"]==="information")echo 'selected' ?>><label>Information</label></option>
                             </select>
                         </li>
