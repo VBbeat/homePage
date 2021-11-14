@@ -1,7 +1,5 @@
 /* 初期処理 */
 initMapArray();
-setBlockNum();
-
 
 function setMode(modeId) {
     writeModeId = modeId;
@@ -10,15 +8,6 @@ function setMode(modeId) {
 }
 
 function writeShape() {
-
-    blockNum = 0;
-    initMapArray();
-
-    for (var i = 0; i < MAP_ROWS; i++) {
-        for (var j = 0; j < MAP_COLS; j++) {
-            document.getElementById(i + "_" + j).style.backgroundColor = CELL_COLOR_BLANK;
-        }
-    }
 
     switch (writeModeId) {
         case 0:
@@ -56,20 +45,19 @@ function writeCell(col, row) {
 }
 
 function initMapArray() {
+    blockNum = 0;
     mapArray = [];
     for (var i = 0; i < MAP_ROWS; i++) {
         mapArray.push([]);
         for (var j = 0; j < MAP_COLS; j++) {
             mapArray[i].push(0);
+            document.getElementById(i + "_" + j).style.backgroundColor = CELL_COLOR_BLANK;
         }
     }
+    setBlockNum();
 }
 
 function writeCellDirect(col, row) {
-    if (writeModeId != 3) {
-        return;
-    }
-
     if (mapArray[row][col] == 0) {
         writeCell(col, row);
         mapArray[row][col] = 1;
