@@ -1,0 +1,78 @@
+<html>
+
+<head>
+    <link rel="stylesheet" href="css/CompassStageMakerTool.css" type="text/css">
+    <link rel="stylesheet" href="../common.css" type="text/css">
+    <script type="text/javascript" src="script/Variables.js"></script>
+    <meta charset="utf-8" http-equiv="content-type">
+</head>
+
+<body>
+    <header>
+        <h1>コンパスステージメーカー用ツール</h1>
+        <h3>ver 1.0</h3>
+    </header>
+
+    <div class="contentArea">
+        <table class="ModeButtonArea">
+            <tr>
+                <td>
+                    <div class="commonButton tac" id="mode1" onclick="setMode(0)">
+                        円
+                    </div>
+                </td>
+                <!-- <td>
+                    <div class="commonButton tac" id="mode2" onclick="setMode(1)">
+                        四角形
+                    </div>
+                </td> -->
+                <td>
+                    <div class="commonButton tac" id="mode3" onclick="setMode(2)">
+                        自由描画
+                    </div>
+                </td>
+            </tr>
+        </table>
+        <table class="ModeParamArea">
+            <tr>
+                <td>
+                    <label id="ModeParamLabel1">
+                        幅：
+                    </label>
+                    <input type="number" id="ModeParamValue1">
+                </td>
+                <td>
+                    <label id="ModeParamLabel2">
+                        高さ：
+                    </label>
+                    <input type="number" id="ModeParamValue2">
+                </td>
+                <td>
+                    <label>
+                        総ブロック数：
+                    </label>
+                    <input type="number" id="blockNum" readonly>
+                </td>
+            </tr>
+        </table>
+        <table class="WriteStateArea">
+            <tr>
+                <td>
+                    <div class="tac">描画モード：<span id="modeName">円</span></div>
+                </td>
+                <td>
+                    <div class="commonButton tac" onclick="writeShape()">描画</div>
+                </td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="contentArea">
+        <script type="text/javascript" src="script/MakeMapTable.js"></script>
+    </div>
+</body>
+
+<script type="text/javascript" src="script/CompassStageMakerTool.js"></script>
+
+
+</html>

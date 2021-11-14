@@ -1,0 +1,38 @@
+.ModeButtonArea{
+    width: 600px;
+    margin: 5px auto;
+    table-layout: fixed;
+}
+
+.ModeParamArea, .WriteStateArea{
+    width: 600px;
+    margin: 5px auto;
+    table-layout: fixed;
+}
+
+#modeName{
+    color: #FF0000;
+    font-weight: 600;
+}
+
+.contentArea{
+    width: 800px;
+    margin: 5px auto;
+}
+
+.MapTable{
+    width: 600px;
+    height: 600px;
+    margin: 5px auto;
+
+    border: 1px solid #003300;
+    border-collapse: collapse;
+    border-spacing: 0px;
+    table-layout: fixed;
+}
+
+.mapCell{
+    border: 1px solid #003300;
+    border-collapse: collapse;
+
+}
