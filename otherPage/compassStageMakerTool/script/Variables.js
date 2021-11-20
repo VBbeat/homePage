@@ -13,4 +13,6 @@ MODE_NAME = [
 
 var writeModeId = 0;
 var mapArray = [];
+var mapArrayHistory = [];
 var blockNum = 0;
+var blockNumHistory = [];
