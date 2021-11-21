@@ -84,7 +84,7 @@ function writeCellDirect(col, row) {
     if (writeModeId == 0) {
         getHistory();
         writeEllipse(col, row);
-    } else {
+    } else if (writeModeId == 2) {
         getHistory();
         if (mapArray[row][col] == 0) {
             writeCell(col, row);
