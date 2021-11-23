@@ -85,7 +85,6 @@
 
     <!-- 各ページ固有のタグの読み込み -->
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:site" content="@MuriMuriko_" />
     <meta property="og:url" content="<?php echo("http://" . $_SERVER["HTTP_HOST"] . $_SERVER["REQUEST_URI"]); ?>" />
     <meta property="og:title" content="<?php echo($title) ?>" />
     <meta property="og:description" content="<?php echo($title) ?>" />
