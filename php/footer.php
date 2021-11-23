@@ -41,6 +41,13 @@
         <?php endif ?>
     </div>
     <div class="footerElementRight">
+        <span class="footerButton">
+            <a href="../index.php" target="_parent">
+                <div>
+                    <img src="../img/footer_Login.png">
+                </div>
+            </a>
+        </span>
         <?php if(isset($_SESSION["userName"])) : ?>
             <span id="userName" class="footerRightIcon">Login User<br><?= $_SESSION["userName"] ?></span>
         <?php endif ?>

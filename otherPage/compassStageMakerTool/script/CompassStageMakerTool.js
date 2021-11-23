@@ -1,12 +1,21 @@
 /* 初期処理 */
 initMapArray();
 
+/**
+ * 描画モードを設定する
+ * @param modeId 描画モードId
+ */
 function setMode(modeId) {
     writeModeId = modeId;
     document.getElementById("modeName").innerHTML = MODE_NAME[modeId];
 
 }
 
+/**
+ * 任意の位置に円を描画する
+ * @param offsetCol 描画列
+ * @param offsetRow 描画行
+ */
 function writeEllipse(offsetCol, offsetRow) {
     var widthR = parseInt(document.getElementById("ModeParamValue1").value) / 2;
     var heightR = parseInt(document.getElementById("ModeParamValue2").value) / 2;
@@ -28,8 +37,24 @@ function writeEllipse(offsetCol, offsetRow) {
     }
 }
 
-function writeRectangle() {
+/**
+ * 任意の位置に四角形を描画する
+ * @param offsetCol 描画列
+ * @param offsetRow 描画行
+ */
+function writeRectangle(offsetCol, offsetRow) {
+    var widthR = parseInt(document.getElementById("ModeParamValue1").value) / 2;
+    var heightR = parseInt(document.getElementById("ModeParamValue2").value) / 2;
+}
 
+/**
+ * 任意の二点間に線を描画する
+ * @param col1 開始点の描画列
+ * @param row1 開始点の描画行
+ * @param col2 終了点の描画列
+ * @param row2 終了点の描画行
+ */
+function writeLine(col1, row1, col2, row2) {
 }
 
 function writeCell(col, row) {

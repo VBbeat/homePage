@@ -4,17 +4,32 @@
     //セッションが開始されていない場合、開始する
     startSession(session_id());
 
+    // ログインユーザが設定されていない場合、guestとしてログインする
+    // サイトタイトルも表示する
+    if($_SESSION["userName"] == ''){
+        $_SESSION["userName"] = "guest";
+        $titleMstPath = '../data/master/title_and_version.vbtx';
+        if(is_readable($titleMstPath)){
+            $handle = fopen($titleMstPath, 'r');
+            $_SESSION["siteTitle"] = fgets($handle);
+            $_SESSION["version"] = fgets($handle);
+    
+            fclose($handle);
+        }
+    }
+
+    /*
     //ログインしていない場合、ログインページに遷移する
     if(toLoginPage($_SESSION["userName"], basename($_SERVER["REQUEST_URI"]))) {
         $no_login_url = "../index.php";
         header("Location: {$no_login_url}");
         exit;
     }
+    */
 
     //各フラグ変数
     $failLoadArticle = false;
     $noArticle = false;
-
     
     //記事削除確認から戻ってきた場合
     if(isset($_POST["articlePath"])) {
@@ -69,7 +84,12 @@
     <script type="text/javascript" src="../scripts/head.js"></script>
 
     <!-- 各ページ固有のタグの読み込み -->
-    <meta property="og:url" content="http://vbbeat.com/article.php" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@MuriMuriko_" />
+    <meta property="og:url" content="<?php echo("http://" . $_SERVER["HTTP_HOST"] . $_SERVER["REQUEST_URI"]); ?>" />
+    <meta property="og:title" content="<?php echo($title) ?>" />
+    <meta property="og:description" content="<?php echo($title) ?>" />
+    <meta property="og:image" content="http://vbbeat.php.xdomain.jp/img/muse_orgnl.png" />
     <link rel="stylesheet" type="text/css" href="../css/window.css">
 </head>
 

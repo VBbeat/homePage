@@ -8,7 +8,7 @@ function startSession($sessionId){
 
 function toLoginPage($userName, $lastPage){
     $_SESSION["lastPage"] = "php/" . $lastPage;
-    if(!isset($userName)){
+    if(!isset($userName) || $userName == ''){
         return true;
     }
     return false;
