@@ -6,16 +6,17 @@
 
     // ログインユーザが設定されていない場合、guestとしてログインする
     // サイトタイトルも表示する
-    if($_SESSION["userName"] == ''){
+    if($_SESSION["userName"] == ""){
         $_SESSION["userName"] = "guest";
-        $titleMstPath = '../data/master/title_and_version.vbtx';
-        if(is_readable($titleMstPath)){
-            $handle = fopen($titleMstPath, 'r');
-            $_SESSION["siteTitle"] = fgets($handle);
-            $_SESSION["version"] = fgets($handle);
-    
-            fclose($handle);
-        }
+    }
+
+    $titleMstPath = '../data/master/title_and_version.vbtx';
+    if(is_readable($titleMstPath)){
+        $handle = fopen($titleMstPath, 'r');
+        $_SESSION["siteTitle"] = fgets($handle);
+        $_SESSION["version"] = fgets($handle);
+
+        fclose($handle);
     }
 
     /*
