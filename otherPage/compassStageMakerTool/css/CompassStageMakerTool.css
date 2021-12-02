@@ -31,6 +31,21 @@
     table-layout: fixed;
 }
 
+#MapArea{
+    width: 800px;
+    margin: 5px auto;
+}
+
+.assistText{
+    color: #FF0000;
+    font-weight: 800;
+    text-align: center;
+}
+
+#MapElm{
+    width: 600px;
+}
+
 .mapCell{
     border: 1px solid #003300;
     border-collapse: collapse;

@@ -35,22 +35,18 @@
         </table>
         <table class="ModeParamArea">
             <tr>
+                <td>幅：</td>
+                <td>高さ：</td>
+                <td>総ブロック数：</td>
+            </tr>
+            <tr>
                 <td>
-                    <label id="ModeParamLabel1">
-                        幅：
-                    </label>
                     <input type="number" id="ModeParamValue1">
                 </td>
                 <td>
-                    <label id="ModeParamLabel2">
-                        高さ：
-                    </label>
                     <input type="number" id="ModeParamValue2">
                 </td>
                 <td>
-                    <label>
-                        総ブロック数：
-                    </label>
                     <input type="number" id="blockNum" readonly>
                 </td>
             </tr>
@@ -71,7 +67,27 @@
     </div>
 
     <div class="contentArea">
-        <script type="text/javascript" src="script/MakeMapTable.js"></script>
+        <table id="MapArea">
+            <tr>
+                <td></td>
+                <td class="assistText">正面</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td class="assistText">右</td>
+                <td id="MapElm">
+                    <script type="text/javascript" src="script/MakeMapTable.js"></script>
+                </td>
+                <td class="assistText">左</td>
+            </tr>
+            <tr>
+                <td></td>
+                <td class="assistText">後方</td>
+                <td></td>
+            </tr>
+        </table>
+    </div>
+
     </div>
 </body>
 

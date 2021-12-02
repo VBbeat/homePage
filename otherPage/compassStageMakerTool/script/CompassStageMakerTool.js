@@ -65,14 +65,30 @@ function writeCell(col, row) {
     }
 }
 
+/**
+ * マップを初期化する
+ */
 function initMapArray() {
     blockNum = 0;
     mapArray = [];
+
     for (var i = 0; i < MAP_ROWS; i++) {
         mapArray.push([]);
         for (var j = 0; j < MAP_COLS; j++) {
-            mapArray[i].push(0);
-            document.getElementById(i + "_" + j).style.backgroundColor = CELL_COLOR_BLANK;
+            if (i >= CENTER_BLOCK_ROW_TOP && i < CENTER_BLOCK_ROW_BOTTOM) {
+                if (j >= CENTER_BLOCK_COL_LEFT && j < CENTER_BLOCK_COL_RIGHT) {
+                    mapArray[i].push(1);
+                    blockNum++;
+                    document.getElementById(i + "_" + j).style.backgroundColor = CELL_COLOR_WRITE;
+                } else {
+                    mapArray[i].push(0);
+                    document.getElementById(i + "_" + j).style.backgroundColor = CELL_COLOR_BLANK;
+                }
+            } else {
+
+                mapArray[i].push(0);
+                document.getElementById(i + "_" + j).style.backgroundColor = CELL_COLOR_BLANK;
+            }
         }
     }
     setBlockNum();
@@ -115,7 +131,15 @@ function writeCellDirect(col, row) {
             writeCell(col, row);
             mapArray[row][col] = 1;
         } else {
-            document.getElementById(row + "_" + col).style.backgroundColor = CELL_COLOR_BLANK;
+            if (row >= CENTER_BLOCK_ROW_TOP && row < CENTER_BLOCK_ROW_BOTTOM) {
+                if (col >= CENTER_BLOCK_COL_LEFT && col < CENTER_BLOCK_COL_RIGHT) {
+                    document.getElementById(row + "_" + col).style.backgroundColor = CELL_COLOR_DEFAULT;
+                } else {
+                    document.getElementById(row + "_" + col).style.backgroundColor = CELL_COLOR_BLANK;
+                }
+            } else {
+                document.getElementById(row + "_" + col).style.backgroundColor = CELL_COLOR_BLANK;
+            }
             mapArray[row][col] = 0;
 
             blockNum--;
