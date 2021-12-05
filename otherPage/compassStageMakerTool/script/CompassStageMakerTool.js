@@ -57,8 +57,13 @@ function writeRectangle(offsetCol, offsetRow) {
 function writeLine(col1, row1, col2, row2) {
 }
 
+
+function writeRange(col, row) {
+
+}
+
 function writeCell(col, row) {
-    if (mapArray[row][col] == 0) {
+    if (mapArray[row][col] == 0 && blockNum < BLOCK_NUM_MAX) {
         blockNum++;
         document.getElementById(row + "_" + col).style.backgroundColor = CELL_COLOR_WRITE;
         mapArray[row][col] = 1;
