@@ -195,7 +195,6 @@ function writeRange(col, row) {
  * @param row 描画行
  */
 function writeCell(col, row) {
-    console.log(col, row);
     if (mapArray[row + mapOffsetRow][col + mapOffsetCol] == 0 && blockNum < BLOCK_NUM_MAX) {
         blockNum++;
         mapArray[row + mapOffsetRow][col + mapOffsetCol] = 1;
