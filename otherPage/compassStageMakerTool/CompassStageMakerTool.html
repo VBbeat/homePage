@@ -10,24 +10,29 @@
 <body>
     <header>
         <h1>コンパスステージメーカー用ツール</h1>
-        <h3>ver 1.1</h3>
+        <h3>ver 2.0</h3>
     </header>
 
     <div class="contentArea">
         <table class="ModeButtonArea">
             <tr>
                 <td>
-                    <div class="commonButton tac" id="mode1" onclick="setMode(0)">
+                    <div class="commonButton tac" onclick="setMode(0)">
                         円
                     </div>
                 </td>
-                <!-- <td>
-                    <div class="commonButton tac" id="mode2" onclick="setMode(1)">
+                <td>
+                    <div class="commonButton tac" onclick="setMode(1)">
                         四角形
                     </div>
-                </td> -->
+                </td>
                 <td>
-                    <div class="commonButton tac" id="mode3" onclick="setMode(2)">
+                    <div class="commonButton tac" onclick="setMode(2)">
+                        塗りつぶし
+                    </div>
+                </td>
+                <td>
+                    <div class="commonButton tac" onclick="setMode(3)">
                         自由描画
                     </div>
                 </td>
@@ -54,7 +59,7 @@
         <table class="WriteStateArea">
             <tr>
                 <td>
-                    <div class="tac">描画モード：<span id="modeName">円</span></div>
+                    <div class="tac">モード：<span id="modeName">自由描画</span></div>
                 </td>
                 <td>
                     <div class="commonButton tac" onclick="initMapArray()">初期化</div>
@@ -79,7 +84,7 @@
                 <td></td>
                 <td></td>
                 <td>
-                    <div class="commonButton tac" id="upMap">↑</div>
+                    <div class="commonButton tac" id="upMap" onclick="setMapOffset(-1, 0)">↑</div>
                 </td>
                 <td></td>
                 <td></td>
@@ -87,13 +92,13 @@
             <tr>
                 <td class="assistText">右</td>
                 <td>
-                    <div class="commonButton tac" id="leftMap">←</div>
+                    <div class="commonButton tac" id="leftMap" onclick="setMapOffset(0, -1)">←</div>
                 </td>
                 <td id="MapElm">
                     <script type="text/javascript" src="script/MakeMapTable.js"></script>
                 </td>
                 <td>
-                    <div class="commonButton tac" id="rightMap">→</div>
+                    <div class="commonButton tac" id="rightMap" onclick="setMapOffset(0, 1)">→</div>
                 </td>
                 <td class="assistText">左</td>
             </tr>
@@ -101,7 +106,7 @@
                 <td></td>
                 <td></td>
                 <td>
-                    <div class="commonButton tac" id="downMap">↓</div>
+                    <div class="commonButton tac" id="downMap" onclick="setMapOffset(1, 0)">↓</div>
                 </td>
                 <td></td>
                 <td></td>

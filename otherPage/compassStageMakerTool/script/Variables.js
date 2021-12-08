@@ -18,11 +18,19 @@ CELL_COLOR_DEFAULT = "88DD88";
 MODE_NAME = [
     "円",
     "四角形",
+    "塗りつぶし",
     "自由描画"
 ];
+MODE_ELLIPSE = 0;
+MODE_RECTANGLE = 1;
+MODE_RANGE = 2;
+MODE_FREE = 3;
 
-var writeModeId = 0;
+var writeModeId = 3;
 var mapArray = [];
 var mapArrayHistory = [];
 var blockNum = 0;
 var blockNumHistory = [];
+
+var mapOffsetRow = 0;
+var mapOffsetCol = 0;
