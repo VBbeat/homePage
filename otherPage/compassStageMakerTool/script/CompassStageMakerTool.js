@@ -261,6 +261,15 @@ function writeMap() {
     for (var i = 0; i < MAP_ROWS; i++) {
         for (var j = 0; j < MAP_COLS; j++) {
             var mapColor = CELL_COLOR_BLANK;
+
+            if (i + mapOffsetRow >= CENTER_BLOCK_ROW_TOP &&
+                i + mapOffsetRow < CENTER_BLOCK_ROW_BOTTOM &&
+                j + mapOffsetCol >= CENTER_BLOCK_COL_LEFT &&
+                j + mapOffsetCol < CENTER_BLOCK_COL_RIGHT
+            ) {
+                mapColor = CELL_COLOR_DEFAULT;
+            }
+
             if (mapArray[i + mapOffsetRow][j + mapOffsetCol] == 1) {
                 mapColor = CELL_COLOR_WRITE;
             }
@@ -289,18 +298,17 @@ function writeCellDirect(col, row) {
         getHistory();
         if (mapArray[row + mapOffsetRow][col + mapOffsetCol] == 0) {
             writeCell(col, row);
-            mapArray[row + mapOffsetRow][col + mapOffsetCol] = 1;
         } else {
-            if (row < CENTER_BLOCK_ROW_TOP ||
-                row >= CENTER_BLOCK_ROW_BOTTOM ||
-                col < CENTER_BLOCK_COL_LEFT ||
-                col >= CENTER_BLOCK_COL_RIGHT
+            if (row + mapOffsetRow < CENTER_BLOCK_ROW_TOP ||
+                row + mapOffsetRow >= CENTER_BLOCK_ROW_BOTTOM ||
+                col + mapOffsetCol < CENTER_BLOCK_COL_LEFT ||
+                col + mapOffsetCol >= CENTER_BLOCK_COL_RIGHT
             ) {
                 document.getElementById(row + "_" + col).style.backgroundColor = CELL_COLOR_BLANK;
             } else {
                 document.getElementById(row + "_" + col).style.backgroundColor = CELL_COLOR_DEFAULT;
             }
-            mapArray[row + offsetRow][col + offsetCol] = 0;
+            mapArray[row + mapOffsetRow][col + mapOffsetCol] = 0;
             blockNum--;
         }
     }
@@ -323,8 +331,8 @@ function setBlockNum() {
  * @param offsetCol オフセット（列）
  */
 function setMapOffset(offsetRow, offsetCol) {
-    mapOffsetCol += offsetCol;
-    mapOffsetRow += offsetRow;
+    mapOffsetCol += MOVE_AMOUNT * offsetCol;
+    mapOffsetRow += MOVE_AMOUNT * offsetRow;
     mapOffsetCol = Math.max(0, mapOffsetCol);
     mapOffsetCol = Math.min(mapOffsetCol, MAP_COLS_MAX - MAP_COLS);
     mapOffsetRow = Math.max(0, mapOffsetRow);
