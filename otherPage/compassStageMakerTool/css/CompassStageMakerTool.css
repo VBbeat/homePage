@@ -16,13 +16,13 @@
 }
 
 .contentArea{
-    width: 800px;
+    width: 950px;
     margin: 5px auto;
 }
 
 .MapTable{
-    width: 600px;
-    height: 600px;
+    width: 750px;
+    height: 750px;
     margin: 5px auto;
 
     border: 1px solid #003300;
@@ -32,7 +32,6 @@
 }
 
 #MapArea{
-    width: 800px;
     margin: 5px auto;
 }
 
@@ -43,8 +42,8 @@
 }
 
 #MapElm{
-    width: 600px;
-    height: 600px;
+    width: 750px;
+    height: 750px;
 }
 
 .mapCell{
@@ -58,7 +57,7 @@
 
 #leftMap, #rightMap{
     width: auto;
-    height: 600px;
+    height: 750px;
     justify-content: center;
     align-items: center;
     display: flex;

@@ -1,5 +1,5 @@
-const MAP_COLS = 101;
-const MAP_ROWS = 101;
+const MAP_COLS = 81;
+const MAP_ROWS = 81;
 const MAP_COLS_MAX = 201;
 const MAP_ROWS_MAX = 201;
 const MAP_DEFAULT = 16;
@@ -35,5 +35,5 @@ var mapArrayHistory = [];
 var blockNum = 0;
 var blockNumHistory = [];
 
-var mapOffsetRow = 0;
-var mapOffsetCol = 0;
+var mapOffsetRow = Math.floor((MAP_ROWS_MAX - MAP_ROWS) / 2);
+var mapOffsetCol = Math.floor((MAP_COLS_MAX - MAP_COLS) / 2);
