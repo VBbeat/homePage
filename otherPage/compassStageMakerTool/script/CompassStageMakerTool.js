@@ -340,3 +340,15 @@ function setMapOffset(offsetRow, offsetCol) {
 
     writeMap();
 }
+
+function saveMap() {
+    // 配列を文字列化
+    var mapStr = "";
+    for (var i = 0; i < MAP_ROWS_MAX; i++) {
+        for (var j = 0; j < MAP_COLS_MAX; j++) {
+            mapStr = mapStr + String(mapArray[i][j]);
+        }
+    }
+
+
+}
