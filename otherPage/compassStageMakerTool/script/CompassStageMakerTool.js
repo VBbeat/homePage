@@ -341,6 +341,9 @@ function setMapOffset(offsetRow, offsetCol) {
     writeMap();
 }
 
+/**
+ * マップ配列の暗号化を行い画面に表示する
+ */
 function saveMap() {
     // 配列を文字列化
     var mapStr = "";
@@ -350,5 +353,39 @@ function saveMap() {
         }
     }
 
+    // マップのバイナリ配列を暗号化
+    var mapCode = encodeURIComponent(mapStr);
+    mapCode = RawDeflate.deflate(mapCode);
+    mapCode = btoa(mapCode);
 
+    // マップコードを画面に表示
+    document.getElementById("mapCode").value = mapCode;
+
+}
+
+/**
+ * 暗号化されたマップコードをマップ配列に変換する
+ */
+function loadMap() {
+
+    // マップコードを取得
+    var mapCode = document.getElementById("mapCode").value;
+
+    // マップのバイナリ配列を復号化
+    var mapStr = atob(mapCode);
+    mapStr = RawDeflate.inflate(mapStr);
+    mapStr = decodeURIComponent(mapStr);
+
+    // マップコードを配列に変換
+    blockNum = 0;
+    for (var i = 0; i < MAP_ROWS_MAX; i++) {
+        for (var j = 0; j < MAP_COLS_MAX; j++) {
+            mapArray[i][j] = mapStr.charAt(i * MAP_COLS_MAX + j);
+            blockNum += Number(mapStr.charAt(i * MAP_COLS_MAX + j));
+        }
+    }
+
+    // マップを再描画
+    writeMap();
+    setBlockNum();
 }
