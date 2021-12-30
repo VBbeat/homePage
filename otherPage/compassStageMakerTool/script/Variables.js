@@ -20,12 +20,16 @@ const MODE_NAME = [
     "円",
     "四角形",
     "塗りつぶし",
-    "自由描画"
+    "自由描画",
+    "消しゴム（塗りつぶし）",
+    "消しゴム（自由描画）"
 ];
 const MODE_ELLIPSE = 0;
 const MODE_RECTANGLE = 1;
 const MODE_RANGE = 2;
 const MODE_FREE = 3;
+const MODE_ELASE_RANGE = 4;
+const MODE_ELASE_FREE = 5;
 
 const MOVE_AMOUNT = 4;
 

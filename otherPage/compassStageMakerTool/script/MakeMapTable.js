@@ -13,6 +13,19 @@ var mapCell = document.getElementsByClassName('mapCell');
 for (let i = 0; i < mapCell.length; i++) {
     mapCell[i].addEventListener('mouseover', function () {
         this.style.backgroundColor = CELL_COLOR_CURSOR;
+        if (isMouseDown) {
+            let row = Math.floor(i / MAP_COLS);
+            let col = i % MAP_COLS;
+
+            if (writeModeId == MODE_FREE) {
+                writeCell(col, row);
+                setBlockNum();
+
+            } else if (writeModeId == MODE_ELASE_FREE) {
+                elaseCell(col, row);
+                setBlockNum();
+            }
+        }
     });
 
     mapCell[i].addEventListener('mouseleave', function () {

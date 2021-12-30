@@ -1,3 +1,8 @@
+/* マウスの状態取得用 */
+var isMouseDown = false;
+window.onmousedown = eve => isMouseDown = true;
+window.onmouseup = eve => isMouseDown = false;
+
 /* 初期処理 */
 initMapArray();
 
@@ -190,6 +195,42 @@ function writeRange(col, row) {
 }
 
 /**
+ * 塗りつぶし（消しゴム）を行う
+ * @param col 描画列
+ * @param row 描画行
+ */
+function elaseRange(col, row) {
+    if (blockNum <= 0 ||
+        col < 0 ||
+        col >= MAP_COLS_MAX ||
+        row < 0 ||
+        row >= MAP_ROWS_MAX ||
+        mapArray[row + mapOffsetRow][col + mapOffsetCol] == 0
+    ) {
+        return;
+    }
+    elaseCell(col, row);
+
+    if (col > 0 && mapArray[row + mapOffsetRow][col - 1 + mapOffsetCol] == 1) {
+        elaseRange(col - 1, row);
+    }
+
+    if (col <= MAP_COLS_MAX && mapArray[row + mapOffsetRow][col + 1 + mapOffsetCol] == 1) {
+        elaseRange(col + 1, row);
+    }
+
+    if (row > 0 && mapArray[row - 1 + mapOffsetRow][col + mapOffsetCol] == 1) {
+        elaseRange(col, row - 1);
+    }
+
+    if (row <= MAP_ROWS_MAX && mapArray[row + 1 + mapOffsetRow][col + mapOffsetCol] == 1) {
+        elaseRange(col, row + 1);
+    }
+
+    return;
+}
+
+/**
  * 任意のセルをオンにする
  * @param col 描画列
  * @param row 描画行
@@ -198,6 +239,18 @@ function writeCell(col, row) {
     if (mapArray[row + mapOffsetRow][col + mapOffsetCol] == 0 && blockNum < BLOCK_NUM_MAX) {
         blockNum++;
         mapArray[row + mapOffsetRow][col + mapOffsetCol] = 1;
+    }
+}
+
+/**
+ * 任意のセルをオフにする
+ * @param col 描画列
+ * @param row 描画行
+ */
+function elaseCell(col, row) {
+    if (mapArray[row + mapOffsetRow][col + mapOffsetCol] == 1 && blockNum > 0) {
+        blockNum--;
+        mapArray[row + mapOffsetRow][col + mapOffsetCol] = 0;
     }
 }
 
@@ -294,6 +347,9 @@ function writeCellDirect(col, row) {
     } else if (writeModeId == MODE_RANGE) {
         getHistory();
         writeRange(col, row);
+    } else if (writeModeId == MODE_ELASE_RANGE) {
+        getHistory();
+        elaseRange(col, row);
     } else if (writeModeId == MODE_FREE) {
         getHistory();
         if (mapArray[row + mapOffsetRow][col + mapOffsetCol] == 0) {
@@ -308,8 +364,7 @@ function writeCellDirect(col, row) {
             } else {
                 document.getElementById(row + "_" + col).style.backgroundColor = CELL_COLOR_DEFAULT;
             }
-            mapArray[row + mapOffsetRow][col + mapOffsetCol] = 0;
-            blockNum--;
+            elaseCell(col, row);
         }
     }
 
