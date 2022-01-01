@@ -43,7 +43,7 @@
         <?php endif ?>
         
         <?php if($_SESSION["versionFormatError"]) : ?>
-            <p class="errorMessage">バージョンの形式は「[数字2桁].[数字2桁].[数字2桁]」となるようにしてください</p>
+            <p class="errorMessage">バージョンの形式は「[数字1~2桁].[数字1~2桁].[数字1~2桁]」となるようにしてください</p>
         <?php endif ?>
         
         <?php if($_SESSION["versionEmptyError"]) : ?>
