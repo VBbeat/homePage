@@ -20,7 +20,7 @@
     if(empty($_POST["version"])){
         $_SESSION["versionEmptyError"] = 1;
         $occurredError = $occurredError || true;
-    }elseif(!preg_match('/^\d+\.\d+\.\d+$/u', $_POST["version"])){
+    }elseif(!preg_match('/^\d{2}+\.\d{2}+\.\d{2}+$/u', $_POST["version"])){
         $_SESSION["versionFormatError"] = 1;
         $occurredError = $occurredError || true;
     }else{
