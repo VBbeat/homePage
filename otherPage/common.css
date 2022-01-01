@@ -36,6 +36,12 @@ h3{
     background-color: #DDFFDD;
 }
 
+/* 等間隔に要素が並ぶテーブル */
+.eqTableArea{
+    margin: 5px auto;
+    table-layout: fixed;
+}
+
 /* ボタン */
 .commonButton{
     margin: 2px;
@@ -54,4 +60,9 @@ h3{
 /* 隠し要素 */
 .hidden{
     display: none;
+}
+
+/* 要素の中央揃え */
+.centerElem{
+    margin: 5px auto;
 }

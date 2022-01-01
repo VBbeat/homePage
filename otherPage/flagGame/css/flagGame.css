@@ -1,0 +1,26 @@
+/* 点線エリア設定 */
+.contentArea{
+    width: 950px;
+}
+
+/* 二重線エリア設定 */
+.doubleBorderArea{
+    width: 800px;
+}
+
+/* モード選択エリア設定 */
+.eqTableArea{
+    width: 800px;
+}
+
+/* モード名表示設定 */
+#modeName{
+    color: red;
+    font-weight: 600;
+}
+
+/* 命令文の表示設定 */
+#orderText{
+    font-weight: 600;
+    margin: 5px auto;
+}
