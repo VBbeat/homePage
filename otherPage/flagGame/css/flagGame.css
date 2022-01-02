@@ -26,9 +26,33 @@
 }
 
 /* 旗ボタンエリアの表示設定 */
+/* ここから */
 .flagArea{
-    width: auto;
+    width: 95%;
+    height: 400px;
+
+    justify-content: center;
+    align-items: center;
+    display: flex;
 }
+
+.flagButtonArea{
+    width: 100%;
+    height: 380px;
+    box-sizing: border-box;
+}
+
+.flagButtonArea td div{
+    margin: 10px;
+    height: 95%;
+    font-size: 30px;
+    box-sizing: border-box;
+    
+    justify-content: center;
+    align-items: center;
+    display: flex;
+}
+/* ここまで */
 
 /* 旗の状態を表す四角形の表示設定 */
 .flagState{
