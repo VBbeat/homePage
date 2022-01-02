@@ -5,12 +5,12 @@
 
 /* 二重線エリア設定 */
 .doubleBorderArea{
-    width: 800px;
+    width: 850px;
 }
 
 /* モード選択エリア設定 */
 .eqTableArea{
-    width: 800px;
+    width: 850px;
 }
 
 /* モード名表示設定 */
@@ -23,4 +23,15 @@
 #orderText{
     font-weight: 600;
     margin: 5px auto;
+}
+
+/* 旗ボタンエリアの表示設定 */
+.flagArea{
+    width: auto;
+}
+
+/* 旗の状態を表す四角形の表示設定 */
+.flagState{
+    border: 2px #004E00 solid;
+    background: #DDFFDD;
 }
