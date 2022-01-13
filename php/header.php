@@ -1,3 +1,4 @@
+
 <?php 
     require_once "system/common.php";
     echo getTitle();

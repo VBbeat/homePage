@@ -38,12 +38,25 @@
                 <form method="get" name="member" action="articleList.php">
                     <input type=hidden name="category" value="member">
                     <a href="javascript:member.submit()" class="tac">
-                        <div class="iconImage">
-                            <img src="../img/icon_Member.png">
-                        </div>
-                        <div class="iconTitle">
-                            Member
-                        </div>
+                        <table class="contentTable">
+                            <tr>
+                                <td class="contentIconElm">
+                                    <div class="contentIcon tac">
+                                        <div class="iconImage">
+                                            <img src="../img/icon_Member.png">
+                                        </div>
+                                        <div class="iconTitle">
+                                            Member
+                                        </div>
+                                    </div>
+                                </td>
+                                <td class="contentAbstElm">
+                                    <div class="contentAbst">
+                                        １１１１１１１１１１２２２２２２２２２２３３３３３３３３３３４４４４４４４４４４５５５５５５５５５５６６６６６６６６６６
+                                    </div>
+                                </td>
+                            </tr>
+                        </table>
                     </a>
                 </form>
             </div>

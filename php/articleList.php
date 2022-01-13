@@ -73,12 +73,25 @@
                         <form method="get" name="<?= 'art' . $index ?>" action="article.php">
                             <input type=hidden name="article" value="<?= $articlePathList[$index] ?>">
                             <a href="<?= 'javascript:art' . $index . '.submit()' ?>" class="tac">
-                                <div class="iconImage">
-                                    <img src="../img/icon_article.png">
-                                </div>
-                                <div class="iconTitle">
-                                    <?= $title ?>
-                                </div>
+                                <table class="contentTable">
+                                    <tr>
+                                        <td class="contentIconElm">
+                                            <div class="contentIcon tac">
+                                                <div class="iconImage">
+                                                    <img src="../img/icon_article.png">
+                                                </div>
+                                                <div class="iconTitle">
+                                                    <?= $title ?>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td class="contentAbstElm">
+                                            <div class="contentAbst">
+                                                コンテンツの中身を要約して表示
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </table>
                             </a>
                         </form>
                     </div>

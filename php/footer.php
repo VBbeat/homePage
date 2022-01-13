@@ -51,6 +51,5 @@
         <?php if(isset($_SESSION["userName"])) : ?>
             <span id="userName" class="footerRightIcon">Login User<br><?= $_SESSION["userName"] ?></span>
         <?php endif ?>
-        <span id="footerClock" class="footerRightIcon"></span>
     </div>
 </div>
