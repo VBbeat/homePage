@@ -4,7 +4,7 @@
 
 .iconElement{
     width: 100%;
-    margin: 5px auto;
+    margin: 10px auto;
     box-sizing: border-box;
 
     display: flex;
@@ -34,7 +34,7 @@
 
 .contentAbst{
     font-size: 18px;
-    opacity: 0.2;
+    opacity: 0.8;
     line-height: 150%;
     margin: 10px;
 
