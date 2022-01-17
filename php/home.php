@@ -211,7 +211,7 @@
                                 <td class="contentIconElm">
                                     <div class="contentIcon tac">
                                         <div class="iconImage">
-                                            <img src="../img/icon_Information.png">
+                                            <img src="../img/icon_Info.png">
                                         </div>
                                         <div class="iconTitle">
                                             information
