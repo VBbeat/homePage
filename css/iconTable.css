@@ -19,25 +19,37 @@
     width: 100%;
 }
 
+.contentTable td{
+    vertical-align: top;
+}
+
 .contentIconElm{
     width: 20%;
 }
 
 .contentIcon{
-    width: 120px;
     margin: 2px auto;
 }
 
 .contentAbstElm{
-    vertical-align: top;
+    margin: 10px;
 }
 
-.contentAbst{
+.contentAbstElm *{
+    box-sizing: border-box;
     font-size: 18px;
     opacity: 0.8;
     line-height: 150%;
-    margin: 10px;
+}
 
+.contentUpdDateTimeWrap{
+    text-align: right;
+}
+
+.contentUpdDateTime{
+    margin: 5px;
+    font-size: 14px;
+    opacity: 0.8;
 }
 
 .iconImage{
@@ -53,13 +65,6 @@
     width: 100%;
     margin: 5px auto;
     font-size: 18px;
-
-    
-    /* white-space: nowrap; /* 横幅のMAXに達しても改行しない */
-    /* overflow: hidden; /* ハミ出した部分を隠す */
-    /* text-overflow: ellipsis; /* 「…」と省略 */
-    /* -webkit-text-overflow: ellipsis; /* Safari */
-
 }
 
 form{
