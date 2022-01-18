@@ -176,7 +176,7 @@
             </div>
             <div class="iconElement">
                 <form method="get" name="tools" action="articleList.php">
-                    <input type=hidden name="category" value="novel">
+                    <input type=hidden name="category" value="tools">
                     <a href="javascript:tools.submit()" class="tac">
                         <table class="contentTable">
                             <tr>
