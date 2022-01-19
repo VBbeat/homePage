@@ -34,202 +34,46 @@
     <!-- メイン部分 -->
     <main>
         <div class="iconTable">
-            <div class="iconElement">
-                <form method="get" name="member" action="articleList.php">
-                    <input type=hidden name="category" value="member">
-                    <a href="javascript:member.submit()" class="tac">
-                        <table class="contentTable">
-                            <tr>
-                                <td class="contentIconElm">
-                                    <div class="contentIcon tac">
-                                        <div class="iconImage">
-                                            <img src="../img/icon_Member.png">
+            <?php
+            //カテゴリをカテゴリマスタから取得する
+            $ctgrMstFilePath = '../data/master/mst_category.vbtx';
+            $handle = fopen($ctgrMstFilePath, 'r');
+            while(!feof($handle)):
+                $categoryInfoList = explode(',', fgets($handle));
+                $categoryName_caps = $categoryInfoList[0];
+                $categoryName_smal = $categoryInfoList[1];
+                $category_exp = $categoryInfoList[2];
+            ?>
+                <div class="iconElement">
+                    <form method="get" name="<?= $categoryName_smal ?>" action="articleList.php">
+                        <input type=hidden name="category" value="<?= $categoryName_smal ?>">
+                        <a href="<?= 'javascript:' . $categoryName_smal . '.submit()' ?>" class="tac">
+                            <table class="contentTable">
+                                <tr>
+                                    <td class="contentIconElm">
+                                        <div class="contentIcon tac">
+                                            <div class="iconImage">
+                                                <img src="<?= '../img/icon_' . $categoryName_caps . '.png' ?>">
+                                            </div>
                                         </div>
-                                        <div class="iconTitle">
-                                            Member
+                                    </td>
+                                    <td>
+                                        <div class="contentAbstElm">
+                                            <div class="contentAbst">
+                                                <?= trim($category_exp) . 'を記載しています。' ?>
+                                            </div>
                                         </div>
-                                    </div>
-                                </td>
-                                <td>
-                                    <div class="contentAbstElm">
-                                        <div class="contentAbst">
-                                            メンバーに関する情報を掲載しています。
-                                        </div>
-                                    </div>
-                                </td>
-                            </tr>
-                        </table>
-                    </a>
-                </form>
-            </div>
-            <div class="iconElement">
-                <form method="get" name="music" action="articleList.php">
-                    <input type=hidden name="category" value="music">
-                    <a href="javascript:music.submit()" class="tac">
-                        <table class="contentTable">
-                            <tr>
-                                <td class="contentIconElm">
-                                    <div class="contentIcon tac">
-                                        <div class="iconImage">
-                                            <img src="../img/icon_Music.png">
-                                        </div>
-                                        <div class="iconTitle">
-                                            Music
-                                        </div>
-                                    </div>
-                                </td>
-                                <td>
-                                    <div class="contentAbstElm">
-                                        <div class="contentAbst">
-                                            音楽活動に関する情報を掲載しています。
-                                        </div>
-                                    </div>
-                                </td>
-                            </tr>
-                        </table>
-                    </a>
-                </form>
-            </div>
-            <div class="iconElement">
-                <form method="get" name="game" action="articleList.php">
-                    <input type=hidden name="category" value="game">
-                    <a href="javascript:game.submit()" class="tac">
-                        <table class="contentTable">
-                            <tr>
-                                <td class="contentIconElm">
-                                    <div class="contentIcon tac">
-                                        <div class="iconImage">
-                                            <img src="../img/icon_Game.png">
-                                        </div>
-                                        <div class="iconTitle">
-                                            Game
-                                        </div>
-                                    </div>
-                                </td>
-                                <td>
-                                    <div class="contentAbstElm">
-                                        <div class="contentAbst">
-                                            ゲーム制作に関する情報を掲載しています。
-                                        </div>
-                                    </div>
-                                </td>
-                            </tr>
-                        </table>
-                    </a>
-                </form>
-            </div>
-            <div class="iconElement">
-                <form method="get" name="illust" action="articleList.php">
-                    <input type=hidden name="category" value="illust">
-                    <a href="javascript:illust.submit()" class="tac">
-                        <table class="contentTable">
-                            <tr>
-                                <td class="contentIconElm">
-                                    <div class="contentIcon tac">
-                                        <div class="iconImage">
-                                            <img src="../img/icon_Illust.png">
-                                        </div>
-                                        <div class="iconTitle">
-                                            Illust
-                                        </div>
-                                    </div>
-                                </td>
-                                <td>
-                                    <div class="contentAbstElm">
-                                        <div class="contentAbst">
-                                            イラスト制作に関する情報を掲載しています。
-                                        </div>
-                                    </div>
-                                </td>
-                            </tr>
-                        </table>
-                    </a>
-                </form>
-            </div>
-            <div class="iconElement">
-                <form method="get" name="novel" action="articleList.php">
-                    <input type=hidden name="category" value="novel">
-                    <a href="javascript:novel.submit()" class="tac">
-                        <table class="contentTable">
-                            <tr>
-                                <td class="contentIconElm">
-                                    <div class="contentIcon tac">
-                                        <div class="iconImage">
-                                            <img src="../img/icon_Novel.png">
-                                        </div>
-                                        <div class="iconTitle">
-                                            Novel
-                                        </div>
-                                    </div>
-                                </td>
-                                <td>
-                                    <div class="contentAbstElm">
-                                        <div class="contentAbst">
-                                            執筆活動に関する情報を掲載しています。
-                                        </div>
-                                    </div>
-                                </td>
-                            </tr>
-                        </table>
-                    </a>
-                </form>
-            </div>
-            <div class="iconElement">
-                <form method="get" name="tools" action="articleList.php">
-                    <input type=hidden name="category" value="tools">
-                    <a href="javascript:tools.submit()" class="tac">
-                        <table class="contentTable">
-                            <tr>
-                                <td class="contentIconElm">
-                                    <div class="contentIcon tac">
-                                        <div class="iconImage">
-                                            <img src="../img/icon_Tools.png">
-                                        </div>
-                                        <div class="iconTitle">
-                                            Tools
-                                        </div>
-                                    </div>
-                                </td>
-                                <td>
-                                    <div class="contentAbstElm">
-                                        <div class="contentAbst">
-                                            ツール開発に関する情報を掲載しています。
-                                        </div>
-                                    </div>
-                                </td>
-                            </tr>
-                        </table>
-                    </a>
-                </form>
-            </div>
-            <div class="iconElement">
-                <form method="get" name="information" action="articleList.php">
-                    <input type=hidden name="category" value="information">
-                    <a href="javascript:information.submit()" class="tac">
-                        <table class="contentTable">
-                            <tr>
-                                <td class="contentIconElm">
-                                    <div class="contentIcon tac">
-                                        <div class="iconImage">
-                                            <img src="../img/icon_Info.png">
-                                        </div>
-                                        <div class="iconTitle">
-                                            information
-                                        </div>
-                                    </div>
-                                </td>
-                                <td>
-                                    <div class="contentAbstElm">
-                                        <div class="contentAbst">
-                                            活動情報、記事などの更新情報を掲載しています。
-                                        </div>
-                                    </div>
-                                </td>
-                            </tr>
-                        </table>
-                    </a>
-                </form>
-            </div>
+                                    </td>
+                                </tr>
+                            </table>
+                        </a>
+                    </form>
+                </div>
+            <?php
+            endwhile;
+            fclose($handle);
+            ?>
+
         </div>
     </main>
 
