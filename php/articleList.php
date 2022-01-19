@@ -74,7 +74,7 @@
             <p>まだ記事が投稿されていません。</p>
         <?php else : ?>
             <div class="iconTable">
-                <?php for($i = 0; $i < count($articlePathList); $i++) : ?>
+                <?php for($i = count($articlePathList) - 1; $i >= 0; $i--) : ?>
                     <?php
                         $title = $articleTitle[$i];
                         $poster = $articlePoster[$i];
