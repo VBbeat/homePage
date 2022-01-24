@@ -11,7 +11,6 @@
         exit;
     }
 
-
     //各フラグ変数
     $failLoadCategory = false;
     $noCategory = false;

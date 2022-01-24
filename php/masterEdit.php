@@ -11,6 +11,11 @@
         exit;
     }
 
+    //エラーの初期化
+    $_SESSION["siteTitleEmptyError"] = 0;
+    $_SESSION["siteTitleMultiBiteError"] = 0;
+    $_SESSION["versionEmptyError"] = 0;
+    $_SESSION["versionFormatError"] = 0;
 
 ?>
 
