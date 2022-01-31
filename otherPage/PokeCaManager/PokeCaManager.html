@@ -1,0 +1,36 @@
+<html>
+
+<head>
+    <link rel="stylesheet" href="css/PokeCaManager.css" type="text/css">
+    <link rel="stylesheet" href="../common.css" type="text/css">
+    <meta charset="utf-8" http-equiv="content-type">
+</head>
+
+<body>
+    <header>
+        <h1>簡易版ポケカデッキマネージャ</h1>
+        <h3>ver 1.0</h3>
+    </header>
+
+    <div id="userIdForm" class="contentArea tac">
+        <form>
+            <label>ユーザ名：</label><input type="text">
+        </form>
+    </div>
+    <script>
+        document.write("<div class='contentArea'>");
+        for (let i = 0; i < 2; i++) {
+            document.write("<div class='doubleBorderArea deckBlockArea'>");
+            document.write("<table class='deckTable'><tr>");
+            document.write("<td><div class='deckBlockIcon tac'>アイコン</div>");
+            document.write("<div class='deckInfoAbst tac'>デッキ名</div></td>");
+            document.write("<td><div class='deckDistButton commonButton'>デッキ詳細</div></td>");
+            document.write("</tr></table>");
+            document.write("</div>");
+        }
+        document.write("</div>");
+    </script>
+
+</body>
+
+</html>
