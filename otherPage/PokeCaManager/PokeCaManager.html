@@ -20,13 +20,18 @@
     <script>
         document.write("<div class='contentArea'>");
         for (let i = 0; i < 2; i++) {
-            document.write("<div class='doubleBorderArea deckBlockArea'>");
-            document.write("<table class='deckTable'><tr>");
-            document.write("<td><div class='deckBlockIcon tac'>アイコン</div>");
-            document.write("<div class='deckInfoAbst tac'>デッキ名</div></td>");
-            document.write("<td><div class='deckDistButton commonButton'>デッキ詳細</div></td>");
-            document.write("</tr></table>");
-            document.write("</div>");
+            document.write("<div class='doubleBorderArea'>" +
+                "<div class='deckBlockArea'>" +
+                "<table class='deckTable'><tr>" +
+                "<td><div class='deckBlockIcon tac'>アイコン</div>" +
+                "<div class='deckInfoAbst tac'>デッキ名</div></td>" +
+                "<td class='deckDistButtonArea tar'><div class='deckDistButton commonButton'>デッキ詳細</div></td>" +
+                "</tr></table>" +
+                "</div>" +
+                "<div class='deckDistArea'>" +
+                "<hr class='dashLine'>" +
+                "</div>" +
+                "</div>");
         }
         document.write("</div>");
     </script>

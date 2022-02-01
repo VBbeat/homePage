@@ -6,6 +6,10 @@
     text-align: left;
 }
 
+.tar{
+    text-align: right;
+}
+
 /* デバッグ用黒枠 */
 .debug{
     border: 2px solid #000000;
