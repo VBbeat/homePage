@@ -36,3 +36,32 @@
 .dashLine{
     border-top: dashed #003300 2px;
 }
+.deckDistTable{
+    width: 100%;
+    table-layout: fixed;
+
+    border-collapse: collapse;
+}
+.cardHeader td{
+    font-weight: 600;
+}
+.pokemonCol{
+    background-color: #FFAAAA;
+    color: #CC2222;
+}
+.supportCol{
+    background-color: #FFCC77;
+    color: #BF5511;
+}
+.goodsCol{
+    background-color: #BBBBFF;
+    color: #3333AA;
+}
+.stadiumCol{
+    background-color: #AAFFAA;
+    color: #11AA11;
+}
+.energyCol{
+    background-color: #CCCCCC;
+    color: #666666;
+}

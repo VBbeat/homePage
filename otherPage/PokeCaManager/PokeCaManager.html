@@ -20,7 +20,8 @@
     <script>
         document.write("<div class='contentArea'>");
         for (let i = 0; i < 2; i++) {
-            document.write("<div class='doubleBorderArea'>" +
+            document.write(
+                "<div class='doubleBorderArea'>" +
                 "<div class='deckBlockArea'>" +
                 "<table class='deckTable'><tr>" +
                 "<td><div class='deckBlockIcon tac'>アイコン</div>" +
@@ -30,12 +31,29 @@
                 "</div>" +
                 "<div class='deckDistArea'>" +
                 "<hr class='dashLine'>" +
+                "<table class='deckDistTable'><tr class='cardHeader'>" +
+                "<td class='pokemonCol'>ポケモン</td>" +
+                "<td class='supportCol'>サポート</td>" +
+                "<td class='goodsCol'>グッズ</td>" +
+                "<td class='stadiumCol'>スタジアム</td>" +
+                "<td class='energyCol'>エネルギー</td>" +
+                "</tr>"
+            );
+            for (let j = 0; j < 6; j++) {
+
+                document.write(
+                    "<tr>" +
+                    "<td class='pokemon'>" + + "</td>"
+                );
+            }
+            document.write(
+                "</table>" +
                 "</div>" +
-                "</div>");
+                "</div>"
+            );
         }
         document.write("</div>");
     </script>
-
 </body>
 
 </html>
