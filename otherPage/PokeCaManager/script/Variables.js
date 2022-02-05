@@ -8,12 +8,3 @@ const CARD_ENERGY = "4";
 // デッキの構成を表す
 const CARD_NAME = "0";
 const CARD_NUM = "1";
-
-// デッキの配列
-var deckCardArray = [
-    [],
-    [],
-    [],
-    [],
-    []
-];
