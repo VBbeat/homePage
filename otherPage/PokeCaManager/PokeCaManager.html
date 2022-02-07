@@ -4,6 +4,9 @@
     <link rel="stylesheet" href="css/PokeCaManager.css" type="text/css">
     <link rel="stylesheet" href="../common.css" type="text/css">
     <meta charset="utf-8" http-equiv="content-type">
+
+    <script type="text/javascript" src="script/Variables.js"></script>
+    <script type="text/javascript" src="script/inputDeckData.js"></script>
 </head>
 
 <body>
@@ -18,6 +21,8 @@
         </form>
     </div>
     <script>
+        // 実体がない、うまくreturn されていない。。？
+        var deckArray = readDeckDataTxt("userData/MuriMuriko_/1.csv");
         document.write("<div class='contentArea'>");
         for (let i = 0; i < 2; i++) {
             document.write(
@@ -31,20 +36,26 @@
                 "</div>" +
                 "<div class='deckDistArea'>" +
                 "<hr class='dashLine'>" +
-                "<table class='deckDistTable'><tr class='cardHeader'>" +
-                "<td class='pokemonCol'>ポケモン</td>" +
-                "<td class='supportCol'>サポート</td>" +
-                "<td class='goodsCol'>グッズ</td>" +
-                "<td class='stadiumCol'>スタジアム</td>" +
-                "<td class='energyCol'>エネルギー</td>" +
-                "</tr>"
+                "<table class='deckDistTable'>"
             );
+            console.log(deckArray);
             for (let j = 0; j < 6; j++) {
-
-                document.write(
-                    "<tr>" +
-                    "<td class='pokemon'>" + + "</td>"
-                );
+                var cardType = "";
+                if (deckArray[j][CARD_TYPE] == CARD_POKEMON) {
+                    cardType = "pokemonCol";
+                } else if (deckArray[j][CARD_TYPE] == CARD_SUPPORT) {
+                    cardType = "supportCol";
+                } else if (deckArray[j][CARD_TYPE] == CARD_GOODS) {
+                    cardType = "goodsCol";
+                } else if (deckArray[j][CARD_TYPE] == CARD_STADIUM) {
+                    cardType = "stadiumCol";
+                } else if (deckArray[j][CARD_TYPE] == CARD_ENERGY) {
+                    cardType = "energyCol";
+                } else
+                    document.write(
+                        "<tr>" +
+                        "<td class='" + cardType + "'>" + deckArray[j][CARD_NAME] + "</td>"
+                    );
             }
             document.write(
                 "</table>" +

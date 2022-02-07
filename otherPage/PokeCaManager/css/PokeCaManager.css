@@ -42,9 +42,6 @@
 
     border-collapse: collapse;
 }
-.cardHeader td{
-    font-weight: 600;
-}
 .pokemonCol{
     background-color: #FFAAAA;
     color: #CC2222;

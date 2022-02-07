@@ -7,13 +7,7 @@ function readDeckDataTxt(filePath) {
     // デッキ名
     var deckName = "";
     // デッキの配列
-    var deckArray = [
-        [],
-        [],
-        [],
-        [],
-        []
-    ];
+    var deckArray = [];
 
     var deckDataFile = new XMLHttpRequest();
 
@@ -21,15 +15,16 @@ function readDeckDataTxt(filePath) {
     deckDataFile.send(null);
 
     deckDataFile.onload = function () {
-        var deckDataLine = deckDataFile.responseText.split("\n");
+        var deckDataLine = deckDataFile.responseText.split("\r\n");
         deckName = deckDataLine[ROW_DECK_NAME];
 
-        for (var i = 0; i < deckDataLine.length; i++) {
+        // デッキの配列にデータを格納
+        for (var i = 1; i < deckDataLine.length; i++) {
             var deckElements = deckDataLine[i].split(',');
-            for (var j = 0; j < deckElements.length; j++) {
-                deckCardData = [deckElements[COL_CARD_NAME], deckElements[COL_CARD_NUM]];
-                deckArray[deckElements[COL_CARD_TYPE]].push(deckCardData);
-            }
+            deckCardData = [deckElements[COL_CARD_TYPE], deckElements[COL_CARD_NAME], deckElements[COL_CARD_NUM]];
+            deckArray.push(deckCardData);
         }
     }
+
+    return deckArray;
 }
