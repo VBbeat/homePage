@@ -20,51 +20,7 @@
             <label>ユーザ名：</label><input type="text">
         </form>
     </div>
-    <script>
-        // 実体がない、うまくreturn されていない。。？
-        var deckArray = readDeckDataTxt("userData/MuriMuriko_/1.csv");
-        document.write("<div class='contentArea'>");
-        for (let i = 0; i < 2; i++) {
-            document.write(
-                "<div class='doubleBorderArea'>" +
-                "<div class='deckBlockArea'>" +
-                "<table class='deckTable'><tr>" +
-                "<td><div class='deckBlockIcon tac'>アイコン</div>" +
-                "<div class='deckInfoAbst tac'>デッキ名</div></td>" +
-                "<td class='deckDistButtonArea tar'><div class='deckDistButton commonButton'>デッキ詳細</div></td>" +
-                "</tr></table>" +
-                "</div>" +
-                "<div class='deckDistArea'>" +
-                "<hr class='dashLine'>" +
-                "<table class='deckDistTable'>"
-            );
-            console.log(deckArray);
-            for (let j = 0; j < 6; j++) {
-                var cardType = "";
-                if (deckArray[j][CARD_TYPE] == CARD_POKEMON) {
-                    cardType = "pokemonCol";
-                } else if (deckArray[j][CARD_TYPE] == CARD_SUPPORT) {
-                    cardType = "supportCol";
-                } else if (deckArray[j][CARD_TYPE] == CARD_GOODS) {
-                    cardType = "goodsCol";
-                } else if (deckArray[j][CARD_TYPE] == CARD_STADIUM) {
-                    cardType = "stadiumCol";
-                } else if (deckArray[j][CARD_TYPE] == CARD_ENERGY) {
-                    cardType = "energyCol";
-                } else
-                    document.write(
-                        "<tr>" +
-                        "<td class='" + cardType + "'>" + deckArray[j][CARD_NAME] + "</td>"
-                    );
-            }
-            document.write(
-                "</table>" +
-                "</div>" +
-                "</div>"
-            );
-        }
-        document.write("</div>");
-    </script>
+    <div id="deckListArea"></div>
 </body>
 
 </html>
