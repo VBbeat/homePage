@@ -42,6 +42,7 @@ function csvToArray(text) {
 function drawDeckList() {
     readDeckDataTxt("userData/MuriMuriko_/1.csv");
 
+    let deckListArea = document.getElementById("deckListArea");
     document.write("<div class='contentArea'>");
     for (let i = 0; i < 2; i++) {
         document.write(
