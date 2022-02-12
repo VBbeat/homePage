@@ -1,9 +1,11 @@
-function readDeckDataTxt(filePath) {
+function readDeckDataTxt() {
 
     // デッキ名
     var deckName = "";
     // デッキの配列
     var deckArray = [];
+	
+	var filePath = "userData/MuriMuriko_/1.csv";
 
     var deckDataFile = new XMLHttpRequest();
 
@@ -11,7 +13,9 @@ function readDeckDataTxt(filePath) {
     deckDataFile.send(null);
 
     deckDataFile.onload = function () {
-        deckArray = csvToArray(deckDataFile.responseText);
+		// デッキデータが読み込まれていない
+        csvToArray(deckDataFile.responseText);
+		drawDeckList(deckArray);
         console.log(deckArray);
         console.log("1");
     }
@@ -39,12 +43,12 @@ function csvToArray(text) {
 
 }
 
-function drawDeckList() {
-    readDeckDataTxt("userData/MuriMuriko_/1.csv");
+function drawDeckList(deckArray) {
+	let deckListArea = document.getElementById("deckListArea");
 
-    document.write("<div class='contentArea'>");
+    deckListArea.insertAdjacentHTML("beforeend","<div class='contentArea'>");
     for (let i = 0; i < 2; i++) {
-        document.write(
+        deckListArea.insertAdjacentHTML("beforeend",
             "<div class='doubleBorderArea'>" +
             "<div class='deckBlockArea'>" +
             "<table class='deckTable'><tr>" +
@@ -71,16 +75,16 @@ function drawDeckList() {
             } else if (deckArray[j][CARD_TYPE] == CARD_ENERGY) {
                 cardType = "energyCol";
             }
-            document.write(
+            deckListArea.insertAdjacentHTML("beforeend",
                 "<tr>" +
                 "<td class='" + cardType + "'>" + deckArray[j][CARD_NAME] + "</td>"
             );
         }
-        document.write(
+        deckListArea.insertAdjacentHTML("beforeend",
             "</table>" +
             "</div>" +
             "</div>"
         );
     }
-    document.write("</div>");
+    deckListArea.insertAdjacentHTML("beforeend", "</div>");
 }

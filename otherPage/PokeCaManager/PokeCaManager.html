@@ -16,9 +16,12 @@
     </header>
 
     <div id="userIdForm" class="contentArea tac">
-        <form>
-            <label>ユーザ名：</label><input type="text">
-        </form>
+        <div>デッキID： <input type="text"></div>
+		<div id="deckId">00001</div>
+		<div>
+			<div class="commonButton" >確定</div>
+			<div class="commonButton" onclick="readDeckDataTxt()">表示</div>
+		</div>
     </div>
     <div id="deckListArea"></div>
 </body>
