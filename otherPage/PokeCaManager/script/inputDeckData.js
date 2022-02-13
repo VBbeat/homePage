@@ -2,10 +2,8 @@ function readDeckDataTxt() {
 
     // デッキ名
     var deckName = "";
-    // デッキの配列
-    var deckArray = [];
 	
-	var filePath = "userData/MuriMuriko_/1.csv";
+	var filePath = "../userData/MuriMuriko_/1.csv";
 
     var deckDataFile = new XMLHttpRequest();
 
@@ -14,10 +12,9 @@ function readDeckDataTxt() {
 
     deckDataFile.onload = function () {
 		// デッキデータが読み込まれていない
-        csvToArray(deckDataFile.responseText);
-		drawDeckList(deckArray);
+        let deckArray = csvToArray(deckDataFile.responseText);
         console.log(deckArray);
-        console.log("1");
+		drawDeckList(deckArray);
     }
 
     console.log("2");
@@ -33,6 +30,8 @@ function csvToArray(text) {
     deckName = deckDataLine[ROW_DECK_NAME];
     console.log("3");
 
+    let deckArray = [];
+
     // デッキの配列にデータを格納
     for (var i = 1; i < deckDataLine.length; i++) {
         var deckElements = deckDataLine[i].split(',');
@@ -40,6 +39,8 @@ function csvToArray(text) {
         deckArray.push(deckCardData);
 
     }
+    
+    return deckArray;
 
 }
 
