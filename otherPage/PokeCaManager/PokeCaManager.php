@@ -6,7 +6,6 @@
     <meta charset="utf-8" http-equiv="content-type">
 
     <script type="text/javascript" src="script/Variables.js"></script>
-    <script type="text/javascript" src="script/inputDeckData.js"></script>
 </head>
 
 <body>
@@ -15,13 +14,8 @@
         <h3>ver 1.0</h3>
     </header>
 
-    <div id="userIdForm" class="contentArea tac">
-        <div>デッキID： <input type="text"></div>
-		<div id="deckId">00001</div>
-		<div>
-			<div class="commonButton" >確定</div>
-			<div class="commonButton" onclick="readDeckDataTxt()">表示</div>
-		</div>
+    <div id="userIdForm" class="contentArea">
+        <div class="commonButton">デッキ作成</div>
     </div>
     <div id="deckListArea"></div>
 </body>
