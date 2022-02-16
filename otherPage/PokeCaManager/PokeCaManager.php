@@ -1,10 +1,11 @@
 <?php
+    require_once "commonUtil.php";
 	$deckListArray = array();
 	
 	// デッキ一覧ファイルの読み込み
-	$deckListArray[0] = array("001", "デッキ名1", "作成者名1", "更新日時1");
-	$deckListArray[1] = array("002", "デッキ名2", "作成者名2", "更新日時2");
-	$deckListArray[2] = array("003", "デッキ名3", "作成者名3", "更新日時3");
+	$deckListArray[0] = array("001", "好きなモノ入ってますデッキ", "むりこ", "2022/02/17");
+	$deckListArray[1] = array("002", "バトルセンスリザードンデッキ", "すみこ", "2022/02/17");
+	$deckListArray[2] = array("003", "れんげきウーラオスVMAXデッキ", "わっさん", "2022/02/17");
 ?>
 <html>
 
@@ -12,8 +13,6 @@
     <link rel="stylesheet" href="css/PokeCaManager.css" type="text/css">
     <link rel="stylesheet" href="../common.css" type="text/css">
     <meta charset="utf-8" http-equiv="content-type">
-
-    <script type="text/javascript" src="script/Variables.js"></script>
 </head>
 
 <body>
@@ -22,28 +21,39 @@
         <h3>ver 1.0</h3>
     </header>
 
-    <div id="userIdForm" class="contentArea">
-        <div class="commonButton">デッキ作成</div>
+    <div class="contentArea toolBarArea">
+        <a href="PokeCaManagerDeckDist.php">
+            <div class="commonButton">デッキ作成</div>
+        </a>
     </div>
-    <div id="deckListArea">
-        <table id="deckListTable">
-			<?php for ($i = 0; $i < (count($deckListArray) + 1) / 2; $i += 2) : ?>
-				<tr>
-					<td>
-						<div>
-							<?= $deckListArray[$i][1] ?>
-						</div>
-					</td>
-					<td>
-						<?php if (count(deckListArray) > $i + 1) : ?>
-						<div>
-							<?= $deckListArray[$i + 1][1] ?>
-						</div>
-						<?php endif; ?>
-					</td>
-				</tr>
-			<?php endfor; ?>
-        </table>
+    <div id="deckListArea" class="contentArea">
+		<?php for ($i = 0; $i < count($deckListArray); $i++) : ?>
+            <a href="#blank">
+                <table class="deckListTable">
+                    <tr>
+                        <td class="deckNameCol">
+                            <div class="deckName">
+                                デッキ名：<?= $deckListArray[$i][1] ?>
+                            </div>
+                        </td>
+                        <td class="deckInfoCol">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="deckNameCol">
+                            <div class="deckMaker">
+                                作成者　：<?= $deckListArray[$i][2] ?>
+                            </div>
+                        </td>
+                        <td class="deckInfoCol">
+                            <div class="deckUpdDate tar">
+                                更新日：<?= $deckListArray[$i][3] ?>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+            </a>
+        <?php endfor; ?>
     </div>
 </body>
 

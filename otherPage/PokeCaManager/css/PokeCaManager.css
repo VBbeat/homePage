@@ -1,3 +1,7 @@
+a{
+    text-decoration: none;
+}
+
 .contentArea{
     box-sizing: border-box;
     border: 2px dashed #22AA22;
@@ -15,61 +19,84 @@
     padding: 5px;
 }
 
-#userIdForm{
+.toolBarArea{
 	display: flex;
 	justify-content: space-around;
 	flex-direction: row;
 }
 
-#userIdForm div{
+.toolBarArea a{
 	text-align: center;
 	width: 30%;
 }
 
-/* デッキのブロック */
-
-.deckBlockArea{
-    display: flex;
+#deckContentTable{
+    width: 90%;
+    margin: 5px auto;
+    border-collapse: collapse;
+    border: #115511 solid 2px;
 }
-.deckBlockArea div{
-    display: inline-block;
+
+#deckContentTable td{
+    padding: 0px;
+
+}
+.deckListTable{
+    width: 90%;
+    margin: 5px auto;
+    border: #000000 solid 2px
+}
+
+.deckNameCol{
+    width: 70%;
+}
+.deckInfoCol{
+    width: 25%;
+}
+
+.cardNameCol{
+    width: 40%;
+}
+.cardNumCol{
+    width: 10%;
+}
+.cardName, .cardNum, .deckName, .deckMaker, .deckUpdDate{
+    font-weight: 600;
+    margin: 0px;
     padding: 5px;
 }
-.deckTable{
-    width: 100%;
-}
-.deckDistButtonArea{
-    width: 120px;
-}
-.deckDistButton{
-    margin: 5px;
-}
-.dashLine{
-    border-top: dashed #003300 2px;
-}
-.deckDistTable{
-    width: 100%;
-    table-layout: fixed;
 
-    border-collapse: collapse;
+.deckUpdDate{
+    font-size: small;
+}
+
+.headerCol{
+    background-color: #88DD88;
+    border: #115511 solid 2px;
+    color: #115511;
 }
 .pokemonCol{
     background-color: #FFAAAA;
     color: #CC2222;
+    border: #CC2222 solid 2px;
 }
 .supportCol{
     background-color: #FFCC77;
     color: #BF5511;
+    border: #BF5511 solid 2px;
 }
 .goodsCol{
     background-color: #BBBBFF;
     color: #3333AA;
+    border: #3333AA solid 2px;
 }
 .stadiumCol{
     background-color: #AAFFAA;
     color: #11AA11;
+    border: #11AA11 solid 2px;
 }
 .energyCol{
     background-color: #CCCCCC;
     color: #666666;
+    border: #666666 solid 2px;
 }
