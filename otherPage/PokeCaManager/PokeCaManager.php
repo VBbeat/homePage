@@ -22,13 +22,13 @@
     </header>
 
     <div class="contentArea toolBarArea">
-        <a href="PokeCaManagerDeckDist.php">
+        <a href="PokeCaManagerDeckMake.php">
             <div class="commonButton">デッキ作成</div>
         </a>
     </div>
     <div id="deckListArea" class="contentArea">
 		<?php for ($i = 0; $i < count($deckListArray); $i++) : ?>
-            <a href="#blank">
+            <a href="">
                 <table class="deckListTable">
                     <tr>
                         <td class="deckNameCol">

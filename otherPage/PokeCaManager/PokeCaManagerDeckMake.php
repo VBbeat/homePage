@@ -24,7 +24,7 @@
     </header>
 
     <div class="contentArea toolBarArea">
-        <a href="PokeCaManagerDeckMake.php">
+        <a href="PokeCaManager.php">
 			<div class="commonButton">デッキ編集</div>
 		</a>
     </div>
