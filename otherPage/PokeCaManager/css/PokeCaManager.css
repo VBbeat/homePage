@@ -47,6 +47,19 @@ a{
     border: #000000 solid 2px
 }
 
+.deckCreateTable{
+    width: 90%;
+    margin: 5px auto;
+    border-collapse: collapse;
+    border: #115511 solid 2px;
+}
+.deckCreateTable td{
+    padding: 0px;
+}
+.addButtonTable{
+    border: none;
+}
+
 .deckNameCol{
     width: 70%;
 }
@@ -60,7 +73,30 @@ a{
 .cardNumCol{
     width: 10%;
 }
-.cardName, .cardNum, .deckName, .deckMaker, .deckUpdDate{
+.editButton, .removeButton{
+    margin: 0px;
+    padding: 5px;
+    font-weight: 600;
+}
+.editButtonCol .commonButton, .removeButtonCol .commonButton{
+    margin: 0px;
+    padding: 5px;
+}
+
+.deckCreateTable .cardNameCol{
+    width: 50%;
+}
+.deckCreateTable .cardNumCol{
+    width: 15%;
+}
+.deckCreateTable .editButtonCol{
+    width: 15%;
+}
+.deckCreateTable .removeButtonCol{
+    width: 15%;
+}
+
+.cardName, .cardNum, .deckName, .deckMaker, .deckUpdDate, .blank{
     font-weight: 600;
     margin: 0px;
     padding: 5px;

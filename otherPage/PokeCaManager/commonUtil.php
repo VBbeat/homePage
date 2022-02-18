@@ -7,5 +7,4 @@
     const CARD_TYPE_ENERGY = 4;
 
     const CARD_COL_NAME = array("pokemonCol", "supportCol", "goodsCol", "stadiumCol", "energyCol");
-    
 ?>

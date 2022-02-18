@@ -25,11 +25,11 @@
 
     <div class="contentArea toolBarArea">
         <a href="PokeCaManager.php">
-			<div class="commonButton">デッキ編集</div>
+			<div class="commonButton">デッキ保存</div>
 		</a>
     </div>
-    <div id="deckContentArea" class="contentArea">
-        <table id="deckContentTable">
+    <div id="deckCreateArea" class="contentArea">
+        <table class="deckCreateTable">
 			<tr>
 				<td class="cardNameCol">
 					<div class="cardName headerCol">カード名</div>
@@ -37,14 +37,18 @@
 				<td class="cardNumCol">
 					<div class="cardNum headerCol">枚数</div>
 				</td>
-				<td class="cardNameCol">
-					<div class="cardName headerCol">カード名</div>
+				<td class="editButtonCol">
+					<div class="editButton headerCol">
+						編集ボタン
+					</div>
 				</td>
-				<td class="cardNumCol">
-					<div class="cardNum headerCol">枚数</div>
+				<td class="removeButtonCol">
+					<div class="removeButton headerCol">
+						削除ボタン
+					</div>
 				</td>
 			</tr>
-			<?php for ($i = 0; $i < (count($deckContentArray) + 1); $i += 2) : ?>
+			<?php for ($i = 0; $i < count($deckContentArray); $i++) : ?>
 				<tr>
 					<td class="cardNameCol">
 						<div class="cardName <?= CARD_COL_NAME[$deckContentArray[$i][0]] ?>">
@@ -53,22 +57,28 @@
 					</td>
 					<td class="cardNumCol">
 						<div class="cardNum <?= CARD_COL_NAME[$deckContentArray[$i][0]] ?>">
-						    <?= $deckContentArray[$i][2] ?>
+							<?= $deckContentArray[$i][2] ?>
 						</div>
 					</td>
-					<td class="cardNameCol">
-						<?php if (count($deckContentArray) > $i + 1) : ?>
-						<div class="cardName <?= CARD_COL_NAME[$deckContentArray[$i + 1][0]] ?>"><?= $deckContentArray[$i + 1][1] ?></div>
-						<?php endif; ?>
+					<td class="editButtonCol">
+						<div class="commonButton">編集</div>
 					</td>
-					<td class="cardNumCol">
-						<?php if (count($deckContentArray) > $i + 1) : ?>
-						<div class="cardNum <?= CARD_COL_NAME[$deckContentArray[$i + 1][0]] ?>"><?= $deckContentArray[$i + 1][2] ?></div>
-						<?php endif; ?>
+					<td class="removeButtonCol">
+						<div class="commonButton">削除</div>
 					</td>
 				</tr>
 			<?php endfor; ?>
         </table>
+        <table class="deckCreateTable addButtonTable">
+			<tr>
+				<td class="cardNameCol">　</td>
+				<td class="cardNumCol">　</td>
+				<td class="editButtonCol">　</td>
+				<td class="removeButtonCol">
+					<div class="commonButton">追加</div>
+				</td>
+			</tr>
+		</table>
     </div>
 </body>
 

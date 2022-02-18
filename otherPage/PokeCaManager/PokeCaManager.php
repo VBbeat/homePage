@@ -28,7 +28,7 @@
     </div>
     <div id="deckListArea" class="contentArea">
 		<?php for ($i = 0; $i < count($deckListArray); $i++) : ?>
-            <a href="">
+            <a href="PokeCaManagerDeckDist.php">
                 <table class="deckListTable">
                     <tr>
                         <td class="deckNameCol">
