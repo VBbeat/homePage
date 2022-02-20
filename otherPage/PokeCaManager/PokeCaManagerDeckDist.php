@@ -48,7 +48,7 @@
 				<tr>
 					<td class="cardNameCol">
 						<div class="cardName <?= CARD_COL_NAME[$deckContentArray[$i][0]] ?>">
-							<?= $deckContentArray[$i][1] ?>
+							<?= $deckContentArray[$i][2] ?>
 						</div>
 					</td>
 					<td class="cardNumCol">
@@ -58,7 +58,7 @@
 					</td>
 					<td class="cardNameCol">
 						<?php if (count($deckContentArray) > $i + 1) : ?>
-						<div class="cardName <?= CARD_COL_NAME[$deckContentArray[$i + 1][0]] ?>"><?= $deckContentArray[$i + 1][1] ?></div>
+						<div class="cardName <?= CARD_COL_NAME[$deckContentArray[$i + 1][0]] ?>"><?= $deckContentArray[$i + 1][2] ?></div>
 						<?php endif; ?>
 					</td>
 					<td class="cardNumCol">
