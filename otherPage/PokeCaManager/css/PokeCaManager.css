@@ -78,10 +78,11 @@ a{
     width: 10%;
 }
 .editButton, .removeButton{
+    font-weight: 600;
     margin: 0px;
     padding: 5px;
-    font-weight: 600;
     height: 100%;
+    box-sizing: border-box;
 }
 .editButtonCol .commonButton, .removeButtonCol .commonButton{
     margin: 0px;
@@ -106,6 +107,7 @@ a{
     margin: 0px;
     padding: 5px;
     height: 100%;
+    box-sizing: border-box;
 }
 
 .deckUpdDate{
