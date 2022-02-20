@@ -104,7 +104,7 @@ a{
 }
 
 .cardName, .cardNum, .deckName, .deckMaker, .deckUpdDate, .blank{
-    font-weight: 600;
+    /* font-weight: 600; */
     margin: 0px;
     padding: 5px;
     height: 100%;
