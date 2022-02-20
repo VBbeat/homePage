@@ -37,6 +37,7 @@ a{
 
 #deckContentTable{
     width: 90%;
+    height: 1px;
     margin: 5px auto;
     border-collapse: collapse;
     border: #115511 solid 2px;
@@ -44,6 +45,7 @@ a{
 
 #deckContentTable td{
     padding: 0px;
+    height: 100%;
 
 }
 .deckListTable{
@@ -54,12 +56,14 @@ a{
 
 .deckCreateTable{
     width: 90%;
+    height: 1px;
     margin: 5px auto;
     border-collapse: collapse;
     border: #115511 solid 2px;
 }
 .deckCreateTable td{
     padding: 0px;
+    height: 100%;
 }
 .addButtonTable{
     border: none;
@@ -104,7 +108,7 @@ a{
 }
 
 .cardName, .cardNum, .deckName, .deckMaker, .deckUpdDate, .blank{
-    /* font-weight: 600; */
+    font-weight: 600;
     margin: 0px;
     padding: 5px;
     height: 100%;
