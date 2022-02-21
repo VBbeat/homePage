@@ -57,7 +57,7 @@
 					</td>
 					<td class="cardNumCol">
 						<div class="cardNum <?= CARD_COL_NAME[$deckContentArray[$i][0]] ?>">
-							<?= $deckContentArray[$i][2] ?>
+							<?= $deckContentArray[$i][2] ?>枚
 						</div>
 					</td>
 					<td class="editButtonCol">

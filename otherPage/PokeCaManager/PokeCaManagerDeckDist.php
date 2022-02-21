@@ -63,7 +63,7 @@
 					</td>
 					<td class="cardNumCol">
 						<?php if (count($deckContentArray) > $i + 1) : ?>
-						<div class="cardNum <?= CARD_COL_NAME[$deckContentArray[$i + 1][0]] ?>"><?= $deckContentArray[$i + 1][2] ?></div>
+						<div class="cardNum <?= CARD_COL_NAME[$deckContentArray[$i + 1][0]] ?>"><?= $deckContentArray[$i + 1][2] ?>枚</div>
 						<?php endif; ?>
 					</td>
 				</tr>
