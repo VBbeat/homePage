@@ -6,5 +6,10 @@
     const CARD_TYPE_STADIUM = 3;
     const CARD_TYPE_ENERGY = 4;
 
+    const DECK_ID = 0;
+    const DECK_NAME = 1;
+    const DECK_MAKER = 2;
+    const DECK_UPDDATE = 3;
+
     const CARD_COL_NAME = array("pokemonCol", "supportCol", "goodsCol", "stadiumCol", "energyCol");
 ?>

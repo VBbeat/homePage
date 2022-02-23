@@ -6,6 +6,21 @@
 	$deckListArray[0] = array("001", "好きなモノ入ってますデッキ", "むりこ", "2022/02/17");
 	$deckListArray[1] = array("002", "バトルセンスリザードンデッキ", "すみこ", "2022/02/17");
 	$deckListArray[2] = array("003", "れんげきウーラオスVMAXデッキ", "わっさん", "2022/02/17");
+
+    // デッキ名, 投稿者, 更新日時を取得する
+    $deckPath = './userData/deckData/deckList.csv';
+    foreach(glob($deckPath) as $deckFile){
+        $handle = fopen($deckFile, 'r');
+        $deckInfo = fgets($handle);
+        $deckName = fgets($handle);
+        $updDateTime = fgets($handle);
+        $poster = fgets($handle);
+        array_push($articleTitle, $title);
+        array_push($articlePathList, $articleFile);
+        array_push($articleUpdDateTime, $updDateTime);
+        array_push($articlePoster, $poster);
+        fclose();
+    }
 ?>
 <html>
 
@@ -27,13 +42,17 @@
         </a>
     </div>
     <div id="deckListArea" class="contentArea">
-		<?php for ($i = 0; $i < count($deckListArray); $i++) : ?>
+		<?php
+            $deckPath = './userData/deckList.csv';
+            $handle = fopen($deckPath, 'r');
+            while($deckInfoList = fgetcsv($handle)):
+        ?>
             <a href="PokeCaManagerDeckDist.php">
                 <table class="deckListTable">
                     <tr>
                         <td class="deckNameCol">
                             <div class="deckName">
-                                デッキ名：<?= $deckListArray[$i][1] ?>
+                                デッキ名：<?= $deckInfoList[DECK_NAME] ?>
                             </div>
                         </td>
                         <td class="deckInfoCol">
@@ -42,18 +61,18 @@
                     <tr>
                         <td class="deckNameCol">
                             <div class="deckMaker">
-                                作成者　：<?= $deckListArray[$i][2] ?>
+                                作成者　：<?= $deckInfoList[DECK_MAKER] ?>
                             </div>
                         </td>
                         <td class="deckInfoCol">
                             <div class="deckUpdDate tar">
-                                更新日：<?= $deckListArray[$i][3] ?>
+                                更新日：<?= $deckInfoList[DECK_UPDDATE] ?>
                             </div>
                         </td>
                     </tr>
                 </table>
             </a>
-        <?php endfor; ?>
+        <?php endwhile; ?>
     </div>
 </body>
 
