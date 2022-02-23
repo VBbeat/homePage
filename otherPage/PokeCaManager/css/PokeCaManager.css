@@ -5,6 +5,11 @@
 
 a{
     text-decoration: none;
+    width: 100%;
+}
+
+#deckListArea form{
+    margin: 5px auto;
 }
 
 .contentArea{
@@ -29,7 +34,10 @@ a{
 	justify-content: space-around;
 	flex-direction: row;
 }
-
+.toolBarArea form{
+    margin: 0px;
+    width: 30%;
+}
 .toolBarArea a{
 	text-align: center;
 	width: 30%;

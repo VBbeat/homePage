@@ -1,13 +1,18 @@
 <?php
     require_once "commonUtil.php";
-	$deckContentArray = array();
-	
-	// デッキ詳細ファイルの読み込み
-	$deckContentArray[0] = array(0, "そらをとぶピカチュウVMAX", 3);
-	$deckContentArray[1] = array(1, "ダンデ", 3);
-	$deckContentArray[2] = array(2, "クイックボール", 4);
-	$deckContentArray[3] = array(3, "崩れたスタジアム", 2);
-	$deckContentArray[4] = array(4, "基本水E", 12);
+	$deckContentList = array();
+
+	// デッキ詳細ファイルの読みこみ
+	$deckFilePath = "./userData/deckData/" . $_GET["deckId"] . ".csv";
+	$handle = fopen($deckFilePath, 'r');
+	$idx = 0;
+	while($deckCardInfoList = fgetcsv($handle)){
+		$deckContentList[$idx][CONTENT_CARD_TYPE] = $deckCardInfoList[CONTENT_CARD_TYPE];
+		$deckContentList[$idx][CONTENT_CARD_NAME] = $deckCardInfoList[CONTENT_CARD_NAME];
+		$deckContentList[$idx][CONTENT_CARD_NUM] = $deckCardInfoList[CONTENT_CARD_NUM];
+		$idx++;
+	}
+	fclose($handle);
 ?>
 <html>
 
@@ -24,9 +29,12 @@
     </header>
 
     <div class="contentArea toolBarArea">
-        <a href="PokeCaManagerDeckMake.php">
-			<div class="commonButton">デッキ編集</div>
-		</a>
+		<form method="get" name="deckMakeButton" action="PokeCaManagerDeckMake.php">
+			<input type=hidden name="deckId" value="<?= $_GET["deckId"] ?>">
+        	<a href="javascript:deckMakeButton.submit()" >
+				<div class="commonButton">デッキ編集</div>
+			</a>
+		</form>
     </div>
     <div id="deckContentArea" class="contentArea">
         <table id="deckContentTable">
@@ -44,26 +52,26 @@
 					<div class="cardNum headerCol">枚数</div>
 				</td>
 			</tr>
-			<?php for ($i = 0; $i < (count($deckContentArray) + 1); $i += 2) : ?>
+			<?php for ($i = 0; $i < (count($deckContentList) + 1); $i += 2) : ?>
 				<tr>
 					<td class="cardNameCol">
-						<div class="cardName <?= CARD_COL_NAME[$deckContentArray[$i][0]] ?>">
-							<?= $deckContentArray[$i][1] ?>
+						<div class="cardName <?= CARD_COL_NAME[$deckContentList[$i][CONTENT_CARD_TYPE]] ?>">
+							<?= $deckContentList[$i][CONTENT_CARD_NAME] ?>
 						</div>
 					</td>
 					<td class="cardNumCol">
-						<div class="cardNum <?= CARD_COL_NAME[$deckContentArray[$i][0]] ?>">
-						    <?= $deckContentArray[$i][2] ?>枚
+						<div class="cardNum <?= CARD_COL_NAME[$deckContentList[$i][CONTENT_CARD_TYPE]] ?>">
+						    <?= $deckContentList[$i][CONTENT_CARD_NUM] ?>枚
 						</div>
 					</td>
 					<td class="cardNameCol">
-						<?php if (count($deckContentArray) > $i + 1) : ?>
-						<div class="cardName <?= CARD_COL_NAME[$deckContentArray[$i + 1][0]] ?>"><?= $deckContentArray[$i + 1][1] ?></div>
+						<?php if (count($deckContentList) > $i + 1) : ?>
+						<div class="cardName <?= CARD_COL_NAME[$deckContentList[$i + 1][CONTENT_CARD_TYPE]] ?>"><?= $deckContentList[$i + 1][CONTENT_CARD_NAME] ?></div>
 						<?php endif; ?>
 					</td>
 					<td class="cardNumCol">
-						<?php if (count($deckContentArray) > $i + 1) : ?>
-						<div class="cardNum <?= CARD_COL_NAME[$deckContentArray[$i + 1][0]] ?>"><?= $deckContentArray[$i + 1][2] ?>枚</div>
+						<?php if (count($deckContentList) > $i + 1) : ?>
+						<div class="cardNum <?= CARD_COL_NAME[$deckContentList[$i + 1][CONTENT_CARD_TYPE]] ?>"><?= $deckContentList[$i + 1][CONTENT_CARD_NUM] ?>枚</div>
 						<?php endif; ?>
 					</td>
 				</tr>

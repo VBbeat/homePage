@@ -6,6 +6,10 @@
     const CARD_TYPE_STADIUM = 3;
     const CARD_TYPE_ENERGY = 4;
 
+    const CONTENT_CARD_TYPE = 0;
+    const CONTENT_CARD_NAME = 1;
+    const CONTENT_CARD_NUM = 2;
+
     const DECK_ID = 0;
     const DECK_NAME = 1;
     const DECK_MAKER = 2;
