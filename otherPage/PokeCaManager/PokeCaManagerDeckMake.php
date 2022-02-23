@@ -2,12 +2,17 @@
     require_once "commonUtil.php";
 	$deckContentArray = array();
 	
-	// デッキ詳細ファイルの読み込み
-	$deckContentArray[0] = array(0, "そらをとぶピカチュウVMAX", 3);
-	$deckContentArray[1] = array(1, "ダンデ", 3);
-	$deckContentArray[2] = array(2, "クイックボール", 4);
-	$deckContentArray[3] = array(3, "崩れたスタジアム", 2);
-	$deckContentArray[4] = array(4, "基本水E", 12);
+	// デッキ詳細ファイルの読みこみ
+	$deckFilePath = "./userData/deckData/" . $_GET["deckId"] . ".csv";
+	$handle = fopen($deckFilePath, 'r');
+	$idx = 0;
+	while($deckCardInfoList = fgetcsv($handle)){
+		$deckContentList[$idx][CONTENT_CARD_TYPE] = $deckCardInfoList[CONTENT_CARD_TYPE];
+		$deckContentList[$idx][CONTENT_CARD_NAME] = $deckCardInfoList[CONTENT_CARD_NAME];
+		$deckContentList[$idx][CONTENT_CARD_NUM] = $deckCardInfoList[CONTENT_CARD_NUM];
+		$idx++;
+	}
+	fclose($handle);
 ?>
 <html>
 
@@ -48,16 +53,16 @@
 					</div>
 				</td>
 			</tr>
-			<?php for ($i = 0; $i < count($deckContentArray); $i++) : ?>
+			<?php for ($i = 0; $i < count($deckContentList); $i++) : ?>
 				<tr>
 					<td class="cardNameCol">
-						<div class="cardName <?= CARD_COL_NAME[$deckContentArray[$i][0]] ?>">
-							<?= $deckContentArray[$i][1] ?>
+						<div class="cardName <?= CARD_COL_NAME[$deckContentList[$i][0]] ?>">
+							<?= $deckContentList[$i][1] ?>
 						</div>
 					</td>
 					<td class="cardNumCol">
-						<div class="cardNum <?= CARD_COL_NAME[$deckContentArray[$i][0]] ?>">
-							<?= $deckContentArray[$i][2] ?>枚
+						<div class="cardNum <?= CARD_COL_NAME[$deckContentList[$i][0]] ?>">
+							<?= $deckContentList[$i][2] ?>枚
 						</div>
 					</td>
 					<td class="editButtonCol">
