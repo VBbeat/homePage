@@ -43,39 +43,48 @@
     </div>
     <div id="deckListArea" class="contentArea">
 		<?php
+            $_SESSION["deckId_Max"] = 0;
             $deckPath = './userData/deckList.csv';
             $handle = fopen($deckPath, 'r');
             while($deckInfoList = fgetcsv($handle)):
         ?>
-            <form method="get" name="<?= 'deckId' . $deckInfoList[DECK_ID] ?>" action="PokeCaManagerDeckDist.php">
-                <input type=hidden name="deckId" value="<?= $deckInfoList[DECK_ID] ?>">
-                <a href="<?= 'javascript:deckId' . $deckInfoList[DECK_ID] . '.submit()' ?>" action="PokeCaManagerDeckDist.php">
-                    <table class="deckListTable">
-                        <tr>
-                            <td class="deckNameCol">
-                                <div class="deckName">
-                                    デッキ名：<?= $deckInfoList[DECK_NAME] ?>
-                                </div>
-                            </td>
-                            <td class="deckInfoCol">
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="deckNameCol">
-                                <div class="deckMaker">
-                                    作成者　：<?= $deckInfoList[DECK_MAKER] ?>
-                                </div>
-                            </td>
-                            <td class="deckInfoCol">
-                                <div class="deckUpdDate tar">
-                                    更新日：<?= $deckInfoList[DECK_UPDDATE] ?>
-                                </div>
-                            </td>
-                        </tr>
-                    </table>
-                </a>
-            </form>
+            <?php
+                if($deckInfoList[DECK_DELETE] != ISDELETE):
+            ?>
+                <form method="get" name="<?= 'deckId' . $deckInfoList[DECK_ID] ?>" action="PokeCaManagerDeckDist.php">
+                    <input type=hidden name="deckId" value="<?= $deckInfoList[DECK_ID] ?>">
+                    <a href="<?= 'javascript:deckId' . $deckInfoList[DECK_ID] . '.submit()' ?>" action="PokeCaManagerDeckDist.php">
+                        <table class="deckListTable">
+                            <tr>
+                                <td class="deckNameCol">
+                                    <div class="deckName">
+                                        デッキ名：<?= $deckInfoList[DECK_NAME] ?>
+                                    </div>
+                                </td>
+                                <td class="deckInfoCol">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="deckNameCol">
+                                    <div class="deckMaker">
+                                        作成者　：<?= $deckInfoList[DECK_MAKER] ?>
+                                    </div>
+                                </td>
+                                <td class="deckInfoCol">
+                                    <div class="deckUpdDate tar">
+                                        更新日：<?= $deckInfoList[DECK_UPDDATE] ?>
+                                    </div>
+                                </td>
+                            </tr>
+                        </table>
+                    </a>
+                </form>
+            <?php
+                endif;
+            ?>
         <?php
+            // 最大のデッキIDをセッション変数で保持
+            $_SESSION["deckId_Max"] = max($deckInfoList[DECK_ID], $_SESSION["deckId_Max"]);
             endwhile;
             fclose($handle);
         ?>

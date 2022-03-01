@@ -14,6 +14,9 @@
     const DECK_NAME = 1;
     const DECK_MAKER = 2;
     const DECK_UPDDATE = 3;
+    const DECK_DELETE = 4;
+
+    const ISDELETE = 1;
 
     const CARD_COL_NAME = array("pokemonCol", "supportCol", "goodsCol", "stadiumCol", "energyCol");
 ?>
