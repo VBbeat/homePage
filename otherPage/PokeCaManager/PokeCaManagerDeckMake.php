@@ -32,6 +32,12 @@
         <a href="PokeCaManager.php">
 			<div class="commonButton">デッキ保存</div>
 		</a>
+		<form method="post" name="deckRegistButton" action="PokeCaManager.php">
+			<input type=hidden name="deckId" value="<?= $_GET["deckId"] ?>">
+        	<a href="javascript:deckMakeButton.submit()" >
+				<div class="commonButton">デッキ編集</div>
+			</a>
+		</form>
     </div>
     <div id="deckCreateArea" class="contentArea">
         <table class="deckCreateTable">
@@ -56,13 +62,13 @@
 			<?php for ($i = 0; $i < count($deckContentList); $i++) : ?>
 				<tr>
 					<td class="cardNameCol">
-						<div class="cardName <?= CARD_COL_NAME[$deckContentList[$i][0]] ?>">
-							<?= $deckContentList[$i][1] ?>
+						<div class="cardName <?= CARD_COL_NAME[$deckContentList[$i][CONTENT_CARD_TYPE]] ?>">
+							<?= $deckContentList[$i][CONTENT_CARD_NAME] ?>
 						</div>
 					</td>
 					<td class="cardNumCol">
-						<div class="cardNum <?= CARD_COL_NAME[$deckContentList[$i][0]] ?>">
-							<?= $deckContentList[$i][2] ?>枚
+						<div class="cardNum <?= CARD_COL_NAME[$deckContentList[$i][CONTENT_CARD_TYPE]] ?>">
+							<?= $deckContentList[$i][CONTENT_CARD_NUM] ?>枚
 						</div>
 					</td>
 					<td class="editButtonCol">
