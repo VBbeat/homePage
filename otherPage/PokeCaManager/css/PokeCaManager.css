@@ -102,8 +102,11 @@ a{
     padding: 5px;
 }
 
+.deckCreateTable .cardTypeCol{
+    width: 8%;
+}
 .deckCreateTable .cardNameCol{
-    width: 50%;
+    width: 40%;
 }
 .deckCreateTable .cardNumCol{
     width: 15%;
@@ -115,7 +118,7 @@ a{
     width: 15%;
 }
 
-.cardName, .cardNum, .deckName, .deckMaker, .deckUpdDate, .blank{
+.cardType, .cardName, .cardNum, .deckName, .deckMaker, .deckUpdDate, .blank{
     font-weight: 600;
     margin: 0px;
     padding: 5px;
