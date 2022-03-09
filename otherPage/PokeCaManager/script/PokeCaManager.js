@@ -25,7 +25,7 @@ function appendRow() {
     // 各列に表示内容を設定
     colCardType.innerHTML =
         '<div class="cardType">' +
-        '<select name="cardType">' +
+        '<select name="cardType" id="cardTypeId"' + count + '>' +
         '<option value = "0">PK</option>' +
         '<option value = "1">SP</option>' +
         '<option value = "2">GD</option>' +
@@ -33,39 +33,51 @@ function appendRow() {
         '<option value = "4">EN</option>' +
         '</select>' +
         '</div>';
-    colCardName.innerHTML = '<div class="cardName"><input type="text" id="cardNameId' + count + '"></div>';
-    colCardNum.innerHTML = '<div class="cardNum"><input type="number" id="cardNumId' + count + '" min="1" max="4">枚</div>';
+    colCardName.innerHTML = '<div class="cardName"><input type="text" id="cardNameId' + count + '" value="カード名"></div>';
+    colCardNum.innerHTML = '<div class="cardNum"><input type="number" id="cardNumId' + count + '" min="1" max="4" value="1">枚</div>';
     colEdtButton.innerHTML = '<div class="commonButton" id="editButton' + count + '" value="確定" onclick="editRow(this)">確定</div>';
     colRmvButton.innerHTML = '<div class="commonButton" id="removeButton' + count + '" value="削除" onclick="deleteRow(this)">削除</div>';
 
     // 追加した行の入力フィールドへフォーカスを設定
-    var objInp = document.getElementById("cardNameId" + count);
-    if (objInp) {
-        objInp.focus();
+    var objCardType = document.getElementById("cardNameId" + count);
+    if (objCardType) {
+        objCardType.focus();
     }
 }
 
 function editRow(obj) {
     var objTR = obj.parentNode.parentNode;
     var rowId = objTR.sectionRowIndex;
-    var objInp = document.getElementById("cardNameId" + rowId);
+    var objCardType = document.getElementById("cardTypeId" + rowId);
+    var objCardTypeParent = objCardType.parentNode;
+    var objCardName = document.getElementById("cardNameId" + rowId);
+    var objCardNameParent = objCardName.parentNode;
+    var objCardNum = document.getElementById("cardNumId" + rowId);
+    var objCardNumParent = objCardNum.parentNode;
     var objBtn = document.getElementById("editButton" + rowId);
 
-    if (!objInp || !objBtn)
+    if (!objCardName || !objBtn)
         return;
 
     // モードの切り替えはボタンの値で判定   
     if (objBtn.value == "編集") {
-        objInp.style.cssText = "border:1px solid #888;"
-        objInp.readOnly = false;
-        objInp.focus();
+        objCardNameParent
+        objCardNum.style.cssText = "border:1px solid #888;"
+        objCardNum.readOnly = false;
+        objCardNum.focus();
         objBtn.value = "確定";
         objBtn.innerHTML = "確定";
     }
     else {
-        objInp.style.cssText = "border:none;"
-        objInp.readOnly = true;
+        objCardName.style.cssText = "border:none;"
+        objCardName.readOnly = true;
+        objCardNum.style.cssText = "border:none;"
+        objCardNum.readOnly = true;
         objBtn.value = "編集";
         objBtn.innerHTML = "編集";
     }
+}
+
+function removeRow() {
+
 }

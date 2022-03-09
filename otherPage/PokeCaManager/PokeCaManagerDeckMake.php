@@ -77,7 +77,7 @@
 					</div>
 				</td>
 				<td class="editButtonCol">
-					<div class="commonButton">編集</div>
+					<div class="commonButton" onclick="editRow(this)" value="編集">編集</div>
 				</td>
 				<td class="removeButtonCol">
 					<div class="commonButton">削除</div>
