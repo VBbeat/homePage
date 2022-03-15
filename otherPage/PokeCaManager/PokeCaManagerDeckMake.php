@@ -19,7 +19,6 @@
 <head>
     <link rel="stylesheet" href="css/PokeCaManager.css" type="text/css">
     <link rel="stylesheet" href="../common.css" type="text/css">
-	<script type="text/javascript" src="script/PokeCaManager.js"></script>
     <meta charset="utf-8" http-equiv="content-type">
 </head>
 
@@ -49,14 +48,6 @@
 				<td class="cardNumCol">
 					<div class="cardNum headerCol">枚数</div>
 				</td>
-<<<<<<< HEAD
-=======
-				<td class="editButtonCol">
-					<div class="editButton headerCol">
-						編集ボタン
-					</div>
-				</td>
->>>>>>> 04a11cd14689e942ac0f967fa0a54a6baf6422ff
 			</tr>
 			<!-- ここをfor -->
 			<tr>
@@ -75,14 +66,6 @@
 						<?= $deckContentList[0][CONTENT_CARD_NUM] ?>枚
 					</div>
 				</td>
-<<<<<<< HEAD
-=======
-				<td class="editButtonCol">
-					<div class="commonButton" onclick="editRow(this)" value="編集">編集</div>
-				</td>
->>>>>>> 04a11cd14689e942ac0f967fa0a54a6baf6422ff
-			</tr>
-			<!-- ここまてfor -->
         </table>
     </div>
 </body>
