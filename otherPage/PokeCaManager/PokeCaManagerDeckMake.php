@@ -54,11 +54,6 @@
 						編集ボタン
 					</div>
 				</td>
-				<td class="removeButtonCol">
-					<div class="removeButton headerCol">
-						削除ボタン
-					</div>
-				</td>
 			</tr>
 			<tr>
 				<td class="cardTypeCol">
@@ -79,22 +74,8 @@
 				<td class="editButtonCol">
 					<div class="commonButton" onclick="editRow(this)" value="編集">編集</div>
 				</td>
-				<td class="removeButtonCol">
-					<div class="commonButton">削除</div>
-				</td>
 			</tr>
         </table>
-        <table class="deckCreateTable addButtonTable">
-			<tr>
-				<td class="cardTypeCol">　</td>
-				<td class="cardNameCol">　</td>
-				<td class="cardNumCol">　</td>
-				<td class="editButtonCol">　</td>
-				<td class="removeButtonCol">
-					<div class="commonButton" onclick="appendRow()">追加</div>
-				</td>
-			</tr>
-		</table>
     </div>
 </body>
 
