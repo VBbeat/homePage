@@ -55,6 +55,7 @@
 					</div>
 				</td>
 			</tr>
+			<!-- ここをfor -->
 			<tr>
 				<td class="cardTypeCol">
 					<div class="cardType <?= CARD_COL_NAME[$deckContentList[0][CONTENT_CARD_TYPE]] ?>">
@@ -75,6 +76,7 @@
 					<div class="commonButton" onclick="editRow(this)" value="編集">編集</div>
 				</td>
 			</tr>
+			<!-- ここまてfor -->
         </table>
     </div>
 </body>
