@@ -77,7 +77,3 @@ function editRow(obj) {
         objBtn.innerHTML = "編集";
     }
 }
-
-function removeRow() {
-
-}
