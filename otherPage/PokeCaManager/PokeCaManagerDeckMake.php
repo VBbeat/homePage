@@ -49,7 +49,16 @@
 				<td class="cardNumCol">
 					<div class="cardNum headerCol">枚数</div>
 				</td>
+<<<<<<< HEAD
+=======
+				<td class="editButtonCol">
+					<div class="editButton headerCol">
+						編集ボタン
+					</div>
+				</td>
+>>>>>>> 04a11cd14689e942ac0f967fa0a54a6baf6422ff
 			</tr>
+			<!-- ここをfor -->
 			<tr>
 				<td class="cardTypeCol">
 					<div class="cardType <?= CARD_COL_NAME[$deckContentList[0][CONTENT_CARD_TYPE]] ?>">
@@ -66,7 +75,14 @@
 						<?= $deckContentList[0][CONTENT_CARD_NUM] ?>枚
 					</div>
 				</td>
+<<<<<<< HEAD
+=======
+				<td class="editButtonCol">
+					<div class="commonButton" onclick="editRow(this)" value="編集">編集</div>
+				</td>
+>>>>>>> 04a11cd14689e942ac0f967fa0a54a6baf6422ff
 			</tr>
+			<!-- ここまてfor -->
         </table>
     </div>
 </body>

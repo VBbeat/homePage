@@ -17,6 +17,8 @@
     const DECK_DELETE = 4;
 
     const ISDELETE = 1;
+    
+    const DECK_MAKE_CARDROW = 40;
 
     const CARD_COL_NAME = array("pokemonCol", "supportCol", "goodsCol", "stadiumCol", "energyCol");
     const CARD_TYPE_NAME = array("ポケモン", "サポート", "グッズ", "スタジアム", "エネルギー");
