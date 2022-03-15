@@ -19,5 +19,5 @@
     const ISDELETE = 1;
 
     const CARD_COL_NAME = array("pokemonCol", "supportCol", "goodsCol", "stadiumCol", "energyCol");
-    const CARD_TYPE_NAME = array("PK", "SP", "GD", "ST", "EN");
+    const CARD_TYPE_NAME = array("ポケモン", "サポート", "グッズ", "スタジアム", "エネルギー");
 ?>

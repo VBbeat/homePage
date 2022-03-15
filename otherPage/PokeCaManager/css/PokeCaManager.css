@@ -97,24 +97,14 @@ a{
     height: 100%;
     box-sizing: border-box;
 }
-.editButtonCol .commonButton, .removeButtonCol .commonButton{
-    margin: 0px;
-    padding: 5px;
-}
 
 .deckCreateTable .cardTypeCol{
-    width: 8%;
+    width: 15%;
 }
 .deckCreateTable .cardNameCol{
-    width: 40%;
+    width: 70%;
 }
 .deckCreateTable .cardNumCol{
-    width: 15%;
-}
-.deckCreateTable .editButtonCol{
-    width: 15%;
-}
-.deckCreateTable .removeButtonCol{
     width: 15%;
 }
 
