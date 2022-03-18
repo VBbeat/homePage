@@ -150,3 +150,13 @@ a{
     color: #666666;
     border: #666666 solid 2px;
 }
+.inputCol1{
+    background-color: #DDDDDD;
+    color: #222222;
+    border: #222222 solid 2px;
+}
+.inputCol2{
+    background-color: #999999;
+    color: #222222;
+    border: #222222 solid 2px;
+}
