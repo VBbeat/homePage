@@ -1,11 +1,19 @@
 <?php
     require_once "commonUtil.php";
-	$deckListArray = array();
-	
-	// デッキ一覧ファイルの読み込み
-	$deckListArray[0] = array("001", "好きなモノ入ってますデッキ", "むりこ", "2022/02/17");
-	$deckListArray[1] = array("002", "バトルセンスリザードンデッキ", "すみこ", "2022/02/17");
-	$deckListArray[2] = array("003", "れんげきウーラオスVMAXデッキ", "わっさん", "2022/02/17");
+
+    // デッキ作成画面から遷移した場合
+    if (isset($_POST["isRegisted"])){
+        for($i = 0; $i < count($_POST["cardData"]); $i++) {
+            if(
+                isset($_POST["cardData"][$i]["cardName"])
+                && $_POST["cardData"][$i]["cardName"] != ""
+                && isset($_POST["cardData"][$i]["cardNum"])
+                && (intval($_POST["cardData"][$i]["cardNum"]) > 0)
+            ){
+                registDeck($_POST["cardData"], $_POST["deckId"]);
+            }
+        }
+    }
 
     // デッキ名, 投稿者, 更新日時を取得する
     $deckPath = './userData/deckData/deckList.csv';
@@ -21,6 +29,7 @@
         array_push($articlePoster, $poster);
         fclose();
     }
+
 ?>
 <html>
 
