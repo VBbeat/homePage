@@ -59,7 +59,8 @@
             $deckId . "," .
             $deckName . "," .
             $deckMaker . "," .
-            // 日付
+            date("Y/m/d") . "," .
+            "0"
         );
         $result_deckList = fclose($handle_deckList);
 
