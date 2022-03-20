@@ -25,22 +25,30 @@
     const CARD_TYPE_VALUE = array("pokemon", "support", "goods", "stadium", "energy");
 
     function registDeck($cardDataArray, $deckId){
-        echo "test3";
-        $deckFilePath = "./userData/deckData/" . $deckId . ".csv";
+        $deckFilePath = "./userData/deckData/" . ($deckId + 1) . ".csv";
         $handle = fopen($deckFilePath, 'w+');
+        var_dump($deckFilePath);
+        echo PHP_EOL;
 
         // ファイルが書き込めない
         for($i = 0; $i < count(CARD_TYPE_VALUE); $i++){
-            echo "test5";
             for($j = 0; $j < count($cardDataArray); $j++){
+                // カードのタイプをそろえて処理
                 if($cardDataArray[$j][CONTENT_CARD_TYPE] == CARD_TYPE_VALUE[$i]){
-                    echo "test4";
-                    fwrite(
-                        $handle,
-                        $cardDataArray[$j][CONTENT_CARD_TYPE] . "," .
-                        $cardDataArray[$j][CONTENT_CARD_NAME] . "," .
-                        $cardDataArray[$j][CONTENT_CARD_NUM]
-                    );
+                    // 入力が正しくされている場合
+                    if(
+                        isset($cardDataArray[$j][CONTENT_CARD_NAME])
+                        && mb_strlen($cardDataArray[$j][CONTENT_CARD_NAME]) != 0
+                        && isset($cardDataArray[$j][CONTENT_CARD_NUM])
+                        && (intval($cardDataArray[$j][CONTENT_CARD_NUM]) > 0)
+                    ){
+                        fwrite(
+                            $handle,
+                            $cardDataArray[$j][CONTENT_CARD_TYPE] . "," .
+                            $cardDataArray[$j][CONTENT_CARD_NAME] . "," .
+                            $cardDataArray[$j][CONTENT_CARD_NUM]
+                        );
+                    }
                 }
             }
         }

@@ -3,16 +3,7 @@
 
     // デッキ作成画面から遷移した場合
     if (isset($_POST["isRegisted"])){
-        for($i = 0; $i < count($_POST["cardData"]); $i++) {
-            if(
-                isset($_POST["cardData"][$i][CONTENT_CARD_NAME])
-                && mb_strlen($_POST["cardData"][$i][CONTENT_CARD_NAME]) != 0
-                && isset($_POST["cardData"][$i][CONTENT_CARD_NUM])
-                && (intval($_POST["cardData"][$i][CONTENT_CARD_NUM]) > 0)
-            ){
-                registDeck($_POST["cardData"], $_SESSION["deckId_Max"]);
-            }
-        }
+        registDeck($_POST["cardData"], $_SESSION["deckId_Max"]);
     }
 
     // デッキ名, 投稿者, 更新日時を取得する
@@ -89,11 +80,11 @@
                     </a>
                 </form>
             <?php
+                // 最大のデッキIDをセッション変数で保持
+                $_SESSION["deckId_Max"] = max($deckInfoList[DECK_ID], $_SESSION["deckId_Max"]);
                 endif;
             ?>
         <?php
-            // 最大のデッキIDをセッション変数で保持
-            $_SESSION["deckId_Max"] = max($deckInfoList[DECK_ID], $_SESSION["deckId_Max"]);
             endwhile;
             fclose($handle);
         ?>
