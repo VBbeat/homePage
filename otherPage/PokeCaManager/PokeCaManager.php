@@ -3,7 +3,7 @@
 
     // デッキ作成画面から遷移した場合
     if (isset($_POST["isRegisted"])){
-        registDeck($_POST["cardData"], $_SESSION["deckId_Max"]);
+        registDeck($_POST["cardData"], $_SESSION["deckId_Max"], $_POST["deckName"], $_POST["deckMaker"]);
     }
 
     // デッキ名, 投稿者, 更新日時を取得する

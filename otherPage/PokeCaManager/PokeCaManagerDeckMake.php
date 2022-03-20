@@ -36,6 +36,29 @@
 			</a>
 		</div>
 		<div id="deckCreateArea" class="contentArea">
+			<table class="deckDistInfoTable">
+				<tr>
+					<td>
+						<div class="deckName headerCol">デッキ名</div>
+					</td>
+					<td>
+						<div class="deckMaker headerCol">デッキ作成者</div>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<div class="deckName inputCol1">
+							<input type="text" name="deckName" size="30%" />
+						</div>
+					</td>
+					<td>
+						<div class="deckMaker inputCol1">
+							<input type="text" name="deckMaker" size="40%" />
+						</div>
+					</td>
+				</tr>
+			</table>
+
 			<table class="deckCreateTable" id="createTableId">
 				<tr>
 					<td class="cardTypeCol">

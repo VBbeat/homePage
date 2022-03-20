@@ -62,14 +62,14 @@ a{
     border: #000000 solid 2px
 }
 
-.deckCreateTable{
+.deckCreateTable, .deckDistInfoTable{
     width: 90%;
     height: 1px;
     margin: 5px auto;
     border-collapse: collapse;
     border: #115511 solid 2px;
 }
-.deckCreateTable td{
+.deckCreateTable td, .deckDistInfoTable td{
     padding: 0px;
     height: 100%;
 }
@@ -108,7 +108,7 @@ a{
     width: 15%;
 }
 
-.cardType, .cardName, .cardNum, .deckName, .deckMaker, .deckUpdDate, .blank{
+.deckMaker, .deckName, .cardType, .cardName, .cardNum, .deckName, .deckMaker, .deckUpdDate, .blank{
     font-weight: 600;
     margin: 0px;
     padding: 5px;

@@ -24,13 +24,10 @@
     const CARD_TYPE_NAME = array("ポケモン", "サポート", "グッズ", "スタジアム", "エネルギー");
     const CARD_TYPE_VALUE = array("pokemon", "support", "goods", "stadium", "energy");
 
-    function registDeck($cardDataArray, $deckId){
-        $deckFilePath = "./userData/deckData/" . ($deckId + 1) . ".csv";
-        $handle = fopen($deckFilePath, 'w+');
-        var_dump($deckFilePath);
-        echo PHP_EOL;
+    function registDeck($cardDataArray, $deckId, $deckName, $deckMaker){
+        $deckFilePath_deckDist = "./userData/deckData/" . ($deckId + 1) . ".csv";
+        $handle_deckDist = fopen($deckFilePath_deckDist, 'w+');
 
-        // ファイルが書き込めない
         for($i = 0; $i < count(CARD_TYPE_VALUE); $i++){
             for($j = 0; $j < count($cardDataArray); $j++){
                 // カードのタイプをそろえて処理
@@ -43,7 +40,7 @@
                         && (intval($cardDataArray[$j][CONTENT_CARD_NUM]) > 0)
                     ){
                         fwrite(
-                            $handle,
+                            $handle_deckDist,
                             $cardDataArray[$j][CONTENT_CARD_TYPE] . "," .
                             $cardDataArray[$j][CONTENT_CARD_NAME] . "," .
                             $cardDataArray[$j][CONTENT_CARD_NUM]
@@ -52,7 +49,19 @@
                 }
             }
         }
-        $result = fclose($handle);
+        $result_deckDist = fclose($handle_deckDist);
+
+        $deckFilePath_deckList = "./userData/deckList.csv";
+        $handle_deckList = fopen($deckFilePath_deckList, 'w+');
+
+        fwrite(
+            $handle,
+            $deckId . "," .
+            $deckName . "," .
+            $deckMaker . "," .
+            // 日付
+        );
+        $result_deckList = fclose($handle_deckList);
 
         return $result;
     }
