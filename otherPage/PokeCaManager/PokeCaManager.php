@@ -5,12 +5,12 @@
     if (isset($_POST["isRegisted"])){
         for($i = 0; $i < count($_POST["cardData"]); $i++) {
             if(
-                isset($_POST["cardData"][$i]["cardName"])
-                && $_POST["cardData"][$i]["cardName"] != ""
-                && isset($_POST["cardData"][$i]["cardNum"])
-                && (intval($_POST["cardData"][$i]["cardNum"]) > 0)
+                isset($_POST["cardData"][$i][CONTENT_CARD_NAME])
+                && mb_strlen($_POST["cardData"][$i][CONTENT_CARD_NAME]) != 0
+                && isset($_POST["cardData"][$i][CONTENT_CARD_NUM])
+                && (intval($_POST["cardData"][$i][CONTENT_CARD_NUM]) > 0)
             ){
-                registDeck($_POST["cardData"], $_POST["deckId"]);
+                registDeck($_POST["cardData"], $_SESSION["deckId_Max"]);
             }
         }
     }

@@ -25,13 +25,16 @@
     const CARD_TYPE_VALUE = array("pokemon", "support", "goods", "stadium", "energy");
 
     function registDeck($cardDataArray, $deckId){
+        echo "test3";
         $deckFilePath = "./userData/deckData/" . $deckId . ".csv";
         $handle = fopen($deckFilePath, 'w+');
 
+        // ファイルが書き込めない
         for($i = 0; $i < count(CARD_TYPE_VALUE); $i++){
+            echo "test5";
             for($j = 0; $j < count($cardDataArray); $j++){
                 if($cardDataArray[$j][CONTENT_CARD_TYPE] == CARD_TYPE_VALUE[$i]){
-                    echo 
+                    echo "test4";
                     fwrite(
                         $handle,
                         $cardDataArray[$j][CONTENT_CARD_TYPE] . "," .

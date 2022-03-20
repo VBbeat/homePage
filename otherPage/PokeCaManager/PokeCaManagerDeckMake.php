@@ -30,7 +30,6 @@
 
 	<form method="post" name="deckRegistButton" action="PokeCaManager.php">
 		<div class="contentArea toolBarArea">
-			<input type="hidden" name="deckId" value="<?= $_GET["deckId"] + 1 ?>">
 			<input type="hidden" name="isRegisted" value="<?= TRUE ?>">
 			<a href="javascript:deckRegistButton.submit()" >
 				<div class="commonButton">デッキ保存</div>
