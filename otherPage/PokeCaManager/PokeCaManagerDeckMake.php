@@ -88,7 +88,7 @@
 						</td>
 						<td class="cardNameCol">
 							<div class="cardName inputcol<?= ($i % 2) + 1 ?>">
-								<input type="text" name="cardData[<?= $i ?>][<?= CONTENT_CARD_NAME ?>]" size="60%"/>
+								<input type="text" name="cardData[<?= $i ?>][<?= CONTENT_CARD_NAME ?>]" size="60%"/>　
 								<!-- <?= $deckContentList[0][CONTENT_CARD_NAME] ?> -->
 							</div>
 						</td>
