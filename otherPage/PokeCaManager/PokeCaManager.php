@@ -44,6 +44,7 @@
     <div id="deckListArea" class="contentArea">
 		<?php
             $_SESSION["deckId_Max"] = 0;
+            $noDeckFlg = TRUE;
             $deckPath = './userData/deckList.csv';
             $handle = fopen($deckPath, 'r');
             while($deckInfoList = fgetcsv($handle)):
@@ -80,13 +81,19 @@
                     </a>
                 </form>
             <?php
-                // 最大のデッキIDをセッション変数で保持
-                $_SESSION["deckId_Max"] = max($deckInfoList[DECK_ID], $_SESSION["deckId_Max"]);
+            $noDeckFlg = FALSE;
                 endif;
             ?>
         <?php
+            // 最大のデッキIDをセッション変数で保持
+            $_SESSION["deckId_Max"] = max($deckInfoList[DECK_ID], $_SESSION["deckId_Max"]);
             endwhile;
             fclose($handle);
+            if($noDeckFlg) :
+        ?>
+            <div class="alertText" id="noDeckText">デッキが登録されていません。</div>
+        <?php 
+            endif;
         ?>
     </div>
 </body>

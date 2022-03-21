@@ -19,8 +19,6 @@
     const ISDELETE = 1;
     
     const DECK_MAKE_CARDROW = 30;
-
-    const CARD_COL_NAME = array("pokemonCol", "supportCol", "goodsCol", "stadiumCol", "energyCol");
     const CARD_TYPE_NAME = array("ポケモン", "サポート", "グッズ", "スタジアム", "エネルギー");
     const CARD_TYPE_VALUE = array("pokemon", "support", "goods", "stadium", "energy");
 
@@ -43,7 +41,7 @@
                             $handle_deckDist,
                             $cardDataArray[$j][CONTENT_CARD_TYPE] . "," .
                             $cardDataArray[$j][CONTENT_CARD_NAME] . "," .
-                            $cardDataArray[$j][CONTENT_CARD_NUM]
+                            $cardDataArray[$j][CONTENT_CARD_NUM] . "\n"
                         );
                     }
                 }
@@ -52,18 +50,18 @@
         $result_deckDist = fclose($handle_deckDist);
 
         $deckFilePath_deckList = "./userData/deckList.csv";
-        $handle_deckList = fopen($deckFilePath_deckList, 'w+');
+        $handle_deckList = fopen($deckFilePath_deckList, 'a+');
 
         fwrite(
-            $handle,
-            $deckId . "," .
+            $handle_deckList,
+            ($deckId + 1) . "," .
             $deckName . "," .
             $deckMaker . "," .
             date("Y/m/d") . "," .
-            "0"
+            "0\n"
         );
         $result_deckList = fclose($handle_deckList);
 
-        return $result;
+        return ($result_deckList && $result_deckDist);
     }
 ?>

@@ -160,3 +160,6 @@ a{
     color: #222222;
     border: #222222 solid 2px;
 }
+#noDeckText{
+    margin: 0 auto;
+}

@@ -29,10 +29,15 @@
     </header>
 
     <div class="contentArea toolBarArea">
-		<form method="get" name="deckMakeButton" action="PokeCaManagerDeckMake.php">
+		<!-- <form method="get" name="deckMakeButton" action="PokeCaManagerDeckMake.php">
 			<input type=hidden name="deckId" value="<?= $_GET["deckId"] ?>">
         	<a href="javascript:deckMakeButton.submit()" >
 				<div class="commonButton">デッキ編集</div>
+			</a>
+		</form> -->
+		<form>
+			<a href="PokeCaManager.php" >
+				<div class="commonButton">デッキ一覧</div>
 			</a>
 		</form>
     </div>
@@ -55,23 +60,27 @@
 			<?php for ($i = 0; $i < (count($deckContentList) + 1); $i += 2) : ?>
 				<tr>
 					<td class="cardNameCol">
-						<div class="cardName <?= CARD_COL_NAME[$deckContentList[$i][CONTENT_CARD_TYPE]] ?>">
+						<div class="cardName <?= $deckContentList[$i][CONTENT_CARD_TYPE] ?>Col">
 							<?= $deckContentList[$i][CONTENT_CARD_NAME] ?>
 						</div>
 					</td>
 					<td class="cardNumCol">
-						<div class="cardNum <?= CARD_COL_NAME[$deckContentList[$i][CONTENT_CARD_TYPE]] ?>">
+						<div class="cardNum <?= $deckContentList[$i][CONTENT_CARD_TYPE] ?>Col">
 						    <?= $deckContentList[$i][CONTENT_CARD_NUM] ?>枚
 						</div>
 					</td>
 					<td class="cardNameCol">
 						<?php if (count($deckContentList) > $i + 1) : ?>
-						<div class="cardName <?= CARD_COL_NAME[$deckContentList[$i + 1][CONTENT_CARD_TYPE]] ?>"><?= $deckContentList[$i + 1][CONTENT_CARD_NAME] ?></div>
+						<div class="cardName <?= $deckContentList[$i + 1][CONTENT_CARD_TYPE] ?>Col">
+							<?= $deckContentList[$i + 1][CONTENT_CARD_NAME] ?>
+						</div>
 						<?php endif; ?>
 					</td>
 					<td class="cardNumCol">
 						<?php if (count($deckContentList) > $i + 1) : ?>
-						<div class="cardNum <?= CARD_COL_NAME[$deckContentList[$i + 1][CONTENT_CARD_TYPE]] ?>"><?= $deckContentList[$i + 1][CONTENT_CARD_NUM] ?>枚</div>
+						<div class="cardNum <?= $deckContentList[$i + 1][CONTENT_CARD_TYPE] ?>Col">
+							<?= $deckContentList[$i + 1][CONTENT_CARD_NUM] ?>枚
+						</div>
 						<?php endif; ?>
 					</td>
 				</tr>

@@ -3,22 +3,23 @@
 	$deckContentArray = array();
 	
 	// デッキ詳細ファイルの読みこみ
-	$deckFilePath = "./userData/deckData/" . $_GET["deckId"] . ".csv";
-	$handle = fopen($deckFilePath, 'r');
-	$idx = 0;
-	while($deckCardInfoList = fgetcsv($handle)){
-		$deckContentList[$idx][CONTENT_CARD_TYPE] = $deckCardInfoList[CONTENT_CARD_TYPE];
-		$deckContentList[$idx][CONTENT_CARD_NAME] = $deckCardInfoList[CONTENT_CARD_NAME];
-		$deckContentList[$idx][CONTENT_CARD_NUM] = $deckCardInfoList[CONTENT_CARD_NUM];
-		$idx++;
-	}
-	fclose($handle);
+	// $deckFilePath = "./userData/deckData/" . $_GET["deckId"] . ".csv";
+	// $handle = fopen($deckFilePath, 'r');
+	// $idx = 0;
+	// while($deckCardInfoList = fgetcsv($handle)){
+	// 	$deckContentList[$idx][CONTENT_CARD_TYPE] = $deckCardInfoList[CONTENT_CARD_TYPE];
+	// 	$deckContentList[$idx][CONTENT_CARD_NAME] = $deckCardInfoList[CONTENT_CARD_NAME];
+	// 	$deckContentList[$idx][CONTENT_CARD_NUM] = $deckCardInfoList[CONTENT_CARD_NUM];
+	// 	$idx++;
+	// }
+	// fclose($handle);
 ?>
 <html>
 
 <head>
     <link rel="stylesheet" href="css/PokeCaManager.css" type="text/css">
     <link rel="stylesheet" href="../common.css" type="text/css">
+	<script type="text/javascript" src="./script/commonUtil.js"></script>
     <meta charset="utf-8" http-equiv="content-type">
 </head>
 
@@ -68,7 +69,7 @@
 						<div class="cardName headerCol">カード名</div>
 					</td>
 					<td class="cardNumCol">
-						<div class="cardNum headerCol">枚数</div>
+						<div class="cardNum headerCol">現在：<span id="cardNumTotal">0</span>枚</div>
 					</td>
 				</tr>
 				<?php for ($i = 0; $i < DECK_MAKE_CARDROW; $i++) : ?>
@@ -93,15 +94,14 @@
 						</td>
 						<td class="cardNumCol">
 							<div class="cardNum inputcol<?= ($i % 2) + 1 ?>">
-								<input type="number" name="cardData[<?= $i ?>][<?= CONTENT_CARD_NUM ?>]" min="1" max="30" />枚
+								<input type="number" id="cardNum_<?= $i ?>" name="cardData[<?= $i ?>][<?= CONTENT_CARD_NUM ?>]" min="1" max="30" value="0" onchange="calcTotal();"/>枚
 								<!-- <?= $deckContentList[0][CONTENT_CARD_NUM] ?>枚 -->
 							</div>
 						</td>
 					</tr>
 				<?php endfor; ?>
 			</table>
-		</div>
-	
+		</div>	
 	</form>
 </body>
 
