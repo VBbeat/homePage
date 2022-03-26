@@ -3,22 +3,12 @@
 
     // デッキ作成画面から遷移した場合
     if (isset($_POST["isRegisted"])){
-        registDeck($_POST["cardData"], $_SESSION["deckId_Max"], $_POST["deckName"], $_POST["deckMaker"]);
-    }
+        if(isset($_POST["deckId"]) && $_POST["deckId"] != ""){
+            registDeck($_POST["cardData"], $_POST["deckId"], $_POST["deckName"], $_POST["deckMaker"], TRUE);
 
-    // デッキ名, 投稿者, 更新日時を取得する
-    $deckPath = './userData/deckData/deckList.csv';
-    foreach(glob($deckPath) as $deckFile){
-        $handle = fopen($deckFile, 'r');
-        $deckInfo = fgets($handle);
-        $deckName = fgets($handle);
-        $updDateTime = fgets($handle);
-        $poster = fgets($handle);
-        array_push($articleTitle, $title);
-        array_push($articlePathList, $articleFile);
-        array_push($articleUpdDateTime, $updDateTime);
-        array_push($articlePoster, $poster);
-        fclose();
+        }else{
+            registDeck($_POST["cardData"], $_SESSION["deckId_Max"] + 1, $_POST["deckName"], $_POST["deckMaker"], FALSE);
+        }
     }
 
 ?>
@@ -54,6 +44,8 @@
             ?>
                 <form method="get" name="<?= 'deckId' . $deckInfoList[DECK_ID] ?>" action="PokeCaManagerDeckDist.php">
                     <input type=hidden name="deckId" value="<?= $deckInfoList[DECK_ID] ?>">
+                    <input type=hidden name="deckName" value="<?= $deckInfoList[DECK_NAME] ?>">
+                    <input type=hidden name="deckMaker" value="<?= $deckInfoList[DECK_MAKER] ?>">
                     <a href="<?= 'javascript:deckId' . $deckInfoList[DECK_ID] . '.submit()' ?>" action="PokeCaManagerDeckDist.php">
                         <table class="deckListTable">
                             <tr>
@@ -81,7 +73,7 @@
                     </a>
                 </form>
             <?php
-            $noDeckFlg = FALSE;
+                $noDeckFlg = FALSE;
                 endif;
             ?>
         <?php

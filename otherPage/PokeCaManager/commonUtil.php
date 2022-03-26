@@ -22,7 +22,7 @@
     const CARD_TYPE_NAME = array("ポケモン", "サポート", "グッズ", "スタジアム", "エネルギー");
     const CARD_TYPE_VALUE = array("pokemon", "support", "goods", "stadium", "energy");
 
-    function registDeck($cardDataArray, $deckId, $deckName, $deckMaker){
+    function registDeck($cardDataArray, $deckId, $deckName, $deckMaker, $isEdit){
         $deckFilePath_deckDist = "./userData/deckData/" . ($deckId + 1) . ".csv";
         $handle_deckDist = fopen($deckFilePath_deckDist, 'w+');
 
@@ -50,17 +50,38 @@
         $result_deckDist = fclose($handle_deckDist);
 
         $deckFilePath_deckList = "./userData/deckList.csv";
-        $handle_deckList = fopen($deckFilePath_deckList, 'a+');
+        $handle_deckList = fopen($deckFilePath_deckList, 'r');
+        $deckInfoList = array();
+        $index = 0;
+        while($deckInfo = fgetcsv($handle_deckList)):
+            $deckInfoList[$index++] = $deckInfo;
+        endwhile;
+        fclose($handle_deckList);
 
-        fwrite(
-            $handle_deckList,
-            ($deckId + 1) . "," .
-            $deckName . "," .
-            $deckMaker . "," .
-            date("Y/m/d") . "," .
-            "0\n"
-        );
-        $result_deckList = fclose($handle_deckList);
+        $deckFilePath_deckList_new = "./userData/deckList_new.csv";
+        $handle_deckList_new = fopen($deckFilePath_deckList_new, 'w+');
+        for($i = 0; $i < count($deckInfoList); $i++){
+            if($i + 1 == $deckId){
+                $deckInfoList[$i][DECK_NAME] = $deckName;
+                $deckInfoList[$i][DECK_MAKER] = $deckMaker;
+                $deckInfoList[$i][DECK_UPDDATE] = date("Y/m/d");
+            }
+            fputcsv($handle_deckList_new, $deckInfoList[$i]);
+        }
+        if(count($deckInfoList) + 1 == $deckId){
+            fwrite(
+                $handle_deckList_new,
+                $deckId . "," .
+                $deckName . "," .
+                $deckMaker . "," .
+                date("Y/m/d") . "," .
+                "0\n"
+            );
+        }
+        $result_deckList = fclose($handle_deckList_new);
+
+        unlink($deckFilePath_deckList);
+        rename($deckFilePath_deckList_new, $deckFilePath_deckList);
 
         return ($result_deckList && $result_deckDist);
     }

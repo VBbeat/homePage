@@ -29,12 +29,14 @@
     </header>
 
     <div class="contentArea toolBarArea">
-		<!-- <form method="get" name="deckMakeButton" action="PokeCaManagerDeckMake.php">
+		<form method="get" name="deckMakeButton" action="PokeCaManagerDeckMake.php">
 			<input type=hidden name="deckId" value="<?= $_GET["deckId"] ?>">
+			<input type=hidden name="deckName" value="<?= $_GET["deckName"] ?>">
+			<input type=hidden name="deckMaker" value="<?= $_GET["deckMaker"] ?>">
         	<a href="javascript:deckMakeButton.submit()" >
 				<div class="commonButton">デッキ編集</div>
 			</a>
-		</form> -->
+		</form>
 		<form>
 			<a href="PokeCaManager.php" >
 				<div class="commonButton">デッキ一覧</div>
