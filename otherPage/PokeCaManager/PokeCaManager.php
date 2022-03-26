@@ -22,8 +22,8 @@
 
 <body>
     <header>
-        <h1>簡易版ポケカデッキマネージャ</h1>
-        <h3>ver 1.0</h3>
+        <h1><?= getSystemInfo(TITLE) ?></h1>
+        <h3>ver <?= getSystemInfo(VERSION) ?></h3>
     </header>
 
     <div class="contentArea toolBarArea">

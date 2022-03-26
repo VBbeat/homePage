@@ -22,8 +22,16 @@
     const CARD_TYPE_NAME = array("ポケモン", "サポート", "グッズ", "スタジアム", "エネルギー");
     const CARD_TYPE_VALUE = array("pokemon", "support", "goods", "stadium", "energy");
 
+    const TITLE = "title";
+    const VERSION = "version";
+
+    function getSystemInfo($infoKey){
+        $systemInfoJson = json_decode(file_get_contents("./masterData/systemMaster.json"), true);
+        return $systemInfoJson[$infoKey];
+    }
+
     function registDeck($cardDataArray, $deckId, $deckName, $deckMaker, $isEdit){
-        $deckFilePath_deckDist = "./userData/deckData/" . ($deckId + 1) . ".csv";
+        $deckFilePath_deckDist = "./userData/deckData/" . $deckId . ".csv";
         $handle_deckDist = fopen($deckFilePath_deckDist, 'w+');
 
         for($i = 0; $i < count(CARD_TYPE_VALUE); $i++){
