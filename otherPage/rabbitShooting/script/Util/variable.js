@@ -10,3 +10,17 @@ var ASSETS = {
         boss_1: './img/chara/boss_1.png'
     }
 };
+
+var SCENES = [
+    {
+        className: 'TitleScene',
+        label: 'title',
+        nextLabel: 'game',
+    },
+
+    {
+        className: 'GameScene',
+        label: 'game'
+    }
+
+]

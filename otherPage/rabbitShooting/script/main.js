@@ -5,8 +5,8 @@ phina.globalize();
 phina.main(function () {
     // アプリケーション生成
     var app = GameApp({
-        title: 'Rabbit Shooting',
-        startLabel: 'title'
+        assets: ASSETS,
+        scenes: SCENES,
     });
     // アプリケーション実行
     app.run();
