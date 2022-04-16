@@ -11,6 +11,7 @@ var ASSETS = {
     }
 };
 
+// シーン
 var SCENES = [
     {
         className: 'TitleScene',
@@ -24,3 +25,7 @@ var SCENES = [
     }
 
 ]
+
+// 各方向のプレイヤーの移動速度
+var SPEED_PLAYER_X = 3;
+var SPEED_PLAYER_Y = 3;
