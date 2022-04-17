@@ -7,7 +7,9 @@ phina.main(function () {
     var app = GameApp({
         assets: ASSETS,
         scenes: SCENES,
+        fps: 60,
     });
+
     // アプリケーション実行
     app.run();
 });

@@ -9,11 +9,13 @@ var ASSETS = {
 
         boss_1: './img/chara/boss_1.png',
 
-        title: './img/bg/title.png',
+        bg_title: './img/bg/title.png',
 
-        bullet_normal: './img/bullet/bullet_normal.png',
-        bullet_speed: './img/bullet/bullet_speed.png',
-    }
+        bullet_normal: './img/bullet/player/bullet_normal.png',
+        bullet_speed: './img/bullet/player/bullet_speed.png',
+    },
+
+    font: { 'bitFont': '../../font/PixelMplus12-Regular.ttf' },
 };
 
 // シーン
@@ -31,10 +33,17 @@ var SCENES = [
 
 ]
 
+// タイトル
+var TITLE_STRING = 'うさシューティング';
+
 // 画面幅、画面高さ
 var SCREEN_WIDTH = 640;
 var SCREEN_HEIGHT = 960;
 
-// 各方向のプレイヤーの移動速度
-var SPEED_PLAYER_X = 3;
-var SPEED_PLAYER_Y = 3;
+// 弾の移動速度
+// プレイヤー_通常弾
+var SPEED_Y_BULLET_NORMAL = 28;
+
+// 弾の発射間隔（フレーム）
+// プレイヤー_通常弾
+var INTERVAL_BULLET_NORMAL = 6;
