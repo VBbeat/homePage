@@ -15,6 +15,12 @@ phina.define('GameScene', {
         // 現在のフレーム数
         this.currentFrame = 0;
 
+        // thisを退避
+        var self = this;
+
+        // 背景
+        self.backgroundColor = '#DDDDDD';
+
     },
 
     // タッチイベントの設定
