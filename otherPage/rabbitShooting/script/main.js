@@ -7,6 +7,7 @@ phina.main(function () {
     var app = GameApp({
         assets: ASSETS,
         scenes: SCENES,
+        startLabel: 'title',
         fps: 60,
     });
 
