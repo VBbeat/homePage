@@ -15,7 +15,7 @@ var ASSETS = {
         bullet_speed: './img/bullet/player/bullet_speed.png',
     },
 
-    font: { 'bitFont': '../../font/PixelMplus12-Regular.ttf' },
+    font: { 'bitFont': './font/PixelMplus12-Regular.ttf' },
 };
 
 // シーン
