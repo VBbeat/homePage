@@ -1,5 +1,5 @@
 // アセット
-var ASSETS = {
+const ASSETS = {
     image: {
         player_normal: './img/chara/player/player_normal.png',
         player_power: './img/chara/player/player_power.png',
@@ -18,8 +18,17 @@ var ASSETS = {
     font: { 'bitFont': './font/PixelMplus12-Regular.ttf' },
 };
 
+// 各スプライトの幅/高さ
+// プレイヤー_通常弾
+const BULLET_NORMAL_WIDTH = 28;
+const BULLET_NORMAL_HEIGHT = 28;
+
+// ボス
+const BOSS_1_WIDTH = 256;
+const BOSS_1_HEIGHT = 256;
+
 // シーン
-var SCENES = [
+const SCENES = [
     {
         className: 'TitleScene',
         label: 'title',
@@ -32,18 +41,3 @@ var SCENES = [
     }
 
 ]
-
-// タイトル
-var TITLE_STRING = 'うさシューティング';
-
-// 画面幅、画面高さ
-var SCREEN_WIDTH = 640;
-var SCREEN_HEIGHT = 960;
-
-// 弾の移動速度
-// プレイヤー_通常弾
-var SPEED_Y_BULLET_NORMAL = 28;
-
-// 弾の発射間隔（フレーム）
-// プレイヤー_通常弾
-var INTERVAL_BULLET_NORMAL = 6;

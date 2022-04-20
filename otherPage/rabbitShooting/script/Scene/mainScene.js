@@ -36,30 +36,21 @@ phina.define('GameScene', {
     },
 
     // 敵機当たり判定
-    hitTestPlayer: function () {
+    hitTestEnemy: function () {
         // thisを退避
         var self = this;
 
         // [繰返]プレイヤーが発射した弾に対する処理
         self.playerBulletGroup.children.each(function (bullet) {
-            // TODO: ここの処理を書く
             // 円判定
-            var a = Circle(self.enemy.x, self.enemy.y, 20);
-            var b = Circle(bullet.x, bullet.y, 10);
+            var colCircBoss_1 = Circle(self.boss_1.x, self.boss_1.y, BOSS_1_WIDTH / 2);
+            var colCircBullet = Circle(bullet.x, bullet.y, BULLET_NORMAL_WIDTH / 2);
 
+            if (Collision.testCircleCircle(colCircBoss_1, colCircBullet)) {
+                // 敵が弾に当たった場合
 
-            if (Collision.testCircleCircle(a, b)) {
-
-                --PLAYER_HP;
-                if (PLAYER_HP > 0) {
-                    self.Impact(bullet.x, bullet.y);
-                    bullet.remove();
-                } else {
-                    self.exit('result', {
-                        score: 0,
-                        message: 'Game Over'
-                    });
-                }
+                // 弾を削除
+                bullet.remove();
             }
         });
     },
@@ -67,6 +58,8 @@ phina.define('GameScene', {
     // 毎フレーム更新処理
     update: function (app) {
         this.currentFrame = app.frame;
+
+        this.hitTestEnemy();
 
     }
 
