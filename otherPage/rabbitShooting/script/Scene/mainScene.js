@@ -42,6 +42,7 @@ phina.define('GameScene', {
 
         // [繰返]プレイヤーが発射した弾に対する処理
         self.playerBulletGroup.children.each(function (bullet) {
+
             // 円判定
             var colCircBoss_1 = Circle(self.boss_1.x, self.boss_1.y, BOSS_1_WIDTH / 2);
             var colCircBullet = Circle(bullet.x, bullet.y, BULLET_NORMAL_WIDTH / 2);
@@ -57,8 +58,10 @@ phina.define('GameScene', {
 
     // 毎フレーム更新処理
     update: function (app) {
-        this.currentFrame = app.frame;
+        // フレーム数の取得
+        this.currentFrame = app.frame % FRAME_RESET_INTERVAL;
 
+        // 敵と自分の弾の当たり判定を行う
         this.hitTestEnemy();
 
     }
