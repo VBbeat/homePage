@@ -21,13 +21,26 @@ const ASSETS = {
 };
 
 // 各スプライトの幅/高さ
-// プレイヤー_通常弾
-const BULLET_NORMAL_WIDTH = 28;
-const BULLET_NORMAL_HEIGHT = 28;
+
+// プレイヤー
+const PLAYER_WIDTH = 64;
+const PLAYER_HEIGHT = 64;
 
 // ボス
 const BOSS_1_WIDTH = 256;
 const BOSS_1_HEIGHT = 256;
+
+// プレイヤー_通常弾
+const BULLET_NORMAL_WIDTH = 28;
+const BULLET_NORMAL_HEIGHT = 28;
+
+// ボス1_通常弾
+const BULLET_BOSS1_NORMAL_WIDTH = 40;
+const BULLET_BOSS1_NORMAL_HEIGHT = 40;
+
+// ボス1_スペシャル弾
+const BULLET_BOSS1_SPECIAL_WIDTH = 256;
+const BULLET_BOSS1_SPECIAL_HEIGHT = 256;
 
 // シーン
 const SCENES = [
