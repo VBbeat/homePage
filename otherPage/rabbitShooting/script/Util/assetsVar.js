@@ -13,6 +13,8 @@ const ASSETS = {
 
         bullet_normal: './img/bullet/player/bullet_normal.png',
         bullet_speed: './img/bullet/player/bullet_speed.png',
+        bullet_boss1_normal: './img/bullet/boss_1/bullet_boss1_normal',
+        bullet_boss1_special: './img/bullet/boss_1/bullet_boss1_special',
     },
 
     font: { 'bitFont': './font/PixelMplus12-Regular.ttf' },

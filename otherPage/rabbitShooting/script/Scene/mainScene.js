@@ -8,9 +8,16 @@ phina.define('GameScene', {
         this.playerBulletGroup = DisplayElement().addChildTo(this);
 
         // 自機
-        this.player = Player().addChildTo(this).setPosition(this.gridX.center(), this.gridY.center());
+        this.player = Player().addChildTo(this).setPosition(
+            this.gridX.center(),
+            this.gridY.center()
+        );
+
         // ボス
-        this.boss_1 = Boss_1().addChildTo(this).setPosition(this.gridX.center(), this.gridY.span(2.5));
+        this.boss_1 = Boss_1().addChildTo(this).setPosition(
+            this.gridX.center(),
+            this.gridY.span(2.5)
+        );
 
         // 現在のフレーム数
         this.currentFrame = 0;
