@@ -5,11 +5,8 @@ phina.define('Bullet_normal', {
     init: function () {
         this.superInit('bullet_normal');
 
-    },
-
-    // プレイヤーとの距離、弾速を計算
-    calcBulletSpeed: function () {
-
+        // 弾速を設定
+        this.physical.velocity.y = - SPEED_BULLET_NORMAL;
     },
 
     // 毎フレーム更新処理
