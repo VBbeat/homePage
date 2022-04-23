@@ -1,16 +1,16 @@
-phina.define('Bullet_boss1_normal', {
+phina.define('Bullet_boss1_special', {
     superClass: 'Sprite',
 
     // コンストラクタ
     init: function (speed_x, speed_y) {
-        this.superInit('bullet_boss1_normal');
+        this.superInit('bullet_boss1_special');
 
         // 弾速を設定
         this.physical.velocity.y = speed_y;
         this.physical.velocity.x = speed_x;
 
         // 弾の幅を設定
-        this.circWidth = BULLET_BOSS1_NORMAL_WIDTH;
+        this.circWidth = BULLET_BOSS1_SPECIAL_WIDTH;
 
     },
 

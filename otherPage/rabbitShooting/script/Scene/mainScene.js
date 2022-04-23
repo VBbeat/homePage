@@ -8,6 +8,7 @@ phina.define('GameScene', {
         this.playerBulletGroup = DisplayElement().addChildTo(this);
         this.enemyBossBulletGroup = DisplayElement().addChildTo(this);
 
+
         // 自機
         this.player = Player().addChildTo(this).setPosition(
             this.gridX.center(),
@@ -80,7 +81,7 @@ phina.define('GameScene', {
 
             // 円判定
             var colCircPlayer = Circle(self.player.x, self.player.y, (PLAYER_WIDTH * 0.9) / 2);
-            var colCircBullet = Circle(bullet.x, bullet.y, BULLET_BOSS1_NORMAL_WIDTH / 2);
+            var colCircBullet = Circle(bullet.x, bullet.y, bullet.circWidth / 2);
 
             if (Collision.testCircleCircle(colCircPlayer, colCircBullet)) {
                 // プレイヤーが弾に当たった場合
@@ -120,10 +121,20 @@ phina.define('GameScene', {
             // ボス1_通常弾の発射処理を実行
 
             // 弾速の計算
-            var bulletSpeed = this.enemyBoss.calcBulletSpeed(this.player.x, this.player.y);
+            var bulletSpeed = this.enemyBoss.calcBulletSpeed(this.player.x, this.player.y, "normal");
 
             // 弾の生成
             Bullet_boss1_normal(bulletSpeed.speed_x, bulletSpeed.speed_y).addChildTo(this.enemyBossBulletGroup).setPosition(this.enemyBoss.x, this.enemyBoss.y);
+        }
+
+        if (this.runEvent(INTERVAL_BULLET_BOSS1_SPECIAL)) {
+            // ボス1_スペシャル弾の発射処理を実行
+
+            // 弾速の計算
+            var bulletSpeed = this.enemyBoss.calcBulletSpeed(this.player.x, this.player.y, "special");
+
+            // 弾の生成
+            Bullet_boss1_special(bulletSpeed.speed_x, bulletSpeed.speed_y).addChildTo(this.enemyBossBulletGroup).setPosition(this.enemyBoss.x, this.enemyBoss.y);
         }
 
     }
