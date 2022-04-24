@@ -3,38 +3,40 @@ phina.define('GameScene', {
     // コンストラクタ
     init: function () {
         this.superInit();
-
         // 各オブジェクトグループ
         this.playerBulletGroup = DisplayElement().addChildTo(this);
         this.enemyBossBulletGroup = DisplayElement().addChildTo(this);
-
+        this.playerHeartGroup = DisplayElement().addChildTo(this);
+        // 現在のフレーム数
+        this.currentFrame = 0;
+        // 背景
+        this.backgroundColor = '#DDDDDD';
 
         // 自機
         this.player = Player().addChildTo(this).setPosition(
             this.gridX.center(),
             this.gridY.center()
         );
-
         // 敵機（ボス）
         this.enemyBoss = Boss_1().addChildTo(this).setPosition(
             this.gridX.center(),
             this.gridY.span(2.5)
         );
+        // プレイヤーのハート数
+        this.currentPlayerHeartNum = PLAYER_HEART_NUM;
 
-        // 現在のフレーム数
-        this.currentFrame = 0;
-
-        // thisを退避
-        var self = this;
-
-        // 背景
-        self.backgroundColor = '#DDDDDD';
+        // [繰返]プレイヤーのハートを画面左下に表示する
+        for (var i = 0; i < this.currentPlayerHeartNum; i++) {
+            Icon_playerHeart().addChildTo(this.playerHeartGroup).setPosition(
+                PLAYER_HEART_X + i * (PLAYER_HEART_WIDTH + PLAYER_HEART_DISP_SPACE_X),
+                PLAYER_HEART_Y
+            );
+        }
 
     },
 
     /**
      * 画面タッチorクリックされている場合の処理
-     * @param 
      */
     onpointstay: function (e) {
 
@@ -85,6 +87,20 @@ phina.define('GameScene', {
 
             if (Collision.testCircleCircle(colCircPlayer, colCircBullet)) {
                 // プレイヤーが弾に当たった場合
+
+                // プレイヤーのハート数を減らす
+                self.currentPlayerHeartNum -= bullet.bulletPower;
+                if (self.currentPlayerHeartNum < 0) {
+                    // ハートが切れた場合、画面を遷移する
+
+                    self.exit('title');
+                } else {
+                    // ハートがまだ残っている場合
+                    // ハートの表示数を減らす
+                    for (var i = 0; i < bullet.bulletPower; i++) {
+                        self.playerHeartGroup.children.first.remove();
+                    }
+                }
 
                 // 弾を削除
                 bullet.remove();

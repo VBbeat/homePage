@@ -50,9 +50,13 @@ const BULLET_BOSS1_NORMAL_HEIGHT = 40;
 const BULLET_BOSS1_SPECIAL_WIDTH = 256;
 const BULLET_BOSS1_SPECIAL_HEIGHT = 256;
 
+// スタイルチェンジのアイテム
+const ITEM_STYLE_CHANGE_WIDTH = 40;
+const ITEM_STYLE_CHANGE_HEIGHT = 40;
+
 // プレイヤーのハートアイコン
-const PLAYER_HEART_WIDTH = 256;
-const PLAYER_HEART_HEIGHT = 256;
+const PLAYER_HEART_WIDTH = 36;
+const PLAYER_HEART_HEIGHT = 36;
 
 // シーン
 const SCENES = [
@@ -64,7 +68,8 @@ const SCENES = [
 
     {
         className: 'GameScene',
-        label: 'game'
+        label: 'game',
+        nextLabel: '',
     }
 
 ]

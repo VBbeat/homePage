@@ -12,6 +12,8 @@ phina.define('Bullet_boss1_special', {
         // 弾の幅を設定
         this.circWidth = BULLET_BOSS1_SPECIAL_WIDTH;
 
+        // 弾のパワーを設定
+        this.bulletPower = POWER_BULLET_BOSS1_SPECIAL;
     },
 
     // 毎フレーム更新処理
