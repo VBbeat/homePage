@@ -15,6 +15,14 @@ const ASSETS = {
         bullet_speed: './img/bullet/player/bullet_speed.png',
         bullet_boss1_normal: './img/bullet/boss_1/bullet_boss1_normal.png',
         bullet_boss1_special: './img/bullet/boss_1/bullet_boss1_special.png',
+
+        item_normal: './img/item/item_normal.png',
+        item_power: './img/item/item_power.png',
+        item_range: './img/item/item_range.png',
+        item_speed: './img/item/item_speed.png',
+        item_special: './img/item/item_special.png',
+
+        icon_playerHeart: './img/other/icon_playerHeart.png',
     },
 
     font: { 'bitFont': './font/PixelMplus12-Regular.ttf' },
@@ -41,6 +49,10 @@ const BULLET_BOSS1_NORMAL_HEIGHT = 40;
 // ボス1_スペシャル弾
 const BULLET_BOSS1_SPECIAL_WIDTH = 256;
 const BULLET_BOSS1_SPECIAL_HEIGHT = 256;
+
+// プレイヤーのハートアイコン
+const PLAYER_HEART_WIDTH = 256;
+const PLAYER_HEART_HEIGHT = 256;
 
 // シーン
 const SCENES = [
