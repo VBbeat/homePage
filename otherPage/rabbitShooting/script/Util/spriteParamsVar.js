@@ -3,6 +3,8 @@
 var SPEED_BULLET_NORMAL = BULLET_NORMAL_HEIGHT;
 // 弾の発射間隔
 var INTERVAL_BULLET_NORMAL = 6;
+// 弾のパワー
+var POWER_BULLET_NORMAL = 1;
 
 // ボス1_通常弾
 // 弾の移動速度
@@ -16,6 +18,12 @@ var SEQ_SHOT_NUM_BULLET_BOSS1_NORMAL = 6;
 // 弾のパワー
 var POWER_BULLET_BOSS1_NORMAL = 1;
 
+// ボスの設定
+// 表示位置
+const Y_BOSS1 = 160;
+
+// ハートの設定
+var MAX_LIFE_BOSS1 = 300;
 // ボス1_スペシャル弾
 // 弾の移動速度
 var SPEED_BULLET_BOSS1_SPECIAL = 3;
@@ -41,3 +49,11 @@ const PLAYER_HEART_DISP_SPACE_X = 12;
 const PLAYER_HEART_DISP_SPACE_Y = 18;
 const PLAYER_HEART_X = SCREEN_WIDTH - (PLAYER_HEART_WIDTH + PLAYER_HEART_DISP_SPACE_X) * PLAYER_HEART_NUM;
 const PLAYER_HEART_Y = SCREEN_HEIGHT - (PLAYER_HEART_HEIGHT + PLAYER_HEART_DISP_SPACE_Y);
+
+// ライフゲージ
+// ライフゲージの幅と高さ
+const LIFE_GUAGE_WIDTH = SCREEN_WIDTH - 64;
+const LIFE_GUAGE_HEIGHT = 16;
+
+// 表示位置（敵）
+const Y_LIFE_GUAGE_ENEMY = 300;

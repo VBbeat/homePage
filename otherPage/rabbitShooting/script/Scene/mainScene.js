@@ -20,7 +20,7 @@ phina.define('GameScene', {
         // 敵機（ボス）
         this.enemyBoss = Boss_1().addChildTo(this).setPosition(
             this.gridX.center(),
-            this.gridY.span(2.5)
+            Y_BOSS1
         );
         // プレイヤーのハート数
         this.currentPlayerHeartNum = PLAYER_HEART_NUM;
@@ -65,6 +65,9 @@ phina.define('GameScene', {
             if (Collision.testCircleCircle(colCircBoss_1, colCircBullet)) {
                 // 敵が弾に当たった場合
 
+                // 敵のライフを減らす
+                self.enemyBoss.lifeGuage.value -= bullet.bulletPower;
+
                 // 弾を削除
                 bullet.remove();
             }
@@ -101,7 +104,6 @@ phina.define('GameScene', {
                         self.playerHeartGroup.children.first.remove();
                     }
                 }
-
                 // 弾を削除
                 bullet.remove();
             }

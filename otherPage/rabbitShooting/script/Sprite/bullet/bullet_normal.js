@@ -7,6 +7,9 @@ phina.define('Bullet_normal', {
 
         // 弾速を設定
         this.physical.velocity.y = - SPEED_BULLET_NORMAL;
+
+        // 弾のパワーを設定
+        this.bulletPower = POWER_BULLET_NORMAL;
     },
 
     // 毎フレーム更新処理

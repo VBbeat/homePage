@@ -7,6 +7,19 @@ phina.define('Boss_1', {
 
         // 連続発射回数
         this.seqShotNum = 0;
+
+        // ライフゲージの設定
+        this.lifeGuage = LifeGuage(
+            LIFE_GUAGE_WIDTH,
+            LIFE_GUAGE_HEIGHT,
+            'limegreen',
+            'red',
+            'black',
+            MAX_LIFE_BOSS1
+        ).addChildTo(this);
+
+        // ライフゲージの表示位置
+        this.lifeGuage.y = - (BOSS_1_HEIGHT / 2 + LIFE_GUAGE_HEIGHT);
     },
 
     /**
