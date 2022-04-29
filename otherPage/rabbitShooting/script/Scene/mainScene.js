@@ -5,8 +5,9 @@ phina.define('GameScene', {
         this.superInit();
         // 各オブジェクトグループ
         this.playerBulletGroup = DisplayElement().addChildTo(this);
-        this.enemyBossBulletGroup = DisplayElement().addChildTo(this);
         this.playerHeartGroup = DisplayElement().addChildTo(this);
+        this.playerItemGroup = DisplayElement().addChildTo(this);
+        this.enemyBossBulletGroup = DisplayElement().addChildTo(this);
         // 現在のフレーム数
         this.currentFrame = 0;
         // 背景
@@ -16,6 +17,11 @@ phina.define('GameScene', {
         this.player = Player().addChildTo(this).setPosition(
             this.gridX.center(),
             this.gridY.center()
+        );
+        // 自機のppゲージ
+        this.playerPpGuage = PpGuage().addChildTo(this).setPosition(
+            X_PP_GUAGE,
+            Y_PP_GUAGE
         );
         // 敵機（ボス）
         this.enemyBoss = Boss_1().addChildTo(this).setPosition(
@@ -28,7 +34,7 @@ phina.define('GameScene', {
         // [繰返]プレイヤーのハートを画面左下に表示する
         for (var i = 0; i < this.currentPlayerHeartNum; i++) {
             Icon_playerHeart().addChildTo(this.playerHeartGroup).setPosition(
-                PLAYER_HEART_X + i * (PLAYER_HEART_WIDTH + PLAYER_HEART_DISP_SPACE_X),
+                PLAYER_HEART_X - i * (PLAYER_HEART_WIDTH + PLAYER_HEART_DISP_SPACE_X),
                 PLAYER_HEART_Y
             );
         }
@@ -45,6 +51,37 @@ phina.define('GameScene', {
 
             // プレイヤーの弾を生成
             Bullet_normal().addChildTo(this.playerBulletGroup).setPosition(this.player.x, this.player.y);
+        }
+    },
+
+    /**
+     * 画面タッチorクリックを離した場合の処理
+     */
+    onpointend: function (e) {
+
+        if (this.playerPpGuage.value >= SPECIAL_VALUE_PP_GUAGE) {
+            // スペシャルの実行の処理
+            console.log("special_normal");
+
+            if (this.player.style == STYLE_NORMAL) {
+                // ノーマルスタイルの場合
+
+                if (this.currentPlayerHeartNum < MAX_PLAYER_HEART_NUM) {
+                    // ハートが最大値未満の場合
+
+                    // ゲージを消費する
+                    this.playerPpGuage.value -= SPECIAL_VALUE_PP_GUAGE;
+
+                    // ハートの値を1増やす
+                    this.currentPlayerHeartNum++;
+
+                    // ハートの表示数を増やす
+                    Icon_playerHeart().addChildTo(this.playerHeartGroup).setPosition(
+                        PLAYER_HEART_X - (this.currentPlayerHeartNum - 1) * (PLAYER_HEART_WIDTH + PLAYER_HEART_DISP_SPACE_X),
+                        PLAYER_HEART_Y
+                    );
+                }
+            }
         }
     },
 
@@ -67,6 +104,9 @@ phina.define('GameScene', {
 
                 // 敵のライフを減らす
                 self.enemyBoss.lifeGuage.value -= bullet.bulletPower;
+
+                // PPゲージを増やす
+                self.playerPpGuage.value++;
 
                 // 弾を削除
                 bullet.remove();
@@ -101,7 +141,7 @@ phina.define('GameScene', {
                     // ハートがまだ残っている場合
                     // ハートの表示数を減らす
                     for (var i = 0; i < bullet.bulletPower; i++) {
-                        self.playerHeartGroup.children.first.remove();
+                        self.playerHeartGroup.children.last.remove();
                     }
                 }
                 // 弾を削除
@@ -142,7 +182,10 @@ phina.define('GameScene', {
             var bulletSpeed = this.enemyBoss.calcBulletSpeed(this.player.x, this.player.y, "normal");
 
             // 弾の生成
-            Bullet_boss1_normal(bulletSpeed.speed_x, bulletSpeed.speed_y).addChildTo(this.enemyBossBulletGroup).setPosition(this.enemyBoss.x, this.enemyBoss.y);
+            Bullet_boss1_normal(bulletSpeed.speed_x, bulletSpeed.speed_y).addChildTo(this.enemyBossBulletGroup).setPosition(
+                this.enemyBoss.x,
+                this.enemyBoss.y
+            );
         }
 
         if (this.runEvent(INTERVAL_BULLET_BOSS1_SPECIAL)) {
@@ -152,9 +195,23 @@ phina.define('GameScene', {
             var bulletSpeed = this.enemyBoss.calcBulletSpeed(this.player.x, this.player.y, "special");
 
             // 弾の生成
-            Bullet_boss1_special(bulletSpeed.speed_x, bulletSpeed.speed_y).addChildTo(this.enemyBossBulletGroup).setPosition(this.enemyBoss.x, this.enemyBoss.y);
+            Bullet_boss1_special(bulletSpeed.speed_x, bulletSpeed.speed_y).addChildTo(this.enemyBossBulletGroup).setPosition(
+                this.enemyBoss.x,
+                this.enemyBoss.y
+            );
         }
 
-    }
+        if (this.runEvent(INTERVAL_CHANGE_ITEM)) {
+            // パワーアップアイテムの生成処理を実行
 
+            // 生成するパワーアップアイテムを乱数で確定する
+            var item_style = 1;
+
+            // アイテムを生成する
+            Item_powerUp().addChildTo(this.playerItemGroup).setPosition(
+                Math.floor(Math.random() * (SCREEN_WIDTH - ITEM_STYLE_CHANGE_WIDTH) + (ITEM_STYLE_CHANGE_WIDTH / 2)),
+                0
+            );
+        }
+    }
 });

@@ -4,6 +4,7 @@ phina.define('Player', {
     // コンストラクタ
     init: function () {
         this.superInit('player_normal');
+        this.style = STYLE_NORMAL;
     },
 
     // 毎フレーム更新処理

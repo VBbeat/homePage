@@ -1,4 +1,4 @@
-phina.define('Item_speed', {
+phina.define('Item_powerUp', {
     superClass: 'Sprite',
 
     // コンストラクタ

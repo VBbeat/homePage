@@ -19,10 +19,14 @@ phina.define('Bullet_boss1_special', {
     // 毎フレーム更新処理
     update: function (app) {
 
-        // 画面下部に到達したら削除
-        if (this.top >= SCREEN_HEIGHT) {
+        // 画面外に到達したら削除
+        if (
+            this.top >= SCREEN_HEIGHT ||
+            this.right < 0 ||
+            this.left >= SCREEN_WIDTH ||
+            this.bottom < 0
+        ) {
             this.remove();
         }
-
     }
 });

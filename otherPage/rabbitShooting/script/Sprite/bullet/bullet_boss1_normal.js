@@ -14,7 +14,6 @@ phina.define('Bullet_boss1_normal', {
 
         // 弾のパワーを設定
         this.bulletPower = POWER_BULLET_BOSS1_NORMAL;
-
     },
 
     // 毎フレーム更新処理
@@ -29,6 +28,5 @@ phina.define('Bullet_boss1_normal', {
         ) {
             this.remove();
         }
-
     }
 });
