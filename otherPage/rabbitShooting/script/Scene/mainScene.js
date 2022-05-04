@@ -231,17 +231,18 @@ phina.define('GameScene', {
             );
         }
 
-        if (this.runEvent(INTERVAL_CHANGE_ITEM)) {
-            // パワーアップアイテムの生成処理を実行
+        // TODO: アイテムの処理を記載
+        // if (this.runEvent(INTERVAL_CHANGE_ITEM)) {
+        //     // パワーアップアイテムの生成処理を実行
 
-            // 生成するパワーアップアイテムを乱数で確定する
-            var item_style = 1;
+        //     // 生成するパワーアップアイテムを乱数で確定する
+        //     var item_style = 1;
 
-            // アイテムを生成する
-            Item_powerUp().addChildTo(this.playerItemGroup).setPosition(
-                Math.floor(Math.random() * (SCREEN_WIDTH - ITEM_STYLE_CHANGE_WIDTH) + (ITEM_STYLE_CHANGE_WIDTH / 2)),
-                0
-            );
-        }
+        //     // アイテムを生成する
+        //     Item_powerUp().addChildTo(this.playerItemGroup).setPosition(
+        //         Math.floor(Math.random() * (SCREEN_WIDTH - ITEM_STYLE_CHANGE_WIDTH) + (ITEM_STYLE_CHANGE_WIDTH / 2)),
+        //         0
+        //     );
+        // }
     }
 });
