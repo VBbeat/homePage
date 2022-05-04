@@ -3,34 +3,53 @@ phina.define('GameScene', {
     // コンストラクタ
     init: function () {
         this.superInit();
-        // 各オブジェクトグループ
-        this.playerBulletGroup = DisplayElement().addChildTo(this);
-        this.playerHeartGroup = DisplayElement().addChildTo(this);
-        this.playerItemGroup = DisplayElement().addChildTo(this);
-        this.enemyBossBulletGroup = DisplayElement().addChildTo(this);
+
         // 現在のフレーム数
         this.currentFrame = 0;
+        // ゲーム開始時のフレーム数
+        this.startFrame = 0;
         // 背景
         this.backgroundColor = '#DDDDDD';
 
-        // 自機
-        this.player = Player().addChildTo(this).setPosition(
-            this.gridX.center(),
-            this.gridY.center()
-        );
-        // 自機のppゲージ
-        this.playerPpGuage = PpGuage().addChildTo(this).setPosition(
-            X_PP_GUAGE,
-            Y_PP_GUAGE
-        );
+        // 各オブジェクトグループ
+        // 敵の弾
+        this.enemyBossBulletGroup = DisplayElement().addChildTo(this);
+        // プレイヤーの弾
+        this.playerBulletGroup = DisplayElement().addChildTo(this);
         // 敵機（ボス）
         this.enemyBoss = Boss_1().addChildTo(this).setPosition(
             this.gridX.center(),
             Y_BOSS1
         );
+        // 自機
+        this.player = Player().addChildTo(this).setPosition(
+            this.gridX.center(),
+            this.gridY.center()
+        );
+        // プレイヤーのアイテム
+        this.playerItemGroup = DisplayElement().addChildTo(this);
+
+        // プレイヤー情報表示
+        this.playerInfoRect = RectangleShape({
+            width: SCREEN_WIDTH,
+            height: SCREEN_HEIGHT / 8,
+            fill: "#111111",
+        }).addChildTo(this).setPosition(
+            SCREEN_WIDTH / 2,
+            SCREEN_HEIGHT * 15 / 16
+        );
+
+        // 自機のppゲージ
+        this.playerPpGuage = PpGuage().addChildTo(this).setPosition(
+            X_PP_GUAGE,
+            Y_PP_GUAGE
+        );
+
+        // プレイヤーのハート
+        this.playerHeartGroup = DisplayElement().addChildTo(this);
+
         // プレイヤーのハート数
         this.currentPlayerHeartNum = PLAYER_HEART_NUM;
-
         // [繰返]プレイヤーのハートを画面左下に表示する
         for (var i = 0; i < this.currentPlayerHeartNum; i++) {
             Icon_playerHeart().addChildTo(this.playerHeartGroup).setPosition(
@@ -61,7 +80,6 @@ phina.define('GameScene', {
 
         if (this.playerPpGuage.value >= SPECIAL_VALUE_PP_GUAGE) {
             // スペシャルの実行の処理
-            console.log("special_normal");
 
             if (this.player.style == STYLE_NORMAL) {
                 // ノーマルスタイルの場合
@@ -105,6 +123,13 @@ phina.define('GameScene', {
                 // 敵のライフを減らす
                 self.enemyBoss.lifeGuage.value -= bullet.bulletPower;
 
+                if (self.enemyBoss.lifeGuage.value <= 0) {
+                    // 敵のライフが0になった場合
+
+                    // ゲームクリア画面に遷移
+                    self.exit('gameClear', { clearFrame: self.currentFrame - self.startFrame });
+                }
+
                 // PPゲージを増やす
                 self.playerPpGuage.value++;
 
@@ -136,7 +161,8 @@ phina.define('GameScene', {
                 if (self.currentPlayerHeartNum < 0) {
                     // ハートが切れた場合、画面を遷移する
 
-                    self.exit('title');
+                    // 暫定：ゲームオーバーシーンに遷移
+                    self.exit('gameOver');
                 } else {
                     // ハートがまだ残っている場合
                     // ハートの表示数を減らす
@@ -164,6 +190,10 @@ phina.define('GameScene', {
     update: function (app) {
         // フレーム数の取得
         this.currentFrame = app.frame % FRAME_RESET_INTERVAL;
+
+        if (this.startFrame == 0) {
+            this.startFrame = this.currentFrame;
+        }
 
         // 敵機と自弾の当たり判定を行う
         this.hitTestEnemy();

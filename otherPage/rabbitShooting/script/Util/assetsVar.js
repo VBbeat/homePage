@@ -57,19 +57,3 @@ const ITEM_STYLE_CHANGE_HEIGHT = 40;
 // プレイヤーのハートアイコン
 const PLAYER_HEART_WIDTH = 36;
 const PLAYER_HEART_HEIGHT = 36;
-
-// シーン
-const SCENES = [
-    {
-        className: 'TitleScene',
-        label: 'title',
-        nextLabel: 'game',
-    },
-
-    {
-        className: 'GameScene',
-        label: 'game',
-        nextLabel: '',
-    }
-
-]

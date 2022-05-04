@@ -21,9 +21,9 @@ var POWER_BULLET_BOSS1_NORMAL = 1;
 // ボスの設定
 // 表示位置
 const Y_BOSS1 = 160;
-
 // ハートの設定
-var MAX_LIFE_BOSS1 = 900;
+var MAX_LIFE_BOSS1 = 10;
+
 // ボス1_スペシャル弾
 // 弾の移動速度
 var SPEED_BULLET_BOSS1_SPECIAL = 2;
@@ -76,3 +76,7 @@ var SPECIAL_VALUE_PP_GUAGE = MAX_VALUE_PP_GUAGE * 0.8;
 const BGCOLOR_PP_GUAGE = 'silver';
 const NORMALCOLOR_PP_GUAGE = 'limegreen';
 const SPECIAL_COLOR_PP_GUAGE = 'orange';
+
+// ゲームオーバー時の設定
+// タイトルシーンに戻るまでの秒数
+const BACK_TITLESCENE_TIME = 5;

@@ -8,7 +8,7 @@ phina.main(function () {
         assets: ASSETS,
         scenes: SCENES,
         startLabel: 'title',
-        fps: 60,
+        fps: GAME_FRAME,
     });
 
     // アプリケーション実行
