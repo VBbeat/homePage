@@ -22,7 +22,7 @@ var POWER_BULLET_BOSS1_NORMAL = 1;
 // 表示位置
 const Y_BOSS1 = 160;
 // ハートの設定
-var MAX_LIFE_BOSS1 = 10;
+var MAX_LIFE_BOSS1 = 400;
 
 // ボス1_スペシャル弾
 // 弾の移動速度
