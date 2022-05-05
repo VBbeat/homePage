@@ -62,11 +62,11 @@ phina.define('GameScene', {
         // DPS表示
         this.dmgPerSecString = Label({
             text: 'Damage : ',
-            fontSize: 64,
+            fontSize: 32,
             fontFamily: 'bitFont',
             fill: 'white'
         }).addChildTo(this).setPosition(
-            this.gridX.center(),
+            SCREEN_WIDTH / 4,
             SCREEN_HEIGHT * 15 / 16
         );
 
