@@ -8,6 +8,7 @@ phina.define('GameScene', {
         this.currentFrame = 0;
         // ゲーム開始時のフレーム数
         this.startFrame = 0;
+
         // 背景
         this.backgroundColor = '#DDDDDD';
 
@@ -58,18 +59,47 @@ phina.define('GameScene', {
             );
         }
 
+        // DPS表示
+        this.dmgPerSecString = Label({
+            text: 'Damage : ',
+            fontSize: 64,
+            fontFamily: 'bitFont',
+            fill: 'white'
+        }).addChildTo(this).setPosition(
+            this.gridX.center(),
+            SCREEN_HEIGHT * 15 / 16
+        );
+
+        // dps計算用
+        this.oldEnemyHp = this.enemyBoss.lifeGuage.value;
+        this.dmgPerSec = 0;
+
     },
 
     /**
      * 画面タッチorクリックされている場合の処理
      */
     onpointstay: function (e) {
+        if (this.player.style == ITEM_STYLE_NORMAL) {
+            // プレイヤーのスタイルがノーマルの場合
 
-        if (this.runEvent(INTERVAL_BULLET_NORMAL)) {
-            // プレイヤー_通常弾の発射処理を実行
 
-            // プレイヤーの弾を生成
-            Bullet_normal().addChildTo(this.playerBulletGroup).setPosition(this.player.x, this.player.y);
+            if (this.runEvent(INTERVAL_BULLET_NORMAL)) {
+                // プレイヤー_通常弾の発射処理を実行
+
+                // プレイヤーの弾を生成
+                Bullet_normal().addChildTo(this.playerBulletGroup).setPosition(this.player.x, this.player.y);
+            }
+
+        } else if (this.player.style == ITEM_STYLE_SPEED) {
+            // プレイヤーのスタイルがスピードの場合
+
+            if (this.runEvent(INTERVAL_BULLET_SPEED)) {
+                // プレイヤー_スピード弾の発射処理を実行
+
+                // プレイヤーの弾を生成
+                Bullet_speed().addChildTo(this.playerBulletGroup).setPosition(this.player.x, this.player.y);
+            }
         }
     },
 
@@ -81,8 +111,8 @@ phina.define('GameScene', {
         if (this.playerPpGuage.value >= SPECIAL_VALUE_PP_GUAGE) {
             // スペシャルの実行の処理
 
-            if (this.player.style == STYLE_NORMAL) {
-                // ノーマルスタイルの場合
+            if (this.player.style != 0) {
+                // ノーマルスタイルの場合（暫定でどのスタイルでも発動）
 
                 if (this.currentPlayerHeartNum < MAX_PLAYER_HEART_NUM) {
                     // ハートが最大値未満の場合
@@ -176,6 +206,34 @@ phina.define('GameScene', {
         });
     },
 
+    hitTestItem: function () {
+        // thisを退避
+        var self = this;
+
+        // [繰返]アイテムに対する処理
+        self.playerItemGroup.children.each(function (item) {
+
+            // 円判定
+            var colCircPlayer = Circle(self.player.x, self.player.y, (PLAYER_WIDTH * 0.9) / 2);
+            var colCircItem = Circle(item.x, item.y, item.circWidth / 2);
+
+            if (Collision.testCircleCircle(colCircPlayer, colCircItem)) {
+                // プレイヤーがアイテムに当たった場合
+
+                if (item.item_style_string == ITEM_STYLE_STRING[ITEM_STYLE_SPEED]) {
+                    // アイテムがパワーアップアイテム（スピード）の場合
+
+                    // プレイヤーのスタイルを設定
+                    self.player.style = ITEM_STYLE_SPEED;
+                    self.player.setImage('player_speed');
+                }
+
+                // アイテムを削除
+                item.remove();
+            }
+        });
+    },
+
     /**
      * 現在のフレーム数から、イベントの発火タイミングであるか判定する
      * @param eventFrame イベントのフレーム間隔
@@ -199,6 +257,8 @@ phina.define('GameScene', {
         this.hitTestEnemy();
         // 自機と敵弾の当たり判定を行う
         this.hitTestPlayer();
+        // 自機とアイテムの当たり判定を行う
+        this.hitTestItem();
 
         if (this.runEvent(INTERVAL_BULLET_BOSS1_NORMAL_JUDGE)) {
             // ボス1_通常弾の連続発射回数の設定
@@ -231,18 +291,29 @@ phina.define('GameScene', {
             );
         }
 
-        // TODO: アイテムの処理を記載
-        // if (this.runEvent(INTERVAL_CHANGE_ITEM)) {
-        //     // パワーアップアイテムの生成処理を実行
+        if (this.runEvent(INTERVAL_CHANGE_ITEM)) {
+            // パワーアップアイテムの生成処理を実行
 
-        //     // 生成するパワーアップアイテムを乱数で確定する
-        //     var item_style = 1;
+            // 生成するパワーアップアイテムを乱数で確定する
+            var item_style = ITEM_STYLE_STRING[ITEM_STYLE_SPEED];
 
-        //     // アイテムを生成する
-        //     Item_powerUp().addChildTo(this.playerItemGroup).setPosition(
-        //         Math.floor(Math.random() * (SCREEN_WIDTH - ITEM_STYLE_CHANGE_WIDTH) + (ITEM_STYLE_CHANGE_WIDTH / 2)),
-        //         0
-        //     );
-        // }
+            // アイテムを生成する
+            Item_powerUp(item_style).addChildTo(this.playerItemGroup).setPosition(
+                Math.floor(Math.random() * (SCREEN_WIDTH - ITEM_STYLE_CHANGE_WIDTH) + (ITEM_STYLE_CHANGE_WIDTH / 2)),
+                0
+            );
+        }
+
+        if (this.runEvent(GAME_FRAME)) {
+            // 1秒ごとの処理
+
+            // 敵のHPの変化の取得
+            var deltaHp = this.oldEnemyHp - this.enemyBoss.lifeGuage.value;
+            this.dmgPerSec = deltaHp;
+            this.oldEnemyHp = this.enemyBoss.lifeGuage.value;
+
+            // DPS表示の更新
+            this.dmgPerSecString.text = 'Damage : ' + this.dmgPerSec + 'dps';
+        }
     }
 });

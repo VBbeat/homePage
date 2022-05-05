@@ -6,6 +6,14 @@ var INTERVAL_BULLET_NORMAL = 6;
 // 弾のパワー
 var POWER_BULLET_NORMAL = 1;
 
+// プレイヤー_スピード弾
+// 弾の移動速度
+var SPEED_BULLET_SPEED = BULLET_NORMAL_HEIGHT * 1.2;
+// 弾の発射間隔
+var INTERVAL_BULLET_SPEED = 4;
+// 弾のパワー
+var POWER_BULLET_SPEED = 1;
+
 // ボス1_通常弾
 // 弾の移動速度
 var SPEED_BULLET_BOSS1_NORMAL = 8;
@@ -36,13 +44,21 @@ var POWER_BULLET_BOSS1_SPECIAL = 4;
 // アイテムの移動速度
 var SPEED_CHANGE_ITEM = 5;
 // アイテムの種類
-const STYLE_NORMAL = 0;
-const STYLE_SPEED = 1;
-const STYLE_POWER = 2;
-const STYLE_RANGE = 3;
-const STYLE_SPECIAL = 4;
+const ITEM_STYLE_NORMAL = 0;
+const ITEM_STYLE_SPEED = 1;
+const ITEM_STYLE_POWER = 2;
+const ITEM_STYLE_RANGE = 3;
+const ITEM_STYLE_SPECIAL = 4;
+// アイテムの種類別の文字列
+const ITEM_STYLE_STRING = [
+    'item_normal',
+    'item_speed',
+    'item_power',
+    'item_range',
+    'item_special'
+];
 // アイテムの生成間隔
-const INTERVAL_CHANGE_ITEM = 1800;
+const INTERVAL_CHANGE_ITEM = 900;
 
 // プレイヤーのハート数
 var PLAYER_HEART_NUM = 4;
