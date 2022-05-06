@@ -8,6 +8,8 @@ phina.define('GameScene', {
         this.currentFrame = 0;
         // ゲーム開始時のフレーム数
         this.startFrame = 0;
+        // サウンド管理用
+        this.soundArray = [];
 
         // 背景
         this.backgroundColor = '#DDDDDD';
@@ -89,6 +91,7 @@ phina.define('GameScene', {
 
                 // プレイヤーの弾を生成
                 Bullet_normal().addChildTo(this.playerBulletGroup).setPosition(this.player.x, this.player.y);
+                this.soundArray.push(setSound(SOUND_LIST['bullet_player_shot'], 0.8));
             }
 
         } else if (this.player.style == ITEM_STYLE_SPEED) {
@@ -99,6 +102,7 @@ phina.define('GameScene', {
 
                 // プレイヤーの弾を生成
                 Bullet_speed().addChildTo(this.playerBulletGroup).setPosition(this.player.x, this.player.y);
+                this.soundArray.push(setSound(SOUND_LIST['bullet_player_shot'], 0.8));
             }
         }
     },
@@ -111,7 +115,7 @@ phina.define('GameScene', {
         if (this.playerPpGuage.value >= SPECIAL_VALUE_PP_GUAGE) {
             // スペシャルの実行の処理
 
-            if (this.player.style != 0) {
+            if (this.player.style != -1) {
                 // ノーマルスタイルの場合（暫定でどのスタイルでも発動）
 
                 if (this.currentPlayerHeartNum < MAX_PLAYER_HEART_NUM) {
@@ -315,5 +319,11 @@ phina.define('GameScene', {
             // DPS表示の更新
             this.dmgPerSecString.text = 'Damage : ' + this.dmgPerSec + 'dps';
         }
+
+        // 各サウンドの再生
+        this.soundArray.forEach(sound => {
+            sound.play();
+        });
+        this.soundArray = [];
     }
 });

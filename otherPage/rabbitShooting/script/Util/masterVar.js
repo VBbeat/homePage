@@ -24,6 +24,14 @@ const GAME_FRAME = 60;
 
 // シーン
 const SCENES = [
+
+    // ダミータイトルシーン
+    {
+        className: 'DummyTitleScene',
+        label: 'dummyTitle',
+        nextLabel: 'title',
+    },
+
     // タイトルシーン
     {
         className: 'TitleScene',
