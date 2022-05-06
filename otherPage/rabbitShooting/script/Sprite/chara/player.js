@@ -15,7 +15,9 @@ phina.define('Player', {
 
         // プレイヤーの座標をポインタの座標に移動
         this.x = pointer.x;
-        this.y = Math.min(pointer.y, MOVABLE_BOTTOM);
+        this.y = pointer.y - PLAYER_HEIGHT / 2;
+        this.y = Math.min(this.y, MOVABLE_BOTTOM);
+        this.y = Math.max(0, this.y);
 
     }
 });
